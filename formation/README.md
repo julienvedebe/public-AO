@@ -14,4 +14,6 @@ Les fiches détaillées, à lire dans cet ordre :
 4. [Quelles autorisations accepter](autorisations.md) : ce que l'ordinateur vous demandera, et quoi répondre.
 5. [Ce qui part sur internet](donnees-et-confidentialite.md) : ce que voit le fournisseur de l'IA, et ce qu'il ne faut pas lui envoyer.
 
+Pour le formateur : le [support projeté le jour de la formation](presentation/support-formation.pdf) (29 diapositives ; [version HTML](presentation/support-formation.html), à ouvrir dans un navigateur, flèches ← → pour avancer) et ses [notes du formateur](presentation/notes-formateur.md).
+
 Pour le formateur et le mainteneur du dépôt : [checklist de mise en public et de protection](checklist-mainteneur.md), [fabrication du QR code](qr-code.md).
