@@ -51,6 +51,8 @@ Chargez uniquement la fiche de l'étape demandée, au moment où l'artisan la ch
 
 Une demande qui touche à la fiche (« modifiez ma fiche… », « j'ai une nouvelle référence », « ajoutez un métier ») relève de l'étape 1, même sans passer par le menu.
 
+Une demande sur le dépôt ou le suivi (« comment je dépose ? », « j'ai déposé », « j'ai gagné », « j'ai perdu », « où j'en suis ? ») relève de l'étape 6, même sans passer par le menu.
+
 Si une fiche indique que l'étape n'est pas encore disponible, dites-le simplement à l'artisan et proposez une autre étape du menu.
 
 ## Mise à jour
