@@ -25,6 +25,7 @@ Un sous-dossier de consultation contient, selon l'avancement :
 ```
 2026-12_mairie-de-villeurbanne_lot-05-plomberie/
 ├── dce/                           ← le DCE décompressé (étape analyse)
+├── dce-texte/                     ← le texte extrait des pièces utiles, relu par les étapes suivantes (étape analyse)
 ├── analyse.md                     ← l'analyse et le verdict (étape analyse)
 ├── pieces-et-retroplanning.md     ← les pièces à fournir et le rétroplanning (étape pièces)
 ├── memoire-reponses.md           ← les réponses de l'artisan pour le mémoire, enregistrées au fur et à mesure (étape mémoire technique)

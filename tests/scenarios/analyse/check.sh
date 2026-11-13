@@ -48,7 +48,7 @@ fichier_contient "$A" '40 ?%' "le poids du critère prix"
 # Rappel de vérification sur la plateforme, dans le fichier et dans la réponse.
 fichier_contient "$A" 'plateforme' "le rappel plateforme"
 fichier_contient "$A" 'vérifi' "le rappel de vérification"
-sortie_contient 'vérifi.{0,120}plateforme|plateforme.{0,120}vérifi' "le rappel de vérifier les dates sur la plateforme"
+sortie_contient 'vérifi.{0,120}(plateforme|site)|(plateforme|site).{0,120}vérifi' "le rappel de vérifier les dates sur la plateforme (ou le site) de l'acheteur"
 
 # Résumé et réponse.
 sortie_contient '🟠|🔴' "le verdict dans la réponse"
