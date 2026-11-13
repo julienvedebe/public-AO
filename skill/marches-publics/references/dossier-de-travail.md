@@ -51,7 +51,7 @@ Contenu initial de `suivi.md` :
 
 ## Statuts
 
-Une consultation passe par ces statuts, dans la colonne « Statut » du suivi : `repérée`, `analysée`, `en préparation`, `déposée`, `gagnée` ou `perdue`, `bilan fait`. Ils s'écrivent en minuscules, avec accents.
+Une consultation passe par ces statuts, dans la colonne « Statut » du suivi : `repérée`, `analysée`, puis `déclinée` (l'artisan a choisi de ne pas répondre, après l'analyse) ou `en préparation`, `déposée`, `gagnée` ou `perdue`, `bilan fait`. Ils s'écrivent en minuscules, avec accents. Une consultation `déclinée` reste dans le suivi : la veille ne la repropose pas, et l'artisan peut changer d'avis tant que la date limite n'est pas passée.
 
 ## Le suivi après le tableau
 

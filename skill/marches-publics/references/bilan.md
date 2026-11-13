@@ -39,6 +39,8 @@ Terminez par : « Quand vous avez déposé, dites-le-moi : je mets votre suivi �
 | « j'ai gagné », « on a le marché » | `gagnée` |
 | « j'ai perdu », « on n'est pas retenu », « j'ai reçu un refus » | `perdue` (puis le bilan, partie 5) |
 | le bilan est terminé (partie 5 ou 6) | `bilan fait` |
+| « je ne réponds pas à celle-là », « je décline » (avant de déposer) | `déclinée` |
+| « finalement je réponds » (sur une consultation `déclinée`, avant la date limite) | `analysée`, puis proposez la préparation des pièces |
 
 - Ne modifiez **que la ligne concernée**, dans la colonne Statut : écrit en minuscules, comme les autres. Gardez les autres colonnes et les autres lignes intactes.
 - Ajoutez à la colonne Notes, **à la suite** du texte déjà présent, la date de l'événement : `déposée le JJ/MM/AAAA`, `perdue le JJ/MM/AAAA`… avec celle qu'il donne, ou celle d'aujourd'hui s'il dit « aujourd'hui » ou ne précise pas.
@@ -51,7 +53,7 @@ Terminez par : « Quand vous avez déposé, dites-le-moi : je mets votre suivi �
 À la demande (« où j'en suis ? », « mon suivi »), présentez **toutes** les consultations du suivi, lisiblement. Pas de tableau Markdown brut dans la réponse sur téléphone : une liste courte, une consultation par entrée.
 
 1. Une phrase de conclusion (« Vous suivez 4 consultations : 1 est à déposer avant le 15 janvier, 1 attend une réponse, 2 sont terminées. »).
-2. Les consultations **regroupées par étape**, dans cet ordre, en sautant les groupes vides : « À préparer ou à déposer » (`repérée`, `analysée`, `en préparation`, triées par date limite), « Déposées, en attente de réponse », « Gagnées », « Perdues, bilan à faire », « Bilan fait ».
+2. Les consultations **regroupées par étape**, dans cet ordre, en sautant les groupes vides : « À préparer ou à déposer » (`repérée`, `analysée`, `en préparation`, triées par date limite), « Déposées, en attente de réponse », « Gagnées », « Perdues, bilan à faire », « Bilan fait », « Déclinées » (sans prochaine chose à faire, sauf s'il veut y revenir avant la date limite).
 3. Pour chacune : le titre court, l'acheteur, le statut en mots, le verdict (🟢🟠🔴) s'il y en a un, la date limite, et **la prochaine chose à faire** en quelques mots (« analyser le dossier », « vérifier les pièces », « attendre la réponse », « demander les motifs »).
 4. **Alertes**, en tête, quand elles s'appliquent :
    - date limite dans moins de 7 jours et statut avant `déposée` ;

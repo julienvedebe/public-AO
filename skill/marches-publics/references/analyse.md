@@ -1,6 +1,6 @@
 # Analyse d'un DCE
 
-Cette étape transforme un DCE (le dossier de la consultation, avec tous les documents de l'acheteur) en un verdict que l'artisan peut lire en deux minutes : répondre, répondre avec précaution, ou laisser tomber. Lisez d'abord [dossier-de-travail.md](dossier-de-travail.md) et la fiche entreprise de l'artisan (`ma-fiche-entreprise.md`). Sans fiche, ou si les métiers sont encore [À COMPLÉTER], proposez de la remplir d'abord ([fiche-entreprise.md](fiche-entreprise.md)).
+Cette étape transforme un DCE (le dossier de la consultation, avec tous les documents de l'acheteur) en un avis que l'artisan peut lire en deux minutes (le verdict : dossier favorable, points de vigilance, ou dossier défavorable), puis le laisse décider s'il répond. **C'est toujours l'artisan qui décide** : vous éclairez, vous ne tranchez pas. Lisez d'abord [dossier-de-travail.md](dossier-de-travail.md) et la fiche entreprise de l'artisan (`ma-fiche-entreprise.md`). Sans fiche, ou si les métiers sont encore [À COMPLÉTER], proposez de la remplir d'abord ([fiche-entreprise.md](fiche-entreprise.md)).
 
 ## Ce que vous ne faites jamais ici
 
@@ -61,7 +61,7 @@ Un DCE compte souvent plus de cent fichiers. **Ne lisez que les pièces utiles**
 
 1. Prenez les métiers de la fiche et cherchez dans le RC (article « allotissement » ou « lots ») le ou les lots qui correspondent (plombier : « plomberie », « sanitaires », « CVC » s'il fait aussi le chauffage).
 2. Si plusieurs lots lui conviennent, ou si le lot est regroupé avec d'autres métiers, dites-le et demandez lequel il vise (une question).
-3. Si **aucun lot** ne correspond à ses métiers, concluez 🔴 (« rien pour votre métier dans cette consultation ») sans aller plus loin.
+3. Si **aucun lot** ne correspond à ses métiers, dites-le (« je ne trouve pas de lot pour votre métier dans cette consultation »), donnez le verdict 🔴 et proposez le choix de la fin (étape 6) sans analyser plus loin.
 4. Retrouvez le CCTP de ce lot et l'estimation de l'acheteur s'il y en a une.
 
 **Lot trop gros.** Si l'estimation du lot dépasse le maximum de « Lots qui m'intéressent » dans la fiche, ou si le lot exige des moyens ou un chiffre d'affaires qu'il n'a pas, ne lui dites pas de renoncer. Expliquez en quelques phrases :
@@ -70,7 +70,7 @@ Un DCE compte souvent plus de cent fichiers. **Ne lisez que les pièces utiles**
 - **La sous-traitance** : l'artisan répond seul au lot, mais confie une partie des travaux à une entreprise qu'il paie lui-même. Elle doit être acceptée par l'acheteur ; elle est autorisée ou non selon le CCAP (citez l'article). L'artisan reste responsable envers l'acheteur de l'ensemble.
 - Pour un lot trop gros d'un facteur modeste, la sous-traitance est souvent plus simple ; pour un lot très gros ou qui demande une qualification qu'il n'a pas, le groupement est plus adapté.
 
-Montrez ce conseil **dans l'analyse**, et dites que le verdict est au plus 🟠 tant que l'artisan n'a pas de partenaire.
+Montrez ce conseil **dans l'analyse**. Tant que l'artisan n'a pas de partenaire, le verdict est au mieux 🟠.
 
 ## 5. Produire l'analyse
 
@@ -82,8 +82,10 @@ Rédigez le fichier `analyse.md` dans le sous-dossier de la consultation. Il doi
 Analyse faite le JJ/MM/AAAA.
 
 ## Verdict
-🟢 ou 🟠 ou 🔴 : [une phrase de conclusion]
-- [3 à 5 raisons, chacune avec sa source]
+🟢 Dossier favorable, ou 🟠 Points de vigilance, ou 🔴 Dossier défavorable : [une phrase qui résume les éléments décisifs]
+- [3 à 5 éléments, favorables ou défavorables, chacun avec sa source]
+
+C'est un avis : vous décidez de répondre ou non.
 
 ## Dates à retenir
 | Quoi | Date | Source |
@@ -130,19 +132,23 @@ Les dates ci-dessus viennent des documents que vous m'avez donnés. Vérifiez-le
 
 ### Le verdict
 
-Choisissez **un seul** verdict, jamais deux, et dites-le d'abord.
+Le verdict est un **avis**, pas une décision. Choisissez **un seul** des trois, jamais deux, et donnez-le d'abord avec les éléments qui le motivent :
 
-- 🟢 **Allez-y** : le lot correspond au métier, les montants sont dans la fourchette de la fiche, toutes les exigences vérifiables sont remplies, les dates sont tenables, aucun piège lourd.
-- 🟠 **Possible, avec précautions** : une exigence manque ou n'est pas vérifiable (certification, assurance, référence), le lot dépasse la fourchette, un piège pèse lourd (pénalités élevées, délais très serrés), ou une visite obligatoire est proche. Dites précisément ce qu'il faut régler et si c'est faisable avant la remise (délai d'obtention d'une certification, partenaire pour un groupement).
-- 🔴 **Passez votre tour** : aucun lot pour son métier, une exigence éliminatoire qu'il ne pourra pas remplir à temps, une visite obligatoire déjà passée, une date limite dépassée, un lot sans rapport avec sa zone ou sa taille d'entreprise, sans solution possible.
+- 🟢 **Dossier favorable** : le lot correspond au métier, les montants sont dans la fourchette de la fiche, toutes les exigences vérifiables sont remplies, les dates sont tenables, aucun piège lourd.
+- 🟠 **Points de vigilance** : une exigence manque ou n'est pas vérifiable (certification, assurance, référence), le lot dépasse la fourchette, un piège pèse lourd (pénalités élevées, délais très serrés), ou une visite obligatoire est proche. Dites précisément ce qu'il faudrait régler et si cela paraît faisable avant la remise (délai d'obtention d'une certification, partenaire pour un groupement).
+- 🔴 **Dossier défavorable** : des éléments pèsent fortement contre une réponse, par exemple aucun lot pour son métier, une exigence éliminatoire difficile à remplir à temps, une visite obligatoire déjà passée, une date limite dépassée, un lot sans rapport avec sa zone ou sa taille.
 
-Un verdict argumenté, c'est trois à cinq raisons sourcées, pas un chiffre. Ne dites pas que l'artisan va gagner ou perdre : vous dites s'il vaut la peine de répondre.
+Un verdict argumenté, c'est trois à cinq éléments sourcés, pas un chiffre. **N'écrivez jamais à sa place** « passez votre tour », « laissez tomber », « n'y allez pas » ou « on y va » : décrivez ce qui est favorable ou défavorable, et laissez-le choisir. Ne dites pas qu'il va gagner ou perdre. Même en 🔴, s'il veut répondre, c'est son droit : l'outil l'accompagne.
 
 ## 6. Rendre compte et mettre à jour le suivi
 
 1. Enregistrez `analyse.md` **avant** de répondre.
 2. Mettez à jour `suivi.md` : dans la ligne de la consultation, mettez le statut `analysée` et le verdict (🟢, 🟠 ou 🔴), ajoutez la date limite si elle manquait, et une courte note (par exemple « visite obligatoire 08/12 »). S'il n'y a pas de ligne pour cette consultation, ajoutez-la. Ne touchez pas aux autres lignes.
 3. Répondez à l'artisan : le verdict et sa phrase de conclusion d'abord, puis un résumé **en 5 lignes** (le verdict, la date de remise, la visite, la principale exigence ou le principal piège, ce qu'il doit faire maintenant), puis, **si le lot est trop gros**, deux ou trois phrases qui nomment et expliquent le groupement momentané d'entreprises et la sous-traitance (le détail est dans l'analyse), puis où se trouve l'analyse complète (donnez le chemin du dossier de la consultation). Terminez la réponse par le rappel de vérifier les dates sur la plateforme de l'acheteur.
-4. Proposez la suite en une question : par exemple, si le verdict est 🟢 ou 🟠, « Voulez-vous que je prépare la liste des pièces à fournir ? » ; si 🔴, « Voulez-vous que je cherche d'autres consultations ? ».
+4. **Laissez-le choisir**, en une seule question : « Que voulez-vous faire pour cette consultation ? », avec ces choix (à cliquer si possible, sinon numérotés, voir [ton.md](ton.md)) :
+   - **Répondre** : passez à la préparation des pièces ([dossier.md](dossier.md)), sans lui redemander s'il en est sûr ;
+   - **Décliner** : mettez le statut `déclinée` dans la ligne du suivi, gardez le verdict, notez sa raison s'il en donne une, puis proposez de chercher d'autres consultations ;
+   - selon le cas, un troisième choix utile : **Poser d'abord une question à l'acheteur** (s'il reste un doute que l'acheteur peut lever avant la date limite des questions) ou **Chercher un partenaire** (groupement ou sous-traitance, quand le lot dépasse son métier ou sa taille) ;
+   - il peut aussi dire « je réfléchis » : laissez le statut `analysée`, rien d'autre.
 
 N'écrivez aucun prix, ni dans l'analyse, ni dans votre réponse, sauf pour citer ceux du dossier (estimation de l'acheteur, montants de pénalités).

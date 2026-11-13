@@ -53,15 +53,15 @@ Recherche des consultations ouvertes qui correspondent à la fiche entreprise.
 _À éviter_ : alerte, sourcing
 
 **Verdict** :
-Conclusion de l'analyse d'un lot : 🟢 on y va, 🟠 possible avec réserves, 🔴 on passe.
-_À éviter_ : score, note, go/no-go (en dehors du nom de l'étape)
+Avis de l'outil à la fin de l'analyse d'un lot : 🟢 dossier favorable, 🟠 points de vigilance, 🔴 dossier défavorable. C'est un avis, pas une décision : l'artisan choisit ensuite de répondre ou de décliner.
+_À éviter_ : score, note, go/no-go, « on passe », « passez votre tour »
 
 **Mémoire technique** :
 Document dans lequel l'artisan explique comment il réalisera le lot (équipe, matériel, méthode, planning), noté par l'acheteur selon les critères du règlement de consultation.
 _À éviter_ : offre technique, dossier technique
 
 **Statut** :
-Étape où en est une consultation pour l'artisan : repérée, analysée, en préparation, déposée, gagnée ou perdue, bilan fait.
+Étape où en est une consultation pour l'artisan : repérée, analysée, puis déclinée (l'artisan choisit de ne pas répondre) ou en préparation, déposée, gagnée ou perdue, bilan fait.
 
 **Bilan** :
 Retour d'expérience sur une consultation terminée : motifs de rejet, titulaire retenu, prix, leçons pour la suite.
