@@ -17,7 +17,8 @@ Pendant l'installation et l'usage, votre ordinateur vous demande la permission a
 | Créer votre dossier de travail | création de `Documents/Marchés publics` et de fichiers dedans | **Oui** |
 | Ranger l'installation | suppression d'un dossier temporaire | **Oui**, si c'est le dossier temporaire créé par l'installation |
 | Chercher des consultations | une commande `curl` vers `boamp-datadila.opendatasoft.com` | **Oui** |
-| Lire un dossier de consultation (DCE) que vous avez déposé | lecture de fichiers dans `Documents/Marchés publics`, parfois `unzip`, `textutil` (Mac) ou une commande PowerShell pour lire un Word ou un PDF | **Oui** |
+| Lire un dossier de consultation (DCE) que vous avez déposé | lecture de fichiers dans `Documents/Marchés publics`, parfois `unzip`, `textutil` ou `osascript` (Mac, pour lire un PDF) ou une commande PowerShell pour lire un Word ou un PDF | **Oui** |
+| Retrouver qui a gagné une consultation (bilan) | une commande `curl` vers `data.economie.gouv.fr` (données des marchés attribués) ou `recherche-entreprises.api.gouv.fr` (nom d'une entreprise) | **Oui** |
 | Écrire vos fiches, analyses et lettres | écriture de fichiers dans `Documents/Marchés publics` | **Oui** |
 
 ## Ce qu'il faut refuser
@@ -39,7 +40,7 @@ Refuser ne casse rien. L'assistant vous expliquera ce qu'il ne peut pas faire.
 
 Ne choisissez pas les modes qui suppriment les demandes d'autorisation : « passer en mode automatique » (Claude), « accès complet » ou « sans approbation » (Codex). Ces modes ne sont pas faits pour vous : vous perdriez le contrôle.
 
-L'option « Oui, et ne plus demander » est possible **uniquement** pour la recherche sur le site du BOAMP (`curl` vers `boamp-datadila.opendatasoft.com`), qui revient souvent. Pour tout le reste, choisissez « Oui » simple.
+L'option « Oui, et ne plus demander » est possible **uniquement** pour les recherches sur les sites publics de la liste (`curl` vers `boamp-datadila.opendatasoft.com`, `data.economie.gouv.fr` ou `recherche-entreprises.api.gouv.fr`), qui reviennent souvent. Pour tout le reste, choisissez « Oui » simple.
 
 ---
 
