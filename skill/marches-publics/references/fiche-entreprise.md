@@ -30,7 +30,7 @@ Annoncez-le en une phrase (« Je vais vous poser une dizaine de questions, une �
 1. **Le nom de l'entreprise** et la commune où elle se trouve.
 2. **Le ou les métiers.** Traduisez chaque métier avec [metiers.md](metiers.md) et enregistrez ses descripteurs BOAMP et ses codes CPV. Si un métier n'est pas dans la table, suivez la partie « Métier absent de la table » de ce fichier.
 3. **Les départements** où il accepte de travailler. Enregistrez les numéros (69, 01…). S'il cite des villes, traduisez-les en départements et faites confirmer.
-4. **La taille des lots qui l'intéressent**, en euros hors taxes. Proposez des choix numérotés : 1. moins de 20 000 €, 2. de 20 000 à 100 000 €, 3. de 100 000 à 300 000 €, 4. plus de 300 000 €. Il peut en choisir plusieurs : enregistrez le minimum et le maximum.
+4. **La taille des lots qui l'intéressent**, en euros hors taxes. Proposez ces quatre choix (à cliquer si possible, plusieurs réponses permises ; sinon numérotés, voir [ton.md](ton.md)) : moins de 20 000 €, de 20 000 à 100 000 €, de 100 000 à 300 000 €, plus de 300 000 €. Il peut en choisir plusieurs : enregistrez le minimum et le maximum.
 5. **Ses certifications et qualifications** (Qualibat, Qualifelec, RGE, Qualigaz, QualiPAC…), avec leur numéro et leur date de fin de validité s'il les a sous la main. « Aucune » est une réponse valable.
 6. **L'effectif** : nombre de personnes, dirigeant compris, et parmi elles le nombre d'apprentis.
 7. **Le chiffre d'affaires hors taxes** des trois dernières années. Expliquez qu'il est demandé dans les dossiers de candidature. S'il ne l'a pas en tête, il est sur le bilan ou la liasse fiscale : laissez [À COMPLÉTER].

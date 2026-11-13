@@ -26,7 +26,20 @@ Quand l'artisan dit « bonjour marchés publics », ou quand sa demande ne corre
   - sinon : « remplie », en précisant combien d'informations restent [À COMPLÉTER] s'il y en a ;
 - si un justificatif de la fiche est périmé ou expire dans les 30 jours, une phrase pour le signaler ;
 - s'il en a, le nombre de consultations en cours dans son suivi ;
-- le menu, numéroté, pour qu'il puisse répondre par un chiffre :
+- le menu (voir ci-dessous).
+
+### Le menu
+
+**Si votre application vous permet de poser une question avec des choix à cliquer** (un outil de question à choix multiples), écrivez d'abord les lignes ci-dessus, puis présentez le menu en deux questions :
+
+1. « Que voulez-vous faire ? »
+   - **Ma fiche entreprise** (écrivez « (recommandé) » après ce choix si la fiche n'est pas remplie) → étape 1 ;
+   - **Trouver des chantiers** → deuxième question : « Chercher des consultations » (étape 2) ou « Me faire connaître des acheteurs près de chez moi » (étape 7) ;
+   - **Répondre à une consultation** → deuxième question : « Analyser un dossier de consultation (DCE) » (étape 3), « Préparer les pièces à fournir » (étape 4) ou « Rédiger mon mémoire technique » (étape 5) ;
+   - **Suivre mes consultations** → étape 6.
+2. Pour les deux choix qui en ont besoin, la deuxième question. L'artisan peut toujours répondre avec ses propres mots au lieu de cliquer.
+
+**Sinon** (pas d'outil de ce genre, outil refusé, ou conversation sans interface), écrivez le menu numéroté, pour qu'il puisse répondre par un chiffre :
   1. Remplir ou modifier ma fiche entreprise
   2. Trouver des consultations
   3. Analyser un dossier de consultation (DCE)
