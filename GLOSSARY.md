@@ -33,6 +33,12 @@ _À éviter_ : dossier d'appel d'offres, pièces du marché
 Document administratif à durée de validité limitée que l'artisan doit fournir : attestation URSSAF, attestation fiscale, Kbis, attestation d'assurance.
 _À éviter_ : pièce, attestation (quand on parle de l'ensemble)
 
+**Descripteur BOAMP** :
+Mot-clé avec lequel le BOAMP classe un avis (par exemple « 270 Plomberie (travaux) »). C'est le filtre principal de la veille. La table des métiers traduit le métier de l'artisan en descripteurs.
+
+**Code CPV** :
+Code de la nomenclature européenne des achats publics (par exemple « 45330000-9 Travaux de plomberie »). Il sert à affiner la veille, pas à filtrer : l'API du BOAMP ne permet pas de filtrer dessus directement.
+
 **Référence** :
 Chantier déjà réalisé par l'artisan, présenté comme preuve de sa capacité (acheteur ou client, nature, montant, année).
 

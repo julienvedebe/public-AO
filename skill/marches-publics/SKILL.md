@@ -20,7 +20,11 @@ Ne montrez pas ces vérifications à l'artisan : il ne voit que le résultat.
 Quand l'artisan dit « bonjour marchés publics », ou quand sa demande ne correspond à aucune étape, répondez par l'accueil :
 
 - une phrase de bienvenue ;
-- l'état de sa fiche entreprise : « pas encore remplie » (et proposez de commencer par là) ou « remplie » ;
+- l'état de sa fiche entreprise :
+  - pas de fiche : « pas encore remplie », et proposez de commencer par là ;
+  - métiers ou départements encore [À COMPLÉTER] : « commencée mais pas terminée », et proposez de la reprendre ;
+  - sinon : « remplie », en précisant combien d'informations restent [À COMPLÉTER] s'il y en a ;
+- si un justificatif de la fiche est périmé ou expire dans les 30 jours, une phrase pour le signaler ;
 - s'il en a, le nombre de consultations en cours dans son suivi ;
 - le menu, numéroté, pour qu'il puisse répondre par un chiffre :
   1. Remplir ou modifier ma fiche entreprise
@@ -44,6 +48,8 @@ Chargez uniquement la fiche de l'étape demandée, au moment où l'artisan la ch
 | 5. Mémoire technique | [references/memoire-technique.md](references/memoire-technique.md) |
 | 6. Suivi et bilan | [references/bilan.md](references/bilan.md) |
 | 7. Se faire connaître | [references/se-faire-connaitre.md](references/se-faire-connaitre.md) |
+
+Une demande qui touche à la fiche (« modifiez ma fiche… », « j'ai une nouvelle référence », « ajoutez un métier ») relève de l'étape 1, même sans passer par le menu.
 
 Si une fiche indique que l'étape n'est pas encore disponible, dites-le simplement à l'artisan et proposez une autre étape du menu.
 

@@ -13,12 +13,19 @@ CLAUDE_BIN=${CLAUDE_BIN:-claude}
 CODEX_BIN=${CODEX_BIN:-codex}
 AGENT=${AGENT:-claude}
 
-# Agent choisi : lancer_agent "<prompt>" (sans interface) et dossier de skills du projet temporaire.
+# Agent choisi : lancer_agent "<prompt>" [suite] (sans interface ; « suite » reprend la
+# conversation précédente du dossier courant) et dossier de skills du projet temporaire.
 case "$AGENT" in
   claude) AGENT_BIN=$CLAUDE_BIN; SKILLS_REL=.claude/skills
-          lancer_agent() { "$CLAUDE_BIN" -p "$1" --permission-mode bypassPermissions; } ;;
+          lancer_agent() {
+            if [ "${2:-}" = suite ]; then "$CLAUDE_BIN" -p "$1" --continue --permission-mode bypassPermissions
+            else "$CLAUDE_BIN" -p "$1" --permission-mode bypassPermissions; fi
+          } ;;
   codex)  AGENT_BIN=$CODEX_BIN; SKILLS_REL=.agents/skills
-          lancer_agent() { "$CODEX_BIN" exec --dangerously-bypass-approvals-and-sandbox "$1"; } ;;
+          lancer_agent() {
+            if [ "${2:-}" = suite ]; then "$CODEX_BIN" exec --dangerously-bypass-approvals-and-sandbox resume --last "$1"
+            else "$CODEX_BIN" exec --dangerously-bypass-approvals-and-sandbox "$1"; fi
+          } ;;
   *) echo "AGENT doit valoir claude ou codex (reçu : $AGENT)."; exit 2 ;;
 esac
 SCENARIOS_DIR="$ROOT/tests/scenarios"
@@ -64,16 +71,25 @@ for s in "${scenarios[@]}"; do
     cp -R "$ROOT/skill/marches-publics" "$W/$SKILLS_REL/"
   fi
 
-  prompt=$(sed "s|{{ROOT}}|$ROOT|g" "$dir/prompt.txt")
+  # Un message de l'artisan par tour ; les tours sont séparés par une ligne « --- ».
+  sed "s|{{ROOT}}|$ROOT|g" "$dir/prompt.txt" |
+    awk -v base="$W/tour-" 'BEGIN { n = 1 } /^---$/ { n++; next } { print > (base n ".txt") }'
+  tours=$(ls "$W"/tour-*.txt | wc -l | tr -d ' ')
 
   echo "▶ $s"
-  (
-    cd "$W" &&
-    MARCHES_PUBLICS_DOSSIER="$D" \
-    MARCHES_PUBLICS_SKILLS_DIR="$S" \
-    MARCHES_PUBLICS_SOURCE="$ROOT" \
-    lancer_agent "$prompt"
-  ) > "$W/sortie.txt" 2>&1
+  : > "$W/sortie.txt"
+  for i in $(seq 1 "$tours"); do
+    suite=
+    [ "$i" -gt 1 ] && suite=suite
+    (
+      cd "$W" &&
+      MARCHES_PUBLICS_DOSSIER="$D" \
+      MARCHES_PUBLICS_SKILLS_DIR="$S" \
+      MARCHES_PUBLICS_SOURCE="$ROOT" \
+      lancer_agent "$(cat "$W/tour-$i.txt")" $suite
+    ) > "$W/sortie-$i.txt" 2>&1
+    { echo "=== tour $i"; cat "$W/sortie-$i.txt"; echo; } >> "$W/sortie.txt"
+  done
 
   if ROOT="$ROOT" W="$W" D="$D" S="$S" SORTIE="$W/sortie.txt" bash "$dir/check.sh"; then
     echo "✓ $s"
