@@ -38,15 +38,22 @@ Notez les pièces absentes ou illisibles. Rendez l'inventaire avec le nombre de 
 
 ## 3. Lire les documents
 
-La plupart des PDF se lisent directement : ouvrez-les avec votre outil de lecture de fichiers. S'il n'y arrive pas, ou si une page paraît vide :
+Un DCE compte souvent plus de cent fichiers. **Ne lisez que les pièces utiles**, dans cet ordre : le RC en entier (dates, critères, pièces), le CCAP (pénalités, paiement), le CCTP du lot de l'artisan, puis au besoin le planning, la notice de chantier et les questions-réponses de l'acheteur. Ne lisez ni les plans, ni les bordereaux de prix, ni les lots d'autres métiers.
 
-- **Mac, sans rien installer** : extrayez le texte avec PDFKit, fourni avec le Mac :
-  `osascript -l JavaScript -e 'ObjC.import("PDFKit"); var d=$.PDFDocument.alloc.initWithURL($.NSURL.fileURLWithPath("CHEMIN.pdf")); ObjC.unwrap(d.string)'`
-  Pour connaître le numéro d'une page, lisez `d.pageAtIndex(n).string` page par page (`d.pageCount` donne le nombre). Les fichiers Word, RTF ou OpenDocument se convertissent avec `textutil -convert txt`.
-- **Windows, sans rien installer** : Word ouvre les PDF et les convertit. Avec PowerShell : `$w = New-Object -ComObject Word.Application; $d = $w.Documents.Open("CHEMIN.pdf"); $d.Content.Text; $d.Close(); $w.Quit()`. Les fichiers `.docx` se lisent aussi par Word ou en décompressant le fichier (c'est un ZIP).
-- **PDF scanné** (image sans texte) : lisez-le comme image si votre outil le permet. Sinon, dites à l'artisan quelle pièce n'est pas lisible et ce que vous n'avez donc pas pu vérifier. N'en tirez aucune conclusion.
+**Extrayez le texte de ces pièces une seule fois**, dans le sous-dossier `dce-texte/` de la consultation (un `.txt` par pièce, du même nom que le PDF). Les étapes suivantes (pièces, mémoire) le relisent au lieu de rouvrir les PDF. Méthodes, de la plus rapide à la plus lente :
 
-Ordre de lecture : le RC en entier d'abord (dates, critères, pièces), puis le CCAP (pénalités, paiement), puis seulement les CCTP du lot de l'artisan. Ne lisez pas en détail les lots d'autres métiers.
+1. **`pdftotext`, s'il est présent.** Il extrait un PDF de cent pages en une seconde, et sépare les pages par un saut de page (caractère « form feed »), ce qui donne le numéro de page de chaque information.
+   - **Windows** : il est fourni avec Git pour Windows, souvent installé avec Claude Code. Cherchez-le :
+     `$pt = (Get-Command pdftotext.exe -ErrorAction SilentlyContinue).Source; if (-not $pt) { $pt = @("$env:ProgramFiles\Git\mingw64\bin\pdftotext.exe", "$env:LOCALAPPDATA\Programs\Git\mingw64\bin\pdftotext.exe") | Where-Object { Test-Path $_ } | Select-Object -First 1 }`
+     puis, s'il est trouvé : `& $pt -layout -enc UTF-8 "CHEMIN.pdf" "SORTIE.txt"`.
+   - **Mac** : `pdftotext` n'est pas fourni avec le Mac ; utilisez-le seulement s'il répond (`command -v pdftotext`).
+2. **Mac, sans rien installer** : PDFKit, fourni avec le Mac :
+   `osascript -l JavaScript -e 'ObjC.import("PDFKit"); var d=$.PDFDocument.alloc.initWithURL($.NSURL.fileURLWithPath("CHEMIN.pdf")); ObjC.unwrap(d.string)'`
+   Pour le numéro d'une page, lisez `d.pageAtIndex(n).string` page par page (`d.pageCount` donne le nombre).
+3. **Votre outil de lecture de fichiers**, par **tranches de pages** (par exemple 20 pages à la fois) : un long PDF lu d'un seul coup échoue souvent.
+4. **PDF scanné** (image sans texte, ou texte extrait vide) : lisez-le comme image si votre outil le permet. Sinon, dites à l'artisan quelle pièce n'est pas lisible et ce que vous n'avez donc pas pu vérifier. N'en tirez aucune conclusion.
+
+**N'ouvrez jamais un PDF avec Word** : la conversion est très lente et Word peut se bloquer sans rien dire. Les autres formats : Word, RTF ou OpenDocument se convertissent avec `textutil -convert txt` sur Mac ; sous Windows, un `.docx` est un ZIP dont le texte est dans `word/document.xml`. Un ancien `.doc` sous Windows ne s'ouvre avec Word qu'en dernier recours : si Word ne répond pas au bout d'une minute, arrêtez-le et signalez la pièce comme illisible.
 
 **Retenez la source de chaque information en lisant** : nom du document, numéro d'article, numéro de page.
 

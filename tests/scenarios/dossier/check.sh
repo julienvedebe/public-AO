@@ -22,7 +22,8 @@ MANQUE=$(rubrique "$P" "Ce qui manque")
 [ -n "$PRET" ] || _ko "rubrique « Ce que vous avez déjà » absente ou vide"
 [ -n "$MANQUE" ] || _ko "rubrique « Ce qui manque » absente ou vide"
 grep -qiE 'assurance|responsabilité|décennale' <<< "$PRET" || _ko "les assurances (valables) ne sont pas dans ce qui est déjà prêt"
-grep -qiE 'qualibat' <<< "$PRET" || _ko "Qualibat n'est pas dans ce qui est déjà prêt"
+# Qualibat est dans la fiche : « déjà prêt », ou « à renouveler » si l'agent réclame le certificat lui-même.
+grep -qiE 'qualibat' <<< "$PRET$MANQUE" || _ko "Qualibat n'est ni dans ce qui est prêt ni dans ce qui reste à fournir"
 grep -qiE 'URSSAF' <<< "$MANQUE" || _ko "l'attestation URSSAF n'est pas dans ce qui manque ou est à renouveler"
 grep -qiE 'fiscale|fiscal' <<< "$MANQUE" || _ko "l'attestation fiscale n'est pas dans ce qui manque ou est à renouveler"
 grep -qiE 'Qualigaz' <<< "$MANQUE" || _ko "Qualigaz n'est pas dans ce qui manque"

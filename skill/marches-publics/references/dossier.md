@@ -15,7 +15,7 @@ Cette étape part d'une consultation déjà analysée et de la décision de l'ar
 2. **Pas encore analysée** (statut `repérée`, pas de fichier d'analyse) : ne préparez rien. Dites-lui en une phrase qu'il faut d'abord analyser le dossier de consultation, puis proposez de le faire ([analyse.md](analyse.md)). Ne changez pas le statut.
 3. **Verdict 🔴** : rappelez en une phrase pourquoi l'analyse disait de passer son tour et demandez s'il veut quand même répondre. Continuez seulement s'il confirme.
 4. **Pas de fiche** ou métiers encore [À COMPLÉTER] : proposez de la remplir d'abord ([fiche-entreprise.md](fiche-entreprise.md)). Une fiche à moitié remplie suffit : ce qui manque sera [À COMPLÉTER] dans les formulaires.
-5. Lisez le fichier d'analyse du sous-dossier (verdict, dates, exigences) et le règlement de consultation (RC) dans `dce/`, surtout l'article sur le contenu de la candidature et de l'offre. Ne vous fiez pas à l'analyse seule pour la liste des pièces : le RC fait foi. Si l'analyse a été faite par une version plus ancienne et que vous ne retrouvez pas une date, relisez le RC.
+5. Lisez le fichier d'analyse du sous-dossier (verdict, dates, exigences) et le règlement de consultation (RC) dans `dce/` (son texte est déjà extrait dans `dce-texte/` s'il existe : lisez-le plutôt que le PDF), surtout l'article sur le contenu de la candidature et de l'offre. Ne vous fiez pas à l'analyse seule pour la liste des pièces : le RC fait foi. Si l'analyse a été faite par une version plus ancienne et que vous ne retrouvez pas une date, relisez le RC.
 
 La date limite de remise (avec l'heure) vient du RC. Elle est dans l'analyse, sourcée. Si vous ne la trouvez pas, demandez-la : il n'y a pas de rétroplanning sans elle.
 
