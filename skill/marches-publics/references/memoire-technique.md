@@ -2,6 +2,8 @@
 
 Le mémoire technique est le document où l'artisan explique comment il réalisera le lot (équipe, matériel, méthode, planning). L'acheteur le note selon les critères de son règlement de consultation. Cette étape le construit **à partir de ces critères**, en posant à l'artisan des questions ciblées, et le livre en `.docx` (ou `.rtf`) que l'artisan finalise lui-même.
 
+**Si le DCE contient un cadre de mémoire de l'acheteur** (un document à remplir, souvent appelé « cadre de réponse technique » ou « CRT »), la trame suit exactement ce cadre et les réponses sont écrites directement dans une copie de ce document : voir [memoire-cadre-acheteur.md](memoire-cadre-acheteur.md), qui complète les étapes ci-dessous.
+
 Cette fiche a deux parties :
 
 - **Partie commune** (étapes 1 à 5 et règles) : la trame, les questions, la règle anti-invention, le HTML intermédiaire. Elle ne dépend pas de l'ordinateur.
@@ -42,13 +44,16 @@ Le prix n'a pas sa place dans le mémoire : il est dans l'acte d'engagement et l
 1. **Trouvez la consultation.** Si l'artisan n'a pas dit laquelle, regardez dans `suivi.md` celles qui sont `analysée` ou `en préparation` : s'il y en a une seule, prenez-la et dites laquelle ; s'il y en a plusieurs, demandez laquelle (une seule question).
 2. **Ouvrez son sous-dossier** `consultations/AAAA-MM_acheteur_lot/`. S'il n'existe pas, ou s'il ne contient pas de DCE, il n'y a pas encore de critères : dites-le et proposez d'analyser le DCE d'abord ([analyse.md](analyse.md)). Ne rédigez pas de mémoire « générique ».
 3. **Relevez les critères.** Source principale : la rubrique « Comment l'offre est notée » de `analyse.md`. Contrôlez-la en relisant l'article « critères » du règlement de consultation dans `dce/` (voir [analyse.md](analyse.md) § 3 pour lire les PDF). Si les deux diffèrent, le RC fait foi. Notez pour chaque critère et sous-critère son intitulé exact, son poids ou ses points, et sa source (RC, article).
-4. **Sans fiche** (ou métiers et effectif encore [À COMPLÉTER]) : le mémoire reste possible, mais dites-le à l'artisan en une phrase et proposez de remplir la fiche ([fiche-entreprise.md](fiche-entreprise.md)). S'il préfère continuer, ce qui manque de la fiche devient [À COMPLÉTER].
-5. **Y a-t-il déjà un mémoire ?** Si `memoire-technique.docx` (ou `.rtf`) existe dans le sous-dossier, l'artisan l'a peut-être retouché : ne le remplacez jamais. Reprenez `memoire-reponses.md` pour le compléter, et enregistrez le nouveau fichier sous un autre nom (`memoire-technique-2.docx`).
-6. **Dites ce qui va se passer**, en trois phrases : le mémoire est noté sur tels critères (donnez-les avec leur poids), vous allez poser quelques questions une par une (il peut répondre à la voix, « je ne sais pas » est une réponse), et il recevra un document Word à finaliser. Expliquez « mémoire technique » la première fois : le document où il explique comment il réalisera les travaux.
+4. **Cherchez un cadre de l'acheteur** dans `dce/` (noms du type « cadre de mémoire », « cadre de réponse technique », « CRT », « modèle de mémoire », « mémoire technique » ; `.docx`, `.doc`, `.odt`, parfois `.xlsx`), et vérifiez dans le RC si son usage est obligatoire : [memoire-cadre-acheteur.md](memoire-cadre-acheteur.md) § 1. S'il y en a un, il donne la trame (étape 2) et sera rempli (étape 6).
+5. **Sans fiche** (ou métiers et effectif encore [À COMPLÉTER]) : le mémoire reste possible, mais dites-le à l'artisan en une phrase et proposez de remplir la fiche ([fiche-entreprise.md](fiche-entreprise.md)). S'il préfère continuer, ce qui manque de la fiche devient [À COMPLÉTER].
+6. **Y a-t-il déjà un mémoire ?** Si `memoire-technique.docx` (ou `.rtf`, ou `memoire-technique-cadre-acheteur.docx`) existe dans le sous-dossier, l'artisan l'a peut-être retouché : ne le remplacez jamais. Reprenez `memoire-reponses.md` pour le compléter, et enregistrez le nouveau fichier sous un autre nom (`memoire-technique-2.docx`).
+7. **Dites ce qui va se passer**, en trois phrases : le mémoire est noté sur tels critères (donnez-les avec leur poids), vous allez poser quelques questions une par une (il peut répondre à la voix, « je ne sais pas » est une réponse), et il recevra un document Word à finaliser. S'il y a un cadre de l'acheteur, dites-le aussi (nom du fichier, obligatoire ou non) : c'est ce document que vous remplirez. Expliquez « mémoire technique » la première fois : le document où il explique comment il réalisera les travaux.
 
 ## 2. Construire la trame
 
-La trame suit le règlement de consultation, pas un modèle type. Une section par critère noté sur le mémoire, dans l'ordre du RC, avec ses mots et ses sous-critères :
+**Avec un cadre de l'acheteur**, la trame est celle du cadre, exactement (rubriques, ordre, questions, limites) : suivez [memoire-cadre-acheteur.md](memoire-cadre-acheteur.md) § 2 au lieu de cette étape.
+
+Sans cadre, la trame suit le règlement de consultation, pas un modèle type. Une section par critère noté sur le mémoire, dans l'ordre du RC, avec ses mots et ses sous-critères :
 
 - tous les critères **autres que le prix** : la valeur technique, mais aussi, par exemple, l'engagement environnemental ou d'insertion, les délais, si le RC les note. Si le RC ne dit pas qu'un critère est jugé sur le mémoire, traitez-le quand même (il est noté) et signalez-le à l'artisan à la fin, pour qu'il le retire s'il veut ;
 - les sous-critères deviennent des sous-titres, avec leurs points ;
@@ -64,7 +69,7 @@ Le gabarit est [memoire-gabarit.html](memoire-gabarit.html).
 
 Une question à la fois, courte, en mots simples ([ton.md](ton.md)). L'artisan peut répondre à la voix : si une réponse paraît mal transcrite, reformulez ce que vous avez compris et faites confirmer avant de l'enregistrer.
 
-Choisissez les questions **d'après les critères relevés**, pas d'après une liste fixe. Pour chaque sous-critère, une ou deux questions au plus, sur ce que ni la fiche ni le DCE ne disent. Les thèmes habituels, à rattacher au critère qui les note :
+Choisissez les questions **d'après les critères relevés** (et, s'il y a un cadre de l'acheteur, d'après ses questions), pas d'après une liste fixe. Pour chaque sous-critère, une ou deux questions au plus, sur ce que ni la fiche ni le DCE ne disent. Les thèmes habituels, à rattacher au critère qui les note :
 
 | Thème | Exemples de questions (à adapter au lot) |
 |---|---|
@@ -107,6 +112,7 @@ Règles :
 - Phrases simples, concrètes, sans grandes déclarations. L'acheteur note du contenu, pas du style.
 - Le HTML n'utilise que le sous-ensemble du gabarit : `h1`-`h3`, `p`, `ul`, `li`, `strong`, `em`, `br` et le passage à compléter. Pas de tableau, pas de commentaire laissé.
 - Relisez avant de convertir : chaque phrase sur l'entreprise a-t-elle une source (fiche ou réponse) ? Sinon, retirez-la ou remplacez-la par un [À COMPLÉTER].
+- **Avec un cadre de l'acheteur**, écrivez aussi `reponses-cadre.txt` dans le même dossier temporaire, avec les mêmes phrases, rubrique par rubrique : [memoire-cadre-acheteur.md](memoire-cadre-acheteur.md) § 4.
 
 ## 5. Le passage à compléter
 
@@ -127,11 +133,13 @@ Suivant le système de l'artisan :
 
 Le mémoire est enregistré dans le sous-dossier de la consultation (`consultations/AAAA-MM_acheteur_lot/`), à côté de l'analyse. Ne modifiez pas `suivi.md` : le statut de la consultation n'est pas changé par cette étape.
 
+**Avec un cadre de l'acheteur**, produisez d'abord notre mémoire comme ci-dessus, puis remplissez le cadre (même fiche de production, section « Remplir le cadre de l'acheteur ») : `memoire-technique-cadre-acheteur.docx`, à côté. Si le remplissage échoue, notre mémoire suit déjà la structure du cadre : c'est la solution de secours ([memoire-cadre-acheteur.md](memoire-cadre-acheteur.md) § 5).
+
 ## 7. Rendre compte
 
 Votre réponse, courte, dit dans cet ordre :
 
-1. Le mémoire est prêt, avec son **chemin** (dossier de la consultation) et son format : un document Word à modifier, ou un fichier `.rtf` (une version plus simple, que Word et LibreOffice ouvrent aussi) si la conversion en Word a échoué.
+1. Le mémoire est prêt, avec son **chemin** (dossier de la consultation) et son format : un document Word à modifier, ou un fichier `.rtf` (une version plus simple, que Word et LibreOffice ouvrent aussi) si la conversion en Word a échoué. **Avec un cadre de l'acheteur** : le cadre rempli (`memoire-technique-cadre-acheteur.docx`) est le document à déposer, notre mémoire est un brouillon de travail ; rappelez les limites du cadre (pages, caractères) et, si le format a été converti ou si le remplissage a échoué, ce qu'il doit faire (§ 5 de memoire-cadre-acheteur.md).
 2. **Ce qu'il reste à compléter** : le nombre de passages [À COMPLÉTER] et la liste de ce qui manque, en une ligne chacun (« équipe : nombre de personnes… »). Ils sont surlignés en jaune : l'artisan les repère d'un coup d'œil.
 3. Ce qui vient de sa fiche et de ses réponses, et rien d'autre : une phrase suffit.
 4. Un rappel : relire le mémoire en entier avant de le déposer (il l'engage), et que **le prix** se remplit à part, dans l'acte d'engagement et le bordereau, par lui. S'il manque une certification exigée par le DCE (analyse), le rappeler en une phrase.
@@ -141,4 +149,4 @@ Ne dites pas que le fichier « s'ouvre sans problème dans Word » : vous ne l'a
 
 ## Reprise plus tard
 
-Si l'artisan revient avec de nouvelles informations (« j'ai le matériel »), mettez à jour `memoire-reponses.md`, régénérez le HTML complet à partir de la trame et des réponses, et produisez un nouveau fichier sous un autre nom, sans écraser l'ancien.
+Si l'artisan revient avec de nouvelles informations (« j'ai le matériel »), mettez à jour `memoire-reponses.md`, régénérez le HTML complet à partir de la trame et des réponses (et `reponses-cadre.txt` s'il y a un cadre de l'acheteur), et produisez un nouveau fichier sous un autre nom, sans écraser l'ancien.

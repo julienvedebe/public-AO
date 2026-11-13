@@ -59,3 +59,16 @@ docx_surligne() { # <fichier.docx>
   [ "$total" -ge 1 ] || { _ko "aucun [À COMPLÉTER] dans le XML du .docx"; return; }
   [ "$sans" = 0 ] || _ko "$sans [À COMPLÉTER] sans surlignage jaune dans le .docx (sur $total)"
 }
+
+extraire_docx() { aide extraire "$1" "$2" >/dev/null; } # <fichier.docx> <dossier>
+
+# lancer_cadre <lister|remplir> <fichier>... : lance cadre-acheteur-windows.ps1 comme l'agent le fait ; affiche sa sortie ;
+# le code de sortie du script est dans $?.
+SCRIPT_CADRE_PS1="$ROOT/skill/marches-publics/scripts/cadre-acheteur-windows.ps1"
+lancer_cadre() {
+  local mode="$1" f args=()
+  shift
+  for f in "$@"; do args+=("$(winpath "$f")"); done
+  "$PS_EXE" -NoProfile -ExecutionPolicy Bypass -File "$(winpath "$SCRIPT_CADRE_PS1")" "$mode" "${args[@]}" 2>&1 | tr -d '\r'
+  return "${PIPESTATUS[0]}"
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+<w:body>
+<w:p><w:pPr><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:b/></w:rPr><w:t>COMMUNE DE VAL-DE-BRELLE (DOCUMENT FICTIF - JEU DE TEST)</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Title"/></w:pPr><w:r><w:t>CADRE DE RÉPONSE TECHNIQUE (CRT)</w:t></w:r></w:p>
+<w:p><w:pPr><w:jc w:val="center"/></w:pPr><w:r><w:t>Réhabilitation des sanitaires de l’école Marcel-Pagnol – Lot 05 Plomberie, sanitaires, production d’eau chaude – Référence 2026-ECOLE-07</w:t></w:r></w:p>
+<w:p><w:r><w:t xml:space="preserve">Le présent cadre constitue le mémoire technique. Le candidat le complète </w:t></w:r><w:r><w:rPr><w:b/></w:rPr><w:t>sans en modifier les rubriques ni l’ordre</w:t></w:r><w:r><w:t xml:space="preserve">, et le joint obligatoirement à son offre (règlement de la consultation, article 10). Le cadre complété ne dépasse pas 10 pages. Le prix n’est pas à indiquer dans ce cadre.</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>1. Méthodologie et organisation du chantier (25 points)</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Heading2"/></w:pPr><w:r><w:t>1.1 Décrivez l’enchaînement des travaux, de la dépose à la mise en service.</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Consigne"/></w:pPr><w:r><w:t>3 000 caractères maximum, espaces compris.</w:t></w:r></w:p>
+<w:p/>
+<w:p><w:pPr><w:pStyle w:val="Heading2"/></w:pPr><w:r><w:t>1.2 Décrivez l’organisation des essais et de la réception.</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Consigne"/></w:pPr><w:r><w:t>1 500 caractères maximum, espaces compris.</w:t></w:r></w:p>
+<w:p/>
+<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>2. Moyens humains et matériels (15 points)</w:t></w:r></w:p>
+<w:p><w:r><w:t>Complétez le tableau ci-dessous.</w:t></w:r></w:p>
+<w:tbl><w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="5000" w:type="pct"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="3800"/><w:gridCol w:w="5838"/></w:tblGrid>
+<w:tr><w:tc><w:tcPr><w:tcW w:w="3800" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="D9E2F3"/></w:tcPr><w:p><w:r><w:rPr><w:b/></w:rPr><w:t>Rubrique</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="5838" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="D9E2F3"/></w:tcPr><w:p><w:r><w:rPr><w:b/></w:rPr><w:t>Réponse du candidat</w:t></w:r></w:p></w:tc></w:tr>
+<w:tr><w:tc><w:tcPr><w:tcW w:w="3800" w:type="dxa"/></w:tcPr><w:p><w:r><w:t>2.1 Composition de l’équipe affectée au chantier (nombre de personnes, qualifications)</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="5838" w:type="dxa"/></w:tcPr><w:p/></w:tc></w:tr>
+<w:tr><w:tc><w:tcPr><w:tcW w:w="3800" w:type="dxa"/></w:tcPr><w:p><w:r><w:t>2.2 Matériel et véhicules affectés au chantier</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="5838" w:type="dxa"/></w:tcPr><w:p/></w:tc></w:tr>
+</w:tbl>
+<w:p/>
+<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>3. Gestion des nuisances et de la sécurité des enfants (10 points)</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Heading2"/></w:pPr><w:r><w:t>3.1 Décrivez les mesures prises pour isoler le chantier et limiter le bruit et la poussière.</w:t></w:r></w:p>
+<w:p/>
+<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>4. Engagement en matière d’insertion et d’environnement (10 %)</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Heading2"/></w:pPr><w:r><w:t>4.1 Gestion et tri des déchets du chantier</w:t></w:r></w:p>
+<w:p/>
+<w:p><w:pPr><w:pStyle w:val="Heading2"/></w:pPr><w:r><w:t>4.2 Actions en faveur de l’insertion professionnelle</w:t></w:r></w:p>
+<w:p/>
+<w:p><w:pPr><w:spacing w:before="480"/></w:pPr><w:r><w:t>Fait à ……………………, le ……………………   Signature du candidat :</w:t></w:r></w:p>
+<w:sectPr><w:headerReference w:type="default" r:id="rId3"/><w:footerReference w:type="default" r:id="rId4"/><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="567" w:footer="567" w:gutter="0"/></w:sectPr>
+</w:body>
+</w:document>

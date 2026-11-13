@@ -1,10 +1,12 @@
 # Mémoire technique sous WINDOWS : même conversation que le scénario « memoire » (quatre tours, l'artisan ne donne
-# qu'une partie des informations), puis essai direct du script PowerShell memoire-vers-docx-windows.ps1.
+# qu'une partie des informations), puis essais directs des scripts PowerShell memoire-vers-docx-windows.ps1 et
+# cadre-acheteur-windows.ps1 (remplissage du cadre de l'acheteur, sur le cadre fictif du scénario memoire-cadre-acheteur).
 # À lancer sous Windows (Git Bash ou WSL, voir outils-windows.sh) : ce scénario n'a pas pu être exécuté sur la
 # machine de développement (Mac, sans PowerShell).
 source "$ROOT/tests/lib.sh"
 source "$ROOT/tests/scenarios/memoire/outils.sh"
 source "$ROOT/tests/scenarios/memoire-windows/outils-windows.sh"
+source "$ROOT/tests/scenarios/memoire-cadre-acheteur/outils-cadre.sh"
 SC="$ROOT/tests/scenarios/memoire-windows"
 C="$D/$CONSULT_REL"
 
@@ -118,6 +120,44 @@ T3=$(texte_du_fichier "$TMP/secours.rtf")
 grep -q 'À COMPLÉTER' <<< "$T3" || _ko "le .rtf de secours a perdu les [À COMPLÉTER]"
 grep -q 'œuvre' <<< "$T3" || _ko "le .rtf de secours a perdu les accents"
 MEMOIRE_FORCER_ECHEC_DOCX=1 lancer_script "$SC/attendu/exemple.html" "$TMP/secours.docx" >/dev/null; [ $? -eq 4 ] || _ko "le .rtf existant serait écrasé"
+
+# 4. Remplissage du cadre de l'acheteur (cadre-acheteur-windows.ps1), sur le cadre fictif du scénario
+#    « memoire-cadre-acheteur » et avec son fichier de réponses d'essai : mêmes attentes que le script Mac.
+l=$(lancer_cadre lister "$ORIG"); code=$?
+[ "$code" -eq 0 ] || _ko "cadre, lister : code $code au lieu de 0 : $l"
+grep -qF '¶17 [tableau 1, ligne 2, cellule 2] | (vide)' <<< "$l" || _ko "cadre, lister : la case réponse du tableau n'est pas repérée"
+grep -qF '¶6 {Heading2} | 1.1 Décrivez' <<< "$l" || _ko "cadre, lister : la question 1.1 et son style ne sont pas affichés"
+grep -qx 'PARAGRAPHES 29' <<< "$l" || _ko "cadre, lister : nombre de paragraphes inattendu"
+
+sortie=$(lancer_cadre remplir "$ORIG" "$ESSAI_REPONSES" "$TMP/cadre-ok.docx"); code=$?
+[ "$code" -eq 0 ] || _ko "cadre, remplir : code $code au lieu de 0 : $sortie"
+tail -1 <<< "$sortie" | grep -qE '^CADRE .*cadre-ok\.docx 7 4$' || _ko "cadre, remplir : dernière ligne inattendue : $(tail -1 <<< "$sortie")"
+if [ -f "$TMP/cadre-ok.docx" ]; then
+  docx_valide "$TMP/cadre-ok.docx"
+  docx_surligne "$TMP/cadre-ok.docx"
+  cadre_intact "$TMP/cadre-ok.docx"
+  reponses_aux_bons_endroits "$(texte_du_fichier "$TMP/cadre-ok.docx")" "cadre, essai direct"
+fi
+lancer_cadre remplir "$ORIG" "$ESSAI_REPONSES" "$TMP/cadre-ok.docx" >/dev/null; [ $? -eq 4 ] || _ko "cadre : le script écrase un fichier existant"
+
+perl -0ne 'print join "\n", reverse split /(?=^### )/m' "$ESSAI_REPONSES" > "$TMP/inverse.txt"
+lancer_cadre remplir "$ORIG" "$TMP/inverse.txt" "$TMP/cadre-inverse.docx" >/dev/null || _ko "cadre : blocs dans l'ordre inverse refusés"
+if [ -f "$TMP/cadre-ok.docx" ] && [ -f "$TMP/cadre-inverse.docx" ]; then
+  extraire_docx "$TMP/cadre-ok.docx" "$TMP/x-ok"; extraire_docx "$TMP/cadre-inverse.docx" "$TMP/x-inverse"
+  cmp -s "$TMP/x-ok/word/document.xml" "$TMP/x-inverse/word/document.xml" || _ko "cadre : l'ordre des blocs du fichier de réponses change le résultat"
+fi
+
+printf '### 9 | 1.1 Décrivez\nx\n' > "$TMP/ancre.txt"
+lancer_cadre remplir "$ORIG" "$TMP/ancre.txt" "$TMP/ancre.docx" >/dev/null; code=$?
+[ "$code" -eq 6 ] || _ko "cadre, ancre fausse : code $code au lieu de 6"
+[ ! -e "$TMP/ancre.docx" ] || _ko "cadre, ancre fausse : un fichier est quand même produit"
+printf '### 8\n@max 20\nUne réponse bien plus longue que vingt caractères.\n' > "$TMP/limite.txt"
+lancer_cadre remplir "$ORIG" "$TMP/limite.txt" "$TMP/limite.docx" >/dev/null; [ $? -eq 6 ] || _ko "cadre, limite dépassée : le code n'est pas 6"
+for e in doc xlsx; do
+  cp "$ORIG" "$TMP/cadre.$e"
+  lancer_cadre remplir "$TMP/cadre.$e" "$ESSAI_REPONSES" "$TMP/$e.docx" >/dev/null; code=$?
+  [ "$code" -eq 5 ] || _ko "cadre, format .$e : code $code au lieu de 5"
+done
 
 rm -rf "$TMP"
 fin
