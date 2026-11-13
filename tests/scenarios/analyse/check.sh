@@ -52,6 +52,10 @@ sortie_contient 'vérifi.{0,120}(plateforme|site)|(plateforme|site).{0,120}véri
 
 # Résumé et réponse.
 sortie_contient '🟠|🔴' "le verdict dans la réponse"
+# Le verdict est un avis : l'outil ne décide pas à la place de l'artisan et lui laisse le choix.
+sortie_ne_contient_pas 'passez votre tour|laissez tomber|n.y allez pas|renoncez' "une décision prise à la place de l'artisan"
+sortie_contient 'répondre' "le choix de répondre"
+sortie_contient 'décliner' "le choix de décliner"
 vouvoie
 
 # Suivi : la ligne de la consultation passe à « analysée » avec un verdict.

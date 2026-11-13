@@ -89,7 +89,7 @@ sortie_contient 'prix.{0,160}(vous|à votre charge|reste)|(vous|reste).{0,160}pr
 
 # Rappel de vérification sur la plateforme.
 fichier_contient "$P" 'plateforme' "le rappel plateforme"
-sortie_contient 'vérifi.{0,120}plateforme|plateforme.{0,120}vérifi' "le rappel de vérifier les dates sur la plateforme"
+sortie_contient 'vérifi.{0,120}(plateforme|site)|(plateforme|site).{0,120}vérifi' "le rappel de vérifier les dates sur la plateforme (ou le site) de l'acheteur"
 
 # Suivi : la ligne passe à « en préparation », verdict conservé, une seule ligne.
 L=$(grep -i 'val-de-brelle' "$D/suivi.md")

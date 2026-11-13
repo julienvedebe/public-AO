@@ -89,14 +89,14 @@ parcours = [f'<svg class="schema" viewBox="0 0 690 300" role="img" aria-label="P
             f'3 analyse, 4 pièces, 5 mémoire, 6 dépôt et bilan ; 7 se faire connaître, en parallèle">', DEFS]
 parcours.append(boite(X[0], 14, W, H, "Ma fiche", "remplie une fois pour toutes", 1))
 parcours.append(boite(X[1], 14, W, H, "Veille", "consultations du BOAMP", 2))
-parcours.append(boite(X[2], 14, W, H, "Analyse", "verdict 🟢 🟠 🔴", 3))
+parcours.append(boite(X[2], 14, W, H, "Analyse", "avis 🟢 🟠 🔴", 3))
 parcours.append(boite(X[2], 132, W, H, "Pièces", "checklist et rétroplanning", 4))
 parcours.append(boite(X[1], 132, W, H, "Mémoire", "en Word, sans invention", 5))
 parcours.append(boite(X[0], 132, W, H, "Dépôt et bilan", "vous déposez vous-même", 6))
 parcours.append(fleche(X[0] + W, 43, X[1] - 2, 43))
 parcours.append(fleche(X[1] + W, 43, X[2] - 2, 43))
 parcours.append(fleche(X[2] + W / 2, 72, X[2] + W / 2, 130))
-parcours.append(f'<text x="{X[2] + W / 2 + 10}" y="106" font-family="{POLICE}" font-size="11.5" fill="#675F57">si on y va</text>')
+parcours.append(f'<text x="{X[2] + W / 2 + 10}" y="106" font-family="{POLICE}" font-size="11.5" fill="#675F57">si vous répondez</text>')
 parcours.append(fleche(X[2], 161, X[1] + W + 2, 161))
 parcours.append(fleche(X[1], 161, X[0] + W + 2, 161))
 # Retour des leçons du bilan (6) vers la veille (2) : passe entre les deux rangées, sans croiser de boîte.
