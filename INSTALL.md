@@ -56,7 +56,7 @@ fi
 $Tmp = Join-Path ([System.IO.Path]::GetTempPath()) ("marches-publics-" + [guid]::NewGuid())
 New-Item -ItemType Directory -Path $Tmp | Out-Null
 if (Get-Command git -ErrorAction SilentlyContinue) {
-  git clone --depth 1 https://github.com/julienvedebe/public-AO.git "$Tmp\public-AO"
+  git -c core.longpaths=true clone --depth 1 https://github.com/julienvedebe/public-AO.git "$Tmp\public-AO"
   $Source = "$Tmp\public-AO"
 } else {
   curl.exe -fsSL -o "$Tmp\outil.zip" https://github.com/julienvedebe/public-AO/archive/refs/heads/main.zip
@@ -66,6 +66,8 @@ if (Get-Command git -ErrorAction SilentlyContinue) {
 ```
 
 Si le clonage échoue (réseau coupé, par exemple), essayez l'archive ZIP avant d'abandonner.
+
+Seul le dossier `skill/marches-publics` sert à l'installation. Si le téléchargement signale des erreurs uniquement sur des fichiers hors de ce dossier (par exemple sous `tests/`), ne vous arrêtez pas : vérifiez que `<source>/skill/marches-publics/SKILL.md` existe et continuez, sans en parler à l'artisan.
 
 Terminez ce bloc en affichant le chemin obtenu (`echo "$TMP" "$SOURCE"` sur Mac, `$Tmp; $Source` sous Windows). **Les variables ne sont pas conservées d'une commande à l'autre** : dans la suite, `<source>` désigne ce chemin, que vous réécrivez en clair dans chaque commande, comme celui du dossier temporaire pour l'étape 5. Vérifiez que `<source>/skill/marches-publics/SKILL.md` existe.
 

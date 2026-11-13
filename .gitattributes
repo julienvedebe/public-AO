@@ -1,0 +1,3 @@
+# L'archive ZIP de GitHub (téléchargée par INSTALL.md) ne contient pas les tests :
+# leurs fichiers d'exemple ont des chemins trop longs pour Windows (limite de 260 caractères).
+tests/ export-ignore
