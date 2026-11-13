@@ -16,10 +16,21 @@ modele_path, corps_path, sortie_path = sys.argv[1:4]
 modele = open(modele_path, encoding="utf-8").read()
 corps = open(corps_path, encoding="utf-8").read()
 
-# À changer à chaque nouvelle version (et ajouter une ligne à l'historique dans corps.html).
+# Identité du document. Valeurs de la notice complète (corps.html) ; un autre corps peut les
+# remplacer par un commentaire en tête de fichier :
+#   <!-- document: titre="…" ref="2026-D-002" version="0.9" -->
+# À changer à chaque nouvelle version (et ajouter une ligne à l'historique du document s'il en a un).
 VERSION = "0.9"
 TITRE = "Marchés publics — Notice d'installation et d'utilisation"
-REF = f"Réf. 2026-D-001 · v{VERSION}"
+NUMERO = "2026-D-001"
+entete_doc = re.match(r"\s*<!--\s*document:(.*?)-->", corps, flags=re.S)
+if entete_doc:
+    champs = dict(re.findall(r'(\w+)="([^"]*)"', entete_doc.group(1)))
+    TITRE = champs.get("titre", TITRE)
+    NUMERO = champs.get("ref", NUMERO)
+    VERSION = champs.get("version", VERSION)
+    corps = corps[entete_doc.end():]
+REF = f"Réf. {NUMERO} · v{VERSION}"
 
 CSS_AJOUT = """
 /* ============================================================
@@ -120,7 +131,8 @@ pied_html = ('<footer class="doc-foot">\n      <div class="sas"><b>Picant3</b> �
              '      <div class="pg">{n} / {total}</div>\n    </footer>')
 
 total = corps.count('<section class="sheet')
-compteur = iter(range(2, total + 1))
+# Les feuilles sans pied de page (page de garde) comptent dans le total mais ne portent pas de numéro.
+compteur = iter(range(total - corps.count("__PIED__") + 1, total + 1))
 corps = corps.replace("__ENTETE__", entete)
 corps = corps.replace("__VERSION__", VERSION)
 corps = re.sub("__PIED__", lambda m: pied_html.format(n=next(compteur), total=total), corps)
