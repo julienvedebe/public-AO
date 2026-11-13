@@ -1,0 +1,1 @@
+Installe l'outil Marchés publics : lis le fichier {{ROOT}}/INSTALL.md et suis-le étape par étape. Ne modifie rien sur mon ordinateur en dehors de ce qu'il demande, et explique-moi chaque étape simplement.
