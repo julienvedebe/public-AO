@@ -19,6 +19,7 @@ Pendant l'installation et l'usage, votre ordinateur vous demande la permission a
 | Chercher des consultations | une commande `curl` vers `boamp-datadila.opendatasoft.com` | **Oui** |
 | Lire un dossier de consultation (DCE) que vous avez déposé | lecture de fichiers dans `Documents/Marchés publics`, parfois `unzip`, `textutil` ou `osascript` (Mac, pour lire un PDF) ou une commande PowerShell pour lire un Word ou un PDF | **Oui** |
 | Produire votre mémoire technique en Word (Mac) | une commande `bash` qui lance `memoire-vers-docx-mac.sh`, dans le dossier de l'outil `marches-publics`, et écrit un fichier `.docx` (ou `.rtf`) dans `Documents/Marchés publics` | **Oui** |
+| Produire votre mémoire technique en Word (Windows) | une commande `powershell -NoProfile -ExecutionPolicy Bypass -File` qui lance `memoire-vers-docx-windows.ps1`, dans le dossier de l'outil `marches-publics`. « Bypass » ne vaut que pour cette commande : il ne change aucun réglage de votre ordinateur | **Oui**, seulement pour ce script-là |
 | Retrouver qui a gagné une consultation (bilan) | une commande `curl` vers `data.economie.gouv.fr` (données des marchés attribués) ou `recherche-entreprises.api.gouv.fr` (nom d'une entreprise) | **Oui** |
 | Écrire vos fiches, analyses et lettres | écriture de fichiers dans `Documents/Marchés publics` | **Oui** |
 
