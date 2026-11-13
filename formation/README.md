@@ -1,6 +1,10 @@
 # Formation : supports remis aux artisans
 
-Ces documents vous accompagnent avant, pendant et après la formation. Lisez-les dans cet ordre.
+Ces documents vous accompagnent avant, pendant et après la formation.
+
+**Tout en un seul document** : la [notice d'installation et d'utilisation](notice/notice-utilisation.pdf) (16 pages A4, à imprimer ; [version HTML](notice/notice-utilisation.html)).
+
+Les fiches détaillées, à lire dans cet ordre :
 
 1. [Ce qu'il vous faut](prerequis.md) : l'ordinateur, le compte, le logiciel.
 2. [Installer l'outil](installation.md) : le message à copier et le QR code.
