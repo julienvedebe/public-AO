@@ -45,16 +45,25 @@ for s in "${scenarios[@]}"; do
     cp -R "$ROOT/skill/marches-publics" "$W/.claude/skills/"
   fi
 
-  prompt=$(sed "s|{{ROOT}}|$ROOT|g" "$dir/prompt.txt")
+  # Un message de l'artisan par tour ; les tours sont séparés par une ligne « --- ».
+  sed "s|{{ROOT}}|$ROOT|g" "$dir/prompt.txt" |
+    awk -v base="$W/tour-" 'BEGIN { n = 1 } /^---$/ { n++; next } { print > (base n ".txt") }'
+  tours=$(ls "$W"/tour-*.txt | wc -l | tr -d ' ')
 
   echo "▶ $s"
-  (
-    cd "$W" &&
-    MARCHES_PUBLICS_DOSSIER="$D" \
-    MARCHES_PUBLICS_SKILLS_DIR="$S" \
-    MARCHES_PUBLICS_SOURCE="$ROOT" \
-    "$CLAUDE_BIN" -p "$prompt" --permission-mode bypassPermissions
-  ) > "$W/sortie.txt" 2>&1
+  : > "$W/sortie.txt"
+  for i in $(seq 1 "$tours"); do
+    suite=()
+    [ "$i" -gt 1 ] && suite=(--continue)
+    (
+      cd "$W" &&
+      MARCHES_PUBLICS_DOSSIER="$D" \
+      MARCHES_PUBLICS_SKILLS_DIR="$S" \
+      MARCHES_PUBLICS_SOURCE="$ROOT" \
+      "$CLAUDE_BIN" -p "$(cat "$W/tour-$i.txt")" ${suite[@]+"${suite[@]}"} --permission-mode bypassPermissions
+    ) > "$W/sortie-$i.txt" 2>&1
+    { echo "=== tour $i"; cat "$W/sortie-$i.txt"; echo; } >> "$W/sortie.txt"
+  done
 
   if ROOT="$ROOT" W="$W" D="$D" S="$S" SORTIE="$W/sortie.txt" bash "$dir/check.sh"; then
     echo "✓ $s"
