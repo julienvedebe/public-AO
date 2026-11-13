@@ -67,11 +67,11 @@ if (Get-Command git -ErrorAction SilentlyContinue) {
 
 Si le clonage échoue (réseau coupé, par exemple), essayez l'archive ZIP avant d'abandonner.
 
-`<source>` désigne ensuite le dossier du dépôt (`$SOURCE` ou `$Source`). Vérifiez que `<source>/skill/marches-publics/SKILL.md` existe.
+Terminez ce bloc en affichant le chemin obtenu (`echo "$TMP" "$SOURCE"` sur Mac, `$Tmp; $Source` sous Windows). **Les variables ne sont pas conservées d'une commande à l'autre** : dans la suite, `<source>` désigne ce chemin, que vous réécrivez en clair dans chaque commande, comme celui du dossier temporaire pour l'étape 5. Vérifiez que `<source>/skill/marches-publics/SKILL.md` existe.
 
 ## Étape 3 : installer l'outil
 
-Le dossier de destination est celui du tableau de l'étape 1, sauf si la variable d'environnement `MARCHES_PUBLICS_SKILLS_DIR` est définie : utilisez alors `$MARCHES_PUBLICS_SKILLS_DIR/marches-publics`, quel que soit l'agent.
+Le dossier de destination est celui du tableau de l'étape 1, sauf si la variable d'environnement `MARCHES_PUBLICS_SKILLS_DIR` est définie : utilisez alors `$MARCHES_PUBLICS_SKILLS_DIR/marches-publics`, quel que soit l'agent. Comme `MARCHES_PUBLICS_SOURCE` et `MARCHES_PUBLICS_DOSSIER`, elle sert aux tests : ne mentionnez aucune de ces variables à l'artisan, ni les emplacements inhabituels qu'elles donnent.
 
 Remplacez entièrement l'ancienne version s'il y en a une, puis copiez la nouvelle. Ne touchez à rien d'autre que ce dossier `marches-publics`.
 
@@ -81,7 +81,7 @@ Mac, Claude Code (pour Codex, remplacez `.claude` par `.agents`) :
 DEST="${MARCHES_PUBLICS_SKILLS_DIR:-$HOME/.claude/skills}/marches-publics"
 mkdir -p "$(dirname "$DEST")"
 rm -rf "$DEST"
-cp -R "$SOURCE/skill/marches-publics" "$DEST"
+cp -R "<source>/skill/marches-publics" "$DEST"
 ```
 
 Windows, Claude Code (pour Codex, remplacez `.claude` par `.agents`) :
@@ -91,7 +91,7 @@ $Base = if ($env:MARCHES_PUBLICS_SKILLS_DIR) { $env:MARCHES_PUBLICS_SKILLS_DIR }
 $Dest = Join-Path $Base "marches-publics"
 New-Item -ItemType Directory -Force -Path $Base | Out-Null
 if (Test-Path $Dest) { Remove-Item -Recurse -Force $Dest }
-Copy-Item -Recurse "$Source\skill\marches-publics" $Dest
+Copy-Item -Recurse "<source>\skill\marches-publics" $Dest
 ```
 
 Vérifiez que `SKILL.md` existe dans le dossier de destination.
@@ -102,7 +102,7 @@ Lisez `<source>/skill/marches-publics/references/dossier-de-travail.md` et crée
 
 ## Étape 5 : nettoyer
 
-Si vous avez créé un dossier temporaire à l'étape 2, supprimez-le (`rm -rf "$TMP"` sur Mac, `Remove-Item -Recurse -Force $Tmp` sous Windows).
+Si vous avez créé un dossier temporaire à l'étape 2, supprimez-le, en réécrivant son chemin en clair (`rm -rf "<dossier temporaire>"` sur Mac, `Remove-Item -Recurse -Force "<dossier temporaire>"` sous Windows).
 
 ## Étape 6 : passer la main à l'artisan
 
