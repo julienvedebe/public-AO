@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Picant3 — Modèle de document technique (spécification / notice)</title>
+<style>
+/* ============================================================
+   Picant3 — MODÈLE DE DOCUMENT TECHNIQUE
+   Spécification fonctionnelle / technique, ou notice d'utilisation.
+   Dérivé de devis/proposition-commerciale-modele.html : même
+   déclinaison CLAIRE (DESIGN.md §14), même chrome de page.
+   Tokens recopiés de tokens-clair.css. Autonome, aucun CDN.
+   ------------------------------------------------------------
+   Deux règles dures tenues :
+   1) La framboise #e11d48 n'est JAMAIS du texte — accent texte
+      = --accent-ink #A31232 (7,07:1 sur papier).
+   2) Tout libellé blanc sur le dégradé est >= 19px/700.
+   Écart assumé : --font-mono (extraits de code), absent du
+   système — voir MODE-EMPLOI.md §4.
+   ============================================================ */
+:root{
+  --paper:#F7F3EF; --sheet:#FFFDFB; --wash:#EFEAE4; --well:#E9E2DB; --sheet-hover:#F2EDE7;
+  --ink:#201D1A; --ink-soft:#46413C; --ink-muted:#675F57;
+  --accent-ink:#A31232; --accent-wash:#FCE9EA;
+  --raspberry:#e11d48; --orange:#ea580c;
+  --grad-spicy:linear-gradient(135deg,#e11d48 0%,#ea580c 100%);
+  --border:rgba(31,26,22,.12); --border-strong:rgba(31,26,22,.24);
+  --r-card:16px; --r-ctrl:12px; --r-sm:8px; --r-pill:999px;
+  --font-display:'Outfit','Outfit Fallback',ui-sans-serif,system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --font-body:'Plus Jakarta Sans','Plus Jakarta Sans Fallback',ui-sans-serif,system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:#d9d3cc; /* teinte atelier — ÉCRAN seulement */
+  color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; padding:32px 16px;
+}
+
+/* ---- Note de lecture (écran seulement) ---- */
+.viewer-note{
+  max-width:210mm; margin:0 auto 24px; color:#4a453f; font-size:13px; line-height:1.6;
+  background:#fbf8f5; border:1px solid rgba(31,26,22,.14); border-radius:12px; padding:14px 18px;
+}
+.viewer-note strong{color:#201D1A;font-weight:700}
+.viewer-note .k{color:#A31232;font-weight:700}
+.viewer-note code{background:var(--wash);border:1px solid var(--border);border-radius:5px;padding:.05em .4em;font-size:12px}
+
+/* ---- Feuille A4 ---- */
+.sheet{
+  width:210mm; min-height:297mm; margin:0 auto 28px; position:relative;
+  background:var(--paper); color:var(--ink); overflow:hidden;
+  display:flex; flex-direction:column;
+  box-shadow:0 2px 6px rgba(0,0,0,.14),0 24px 60px -30px rgba(0,0,0,.5);
+}
+.pad{padding:22mm 20mm 0; flex:1; display:flex; flex-direction:column}
+.spine{position:absolute;top:0;left:0;bottom:0;width:8px;background:var(--grad-spicy)}
+
+/* ---- Typo ---- */
+.eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent-ink);display:inline-flex;align-items:center;gap:.5rem;
+}
+.eyebrow svg{width:15px;height:15px;stroke-width:1.8;flex:none}
+h1{font-family:var(--font-display);font-weight:700;font-size:46px;line-height:1.05;letter-spacing:-.03em;color:var(--ink)}
+h2{font-family:var(--font-display);font-weight:700;font-size:30px;line-height:1.08;letter-spacing:-.025em;color:var(--ink)}
+h2 em{font-style:normal;color:var(--accent-ink)}
+h3{font-family:var(--font-display);font-weight:600;font-size:19px;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.h-sub{margin:1.5rem 0 .7rem;display:flex;align-items:baseline;gap:.6rem}
+.h-sub .n{font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--accent-ink);font-variant-numeric:tabular-nums}
+.lead{font-size:17px;line-height:1.55;color:var(--ink-soft);max-width:64ch}
+p{font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+p+p{margin-top:.6rem}
+.muted{color:var(--ink-muted)}
+
+/* ---- Marque typographique (§14.8 : jamais de raster posé nu) ---- */
+.wordmark{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-.02em;color:var(--ink);line-height:1}
+.wordmark b{color:var(--accent-ink);font-weight:700}
+.mark-chip{
+  width:34px;height:34px;border-radius:9px;background:var(--grad-spicy);
+  display:inline-grid;place-items:center;color:#fff;font-family:var(--font-display);
+  font-weight:700;font-size:19px;line-height:1;flex:none;
+}
+.brand{display:inline-flex;align-items:center;gap:.6rem}
+
+/* ---- Zones à remplir ---- */
+.fill{
+  display:inline-flex;align-items:center;gap:.35em;
+  padding:.12em .6em;border:1px dashed var(--border-strong);border-radius:6px;
+  background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(31,26,22,.035) 6px 12px),var(--wash);
+  color:var(--ink-muted);font-size:12.5px;font-weight:600;letter-spacing:.02em;line-height:1.4;
+}
+.fill::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--orange);flex:none}
+.ph{color:var(--accent-ink);font-weight:600}
+.ph::before{content:"[ "} .ph::after{content:" ]"}
+
+/* ---- Usage de section : ÉCRAN seulement, retiré à l'impression ---- */
+.usage{display:inline-flex;align-items:center;gap:.4rem;margin-left:.9rem;vertical-align:middle;
+  font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
+  background:var(--wash);border:1px dashed var(--border-strong);border-radius:var(--r-pill);padding:.25rem .7rem}
+.usage svg{width:13px;height:13px;stroke-width:1.8}
+
+/* ---- En-tête courant + pied de page ---- */
+.run-head{display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:.8rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+.run-head .r{color:var(--ink-muted);font-size:11.5px;letter-spacing:.05em;text-align:right;line-height:1.5}
+.flow{flex:1}
+.doc-foot{margin:1.6rem -20mm 0;background:var(--well);border-top:1px solid var(--border);
+  padding:6mm 20mm;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.doc-foot .sas{font-size:11px;color:var(--ink-muted);line-height:1.6;max-width:66ch}
+.doc-foot .sas b{color:var(--ink);font-weight:700}
+.doc-foot .pg{font-size:11px;color:var(--ink-muted);letter-spacing:.06em;white-space:nowrap;font-weight:600}
+
+.kicker{font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1;letter-spacing:-.03em;
+  color:transparent;-webkit-text-stroke:1.2px rgba(163,18,50,.32);display:inline-block;vertical-align:middle}
+.sec-head{margin-bottom:1.2rem}
+.sec-head h2{margin:.3rem 0 .6rem}
+
+/* ===================== PAGE DE GARDE ===================== */
+.cover .pad{padding-bottom:22mm}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start}
+.ref{text-align:right;color:var(--ink-muted);font-size:12px;letter-spacing:.06em;line-height:1.9}
+.ref .lbl{text-transform:uppercase;font-size:10.5px;letter-spacing:.1em}
+.ref b{color:var(--ink);font-weight:700}
+.cover-hero{margin-top:auto;max-width:160mm}
+.cover-hero h1{margin:1.1rem 0 1.2rem}
+.client{font-size:17px;color:var(--ink-soft);line-height:1.6;max-width:58ch}
+.grad-rule{height:6px;width:120px;border-radius:999px;background:var(--grad-spicy);margin:1.8rem 0 0}
+.cover-grid{margin-top:auto;padding-top:9mm;display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:16px 24px;border-top:1px solid var(--border)}
+.cover-cell .cl{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--ink-muted);font-weight:600;margin-bottom:.35rem}
+.cover-cell .cv{font-size:14px;color:var(--ink);font-weight:600;line-height:1.5}
+.ghost-num{position:absolute;right:-4mm;top:112mm;font-family:var(--font-display);font-weight:700;font-size:190px;
+  line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.4px rgba(163,18,50,.16);
+  -webkit-user-select:none;user-select:none;pointer-events:none;}
+
+/* ---- Pastilles d'état : toujours un libellé, jamais la couleur seule ---- */
+.pill{display:inline-flex;align-items:center;gap:.4rem;border-radius:var(--r-pill);padding:.15rem .65rem;
+  font-size:11.5px;font-weight:600;letter-spacing:.03em;line-height:1.5;white-space:nowrap;border:1px solid var(--border)}
+.pill::before{content:"";width:6px;height:6px;border-radius:999px;flex:none}
+.pill.draft{background:var(--wash);color:var(--ink)} .pill.draft::before{background:var(--orange)}
+.pill.must{background:var(--accent-wash);color:var(--accent-ink);border-color:rgba(163,18,50,.22)} .pill.must::before{background:var(--raspberry)}
+.pill.should{background:var(--wash);color:var(--ink)} .pill.should::before{background:var(--ink-soft)}
+.pill.may{background:transparent;color:var(--ink-muted);border-style:dashed} .pill.may::before{background:transparent;border:1px solid var(--ink-muted)}
+.pill.open{background:var(--accent-wash);color:var(--accent-ink);border-color:rgba(163,18,50,.22)} .pill.open::before{background:var(--raspberry)}
+.pill.done{background:var(--sheet);color:var(--ink-soft)} .pill.done::before{background:var(--ink-soft)}
+
+/* ===================== BLOCS ===================== */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:var(--sheet);border:1px solid var(--border);border-radius:var(--r-card);padding:1rem 1.15rem}
+.card h3{margin-bottom:.5rem;font-size:16px}
+.card p{font-size:13.5px;line-height:1.55}
+.cl-cap{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-muted);font-weight:600;margin-bottom:.4rem}
+
+.tile-icon{flex:none;width:36px;height:36px;border-radius:var(--r-ctrl);background:var(--wash);
+  border:1px solid var(--border);display:grid;place-items:center;color:var(--accent-ink)}
+.tile-icon svg{width:19px;height:19px;stroke-width:1.7}
+
+.chk{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.chk li{display:flex;gap:.6rem;align-items:flex-start;font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+.chk li svg{width:18px;height:18px;stroke-width:1.8;flex:none;margin-top:1px;color:var(--accent-ink)}
+.chk li b{color:var(--ink);font-weight:600}
+.chk.excl li svg{color:var(--ink-muted)}
+
+/* ---- Encadrés NOTE / ATTENTION : libellé écrit + icône, jamais une barre de couleur seule ---- */
+.admon{display:flex;gap:.9rem;align-items:flex-start;border:1px solid var(--border-strong);
+  border-radius:var(--r-ctrl);padding:.9rem 1.1rem;margin-top:1.1rem;break-inside:avoid}
+.admon svg{width:20px;height:20px;stroke-width:1.8;flex:none;margin-top:2px}
+.admon .tag{display:block;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.15rem}
+.admon p{font-size:13px;line-height:1.55}
+.admon.note{background:var(--sheet)} .admon.note svg,.admon.note .tag{color:var(--ink)}
+.admon.warn{background:var(--accent-wash);border-color:rgba(163,18,50,.3)} .admon.warn svg,.admon.warn .tag{color:var(--accent-ink)}
+
+/* ---- Sommaire ---- */
+.toc{list-style:none;border-top:1px solid var(--border)}
+.toc li{display:grid;grid-template-columns:34px 1fr auto;align-items:baseline;gap:.6rem;
+  padding:.62rem 0;border-bottom:1px solid var(--border)}
+.toc .n{font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--accent-ink);font-variant-numeric:tabular-nums}
+.toc .t{font-size:14.5px;color:var(--ink);font-weight:500;display:flex;align-items:baseline;gap:.5rem;min-width:0}
+.toc .t::after{content:"";flex:1;border-bottom:1px dotted var(--border-strong);transform:translateY(-3px)}
+.toc .p{font-size:13px;color:var(--ink-muted);font-variant-numeric:tabular-nums;font-weight:600}
+
+/* ---- Tableau (chiffres tabulaires, alignés à droite) ---- */
+.table-wrap{border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;break-inside:avoid}
+table{width:100%;border-collapse:collapse;font-size:13px;break-inside:avoid}
+thead th{background:var(--wash);color:var(--ink);text-align:left;font-weight:700;
+  font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;padding:.7rem .9rem;border-bottom:1px solid var(--border)}
+tbody td{padding:.6rem .9rem;border-bottom:1px solid var(--border);color:var(--ink-soft);vertical-align:top;line-height:1.5}
+tbody tr:last-child td{border-bottom:none}
+tbody td.id{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:12.5px;letter-spacing:.02em}
+tbody td.name{color:var(--ink);font-weight:600}
+tbody td.nw{white-space:nowrap}
+tbody tr{break-inside:avoid}
+tr.current td{background:var(--accent-wash)}
+.tbl-note{font-size:11.5px;color:var(--ink-muted);margin-top:.55rem;line-height:1.5}
+
+/* ---- Glossaire ---- */
+.terms{display:flex;flex-direction:column;gap:.8rem}
+.term{display:grid;grid-template-columns:40mm 1fr;gap:1.2rem;padding-bottom:.8rem;border-bottom:1px solid var(--border)}
+.term:last-child{border-bottom:none;padding-bottom:0}
+.term dt{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink);letter-spacing:-.01em}
+.term dd{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.term dd .kw{font-weight:700;color:var(--ink);letter-spacing:.04em}
+
+/* ---- Extrait de code ---- */
+.code{margin-top:.2rem;background:var(--wash);border:1px solid var(--border);border-radius:var(--r-ctrl);
+  padding:.85rem 1.1rem;font-family:var(--font-mono);font-size:12.5px;line-height:1.65;color:var(--ink);
+  white-space:pre-wrap;word-break:break-word;break-inside:avoid}
+.code .ph{font-family:var(--font-body);font-size:12px}
+.code .c{color:var(--ink-muted)}
+.caption{font-size:11.5px;color:var(--ink-muted);margin-top:.45rem;line-height:1.5}
+.caption b{color:var(--ink);font-weight:600}
+code.i{font-family:var(--font-mono);font-size:.9em;background:var(--wash);border:1px solid var(--border);border-radius:5px;padding:.02em .35em;color:var(--ink)}
+
+/* ---- Procédure en étapes ---- */
+.steps{list-style:none;counter-reset:st;display:flex;flex-direction:column;position:relative}
+.step{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:.9rem;position:relative;padding-bottom:1rem;break-inside:avoid}
+.step:not(:last-child)::after{content:"";position:absolute;left:14px;top:32px;bottom:2px;width:2px;background:var(--border)}
+.step::before{content:counter(st);width:30px;height:30px;border-radius:999px;border:2px solid var(--raspberry);
+  background:var(--paper);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;
+  font-size:14px;color:var(--accent-ink);line-height:1}
+.step h3{font-size:16px;margin:.3rem 0 .25rem}
+.step p{font-size:13.5px;line-height:1.55}
+.step .expect{margin-top:.4rem;font-size:12.5px;color:var(--ink-soft);display:flex;gap:.45rem;align-items:flex-start}
+.step .expect svg{width:16px;height:16px;stroke-width:1.8;flex:none;margin-top:2px;color:var(--accent-ink)}
+.step .expect b{color:var(--ink);font-weight:600}
+
+/* ---- Emplacement de figure (jamais une fausse capture) ---- */
+.figure-slot{aspect-ratio:3/2;border:1px dashed var(--border-strong);border-radius:var(--r-card);
+  background:repeating-linear-gradient(135deg,transparent 0 8px,rgba(31,26,22,.035) 8px 16px),var(--wash);
+  display:grid;place-content:center;justify-items:center;gap:.5rem;text-align:center;padding:1rem;color:var(--ink-muted)}
+.figure-slot svg{width:28px;height:28px;stroke-width:1.5}
+.figure-slot span{font-size:12px;font-weight:600;letter-spacing:.02em;max-width:26ch;line-height:1.45}
+
+/* ---- Validation ---- */
+.sign-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sign-box{border:1px solid var(--border-strong);border-radius:var(--r-card);padding:1rem 1.05rem 1.2rem;background:var(--sheet)}
+.sign-box .who{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink)}
+.sign-box .role{font-size:11.5px;color:var(--ink-muted);margin-bottom:.4rem}
+.sign-row{font-size:12px;color:var(--ink-muted);line-height:2.5;display:flex;align-items:baseline;gap:.4rem}
+.sign-row .ln{flex:1;border-bottom:1px solid var(--ink-muted)}
+.sign-row.tall{height:58px;align-items:flex-start}
+.legal{margin-top:1.2rem;font-size:11.5px;color:var(--ink-muted);line-height:1.6;max-width:80ch}
+
+/* ============================================================
+   IMPRESSION
+   ============================================================ */
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff}
+  body{padding:0}
+  .viewer-note,.usage{display:none}
+  .sheet{box-shadow:none;margin:0;width:auto;min-height:297mm;page-break-after:always;break-after:page}
+  .sheet:last-child{page-break-after:auto;break-after:auto}
+  .table-wrap,table,tr,.card,.admon,.term,.sign-box,.step,.code,.figure-slot{break-inside:avoid;page-break-inside:avoid}
+  .spine,.grad-rule,.mark-chip,thead th,tr.current td,.doc-foot,.fill,.pill,.admon,.code,.figure-slot,.step::before,code.i{
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+}
+
+/* ---- Écran étroit ---- */
+@media screen and (max-width:820px){ /* écran seulement : imprimée, une page A4 fait 794 px de large */
+  body{padding:16px 0}
+  .sheet{width:100%;min-height:auto}
+  .pad{padding:22px 18px 0}
+  .doc-foot{margin:1.6rem -18px 0;padding:16px 18px;flex-direction:column;align-items:flex-start}
+  .ghost-num{display:none}
+  .grid-2,.sign-grid{grid-template-columns:1fr}
+  .cover-grid{grid-template-columns:1fr 1fr}
+  .term{grid-template-columns:1fr;gap:.3rem}
+  .table-wrap{overflow-x:auto}
+  table{min-width:520px}
+  .usage{margin:.5rem 0 0;display:flex;width:max-content}
+  h1{font-size:34px}
+}
+</style>
+</head>
+<body>
+
+<!-- Sprite d'icônes monoline (currentColor) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></symbol>
+  </defs>
+</svg>
+
+<div class="viewer-note" data-od-id="viewer-note">
+  <strong>Picant3 — modèle de document technique.</strong> Huit pages A4 pour rédiger une
+  <span class="k">spécification</span> (fonctionnelle ou technique) ou une <span class="k">notice</span> (installation, utilisation, exploitation).
+  Les zones à renseigner apparaissent comme <span class="fill">à compléter</span> ou <span class="ph">crochets</span>.
+  Chaque section porte une pastille d'usage pointillée — <em style="font-style:normal;font-weight:600">Commun</em>, <em style="font-style:normal;font-weight:600">Spécification</em> ou <em style="font-style:normal;font-weight:600">Notice</em> —
+  qui indique quoi garder&#8239;; elle disparaît à l'impression. Voir <code>MODE-EMPLOI.md</code>.
+</div>
+
+
+<!-- ==================== PAGE 1 — PAGE DE GARDE ==================== -->
+<section class="sheet cover" data-od-id="page-garde" aria-label="Page de garde">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="ghost-num" aria-hidden="true">3</div>
+  <div class="pad">
+    <div class="cover-top">
+      <div class="brand" data-od-id="cover-brand">
+        <span class="mark-chip" aria-hidden="true">3</span>
+        <span class="wordmark">Picant<b>3</b></span>
+      </div>
+      <div class="ref" data-od-id="cover-ref">
+        <span class="lbl">Document technique</span><br>
+        Réf. <b><span class="ph">AAAA-D-000</span></b><br>
+        Version <b>0.1</b>
+      </div>
+    </div>
+
+    <div class="cover-hero" data-od-id="cover-hero">
+      <span class="eyebrow">
+        <svg aria-hidden="true"><use href="#i-doc"/></svg>
+        <span class="ph">Spécification · Notice</span>
+      </span>
+      <h1><span class="ph">Titre du document</span></h1>
+      <p class="client"><span class="ph">Objet en une phrase&#8239;: le système, la fonction ou l'opération décrite, et pour qui</span>.</p>
+      <div class="grad-rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="cover-grid" data-od-id="cover-grid">
+      <div class="cover-cell"><span class="cl">Projet</span><span class="cv"><span class="ph">Nom du projet</span></span></div>
+      <div class="cover-cell"><span class="cl">Client</span><span class="cv"><span class="ph">Raison sociale ou « Interne »</span></span></div>
+      <div class="cover-cell"><span class="cl">Statut</span><span class="cv"><span class="pill draft">Brouillon</span></span></div>
+      <div class="cover-cell"><span class="cl">Rédigé par</span><span class="cv"><span class="ph">Prénom Nom</span></span></div>
+      <div class="cover-cell"><span class="cl">Date</span><span class="cv"><span class="ph">jj mois aaaa</span></span></div>
+      <div class="cover-cell"><span class="cl">Diffusion</span><span class="cv"><span class="ph">Interne · Client · Confidentiel</span></span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== PAGE 2 — SOMMAIRE & SUIVI ==================== -->
+<section class="sheet" data-od-id="page-suivi" aria-label="Sommaire et suivi du document">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    <header class="run-head"><div class="brand"><span class="wordmark">Picant<b>3</b></span></div>
+      <div class="r"><span class="ph">Titre du document</span><br>Réf. <span class="ph">AAAA-D-000</span> · v0.1</div></header>
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-sommaire">
+        <h2>Sommaire</h2>
+      </div>
+      <ol class="toc" data-od-id="sommaire">
+        <li><span class="n">01</span><span class="t">Objet et périmètre</span><span class="p">3</span></li>
+        <li><span class="n">02</span><span class="t">Définitions et conventions</span><span class="p">4</span></li>
+        <li><span class="n">03</span><span class="t">Exigences</span><span class="p">5</span></li>
+        <li><span class="n">04</span><span class="t">Mode opératoire</span><span class="p">6</span></li>
+        <li><span class="n">05</span><span class="t">Dépannage et points ouverts</span><span class="p">7</span></li>
+        <li><span class="n">06</span><span class="t">Annexes et validation</span><span class="p">8</span></li>
+      </ol>
+
+      <h3 style="margin:2rem 0 .8rem">Historique des versions</h3>
+      <div class="table-wrap" data-od-id="historique-versions">
+        <table>
+          <thead><tr><th scope="col">Version</th><th scope="col">Date</th><th scope="col">Auteur</th><th scope="col">Nature des modifications</th></tr></thead>
+          <tbody>
+            <tr class="current"><td class="id">0.1</td><td class="nw"><span class="ph">jj/mm/aaaa</span></td><td class="nw"><span class="ph">Initiales</span></td><td>Création du document.</td></tr>
+            <tr><td class="id"><span class="fill">—</span></td><td><span class="fill">—</span></td><td><span class="fill">—</span></td><td><span class="ph">Sections modifiées et raison du changement</span></td></tr>
+            <tr><td class="id"><span class="fill">—</span></td><td><span class="fill">—</span></td><td><span class="fill">—</span></td><td><span class="ph">Sections modifiées et raison du changement</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">La ligne surlignée est la version en vigueur. Numérotation&#8239;: 0.x tant que le document est en rédaction, 1.0 à la première validation, puis 1.1, 1.2… pour chaque révision validée.</p>
+
+      <div class="grid-2" style="margin-top:1.4rem" data-od-id="diffusion">
+        <div class="card"><span class="cl-cap">Destinataires</span><p><span class="ph">Personnes ou équipes qui reçoivent ce document</span></p></div>
+        <div class="card"><span class="cl-cap">Emplacement de référence</span><p><span class="ph">Où se trouve la version à jour — dépôt, espace partagé, lien</span></p></div>
+      </div>
+    </div>
+    <footer class="doc-foot">
+      <div class="sas"><b>Picant3</b> — SAS au capital de 2&#8239;000&#8239;€, en cours d'immatriculation au RCS d'Aix-en-Provence · Eguilles (13). contact@picant3.com</div>
+      <div class="pg">2 / 8</div>
+    </footer>
+  </div>
+</section>
+
+
+<!-- ==================== PAGE 3 — 01 OBJET & PÉRIMÈTRE ==================== -->
+<section class="sheet" data-od-id="page-objet" aria-label="Objet et périmètre">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    <header class="run-head"><div class="brand"><span class="wordmark">Picant<b>3</b></span></div>
+      <div class="r"><span class="ph">Titre du document</span><br>Réf. <span class="ph">AAAA-D-000</span> · v0.1</div></header>
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-objet">
+        <div class="kicker" aria-hidden="true">01</div><span class="usage"><svg aria-hidden="true"><use href="#i-layers"/></svg>Commun</span>
+        <h2>Objet et <em>périmètre</em>.</h2>
+        <p class="lead"><span class="ph">Deux ou trois phrases&#8239;: ce que décrit ce document, le problème qu'il règle, et la décision ou l'action qu'il doit permettre à son lecteur</span>.</p>
+      </div>
+
+      <div class="grid-2" data-od-id="lecteurs">
+        <div class="card"><span class="cl-cap">À qui s'adresse ce document</span><p><span class="ph">Profil du lecteur&#8239;: développeur, chef de projet, utilisateur final, exploitant</span></p></div>
+        <div class="card"><span class="cl-cap">Ce qu'il faut savoir avant de lire</span><p><span class="ph">Connaissances ou accès supposés acquis</span></p></div>
+      </div>
+
+      <div class="grid-2" style="margin-top:1.4rem" data-od-id="perimetre">
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Couvert par ce document</h3>
+          <ul class="chk">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b><span class="ph">Fonction ou composant</span></b> — <span class="ph">précision</span>.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b><span class="ph">Fonction ou composant</span></b> — <span class="ph">précision</span>.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b><span class="ph">Environnement visé</span></b> — <span class="ph">version, plateforme</span>.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Hors périmètre</h3>
+          <ul class="chk excl">
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span><b><span class="ph">Élément exclu</span></b> — et où il est traité, le cas échéant.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span><b><span class="ph">Élément exclu</span></b> — <span class="ph">renvoi</span>.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin:1.6rem 0 .7rem">Documents de référence</h3>
+      <div class="table-wrap" data-od-id="documents-reference">
+        <table>
+          <thead><tr><th scope="col">Réf.</th><th scope="col">Titre</th><th scope="col">Version</th><th scope="col">Emplacement</th></tr></thead>
+          <tbody>
+            <tr><td class="id">R1</td><td><span class="ph">Cahier des charges, proposition commerciale…</span></td><td class="nw"><span class="fill">—</span></td><td><span class="ph">lien ou chemin</span></td></tr>
+            <tr><td class="id">R2</td><td><span class="ph">Spécification amont, maquettes…</span></td><td class="nw"><span class="fill">—</span></td><td><span class="ph">lien ou chemin</span></td></tr>
+            <tr><td class="id">R3</td><td><span class="ph">Norme, documentation éditeur…</span></td><td class="nw"><span class="fill">—</span></td><td><span class="ph">lien ou chemin</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">Dans le corps du texte, citez une référence par son identifiant entre crochets&#8239;: «&#8239;voir [R1], §3&#8239;».</p>
+    </div>
+    <footer class="doc-foot">
+      <div class="sas"><b>Picant3</b> — SAS au capital de 2&#8239;000&#8239;€, en cours d'immatriculation au RCS d'Aix-en-Provence · Eguilles (13). contact@picant3.com</div>
+      <div class="pg">3 / 8</div>
+    </footer>
+  </div>
+</section>
+
+
+<!-- ==================== PAGE 4 — 02 DÉFINITIONS & CONVENTIONS ==================== -->
+<section class="sheet" data-od-id="page-conventions" aria-label="Définitions et conventions">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    <header class="run-head"><div class="brand"><span class="wordmark">Picant<b>3</b></span></div>
+      <div class="r"><span class="ph">Titre du document</span><br>Réf. <span class="ph">AAAA-D-000</span> · v0.1</div></header>
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-conventions">
+        <div class="kicker" aria-hidden="true">02</div><span class="usage"><svg aria-hidden="true"><use href="#i-layers"/></svg>Commun</span>
+        <h2>Définitions et <em>conventions</em>.</h2>
+        <p class="lead">Un mot, un sens. Les termes ci-dessous sont employés dans ce sens précis et dans aucun autre, d'un bout à l'autre du document.</p>
+      </div>
+
+      <dl class="terms" data-od-id="glossaire">
+        <div class="term"><dt><span class="ph">Terme</span></dt><dd><span class="ph">Définition en une phrase, sans renvoyer au terme lui-même</span>.</dd></div>
+        <div class="term"><dt><span class="ph">Terme</span></dt><dd><span class="ph">Définition</span>.</dd></div>
+        <div class="term"><dt><span class="ph">Sigle</span></dt><dd><span class="ph">Forme développée</span> — <span class="ph">sens dans ce document</span>.</dd></div>
+      </dl>
+
+      <h3 style="margin:1.6rem 0 .8rem">Niveaux d'exigence</h3>
+      <dl class="terms" data-od-id="niveaux-exigence">
+        <div class="term"><dt><span class="pill must">Obligatoire</span></dt><dd>Formulé avec <span class="kw">DOIT</span>. Condition de recette&#8239;: si elle n'est pas tenue, le livrable est refusé.</dd></div>
+        <div class="term"><dt><span class="pill should">Souhaitable</span></dt><dd>Formulé avec <span class="kw">DEVRAIT</span>. Attendu, sauf raison documentée de s'en écarter.</dd></div>
+        <div class="term"><dt><span class="pill may">Optionnelle</span></dt><dd>Formulé avec <span class="kw">PEUT</span>. Laissé au choix de l'équipe, sans incidence sur la recette.</dd></div>
+      </dl>
+
+      <h3 style="margin:1.6rem 0 .3rem">Conventions de lecture</h3>
+      <ul class="chk" style="margin-top:.6rem" data-od-id="conventions-lecture">
+        <li><svg aria-hidden="true"><use href="#i-arrow"/></svg><span>Les commandes, fichiers et valeurs techniques sont en <code class="i">police à chasse fixe</code>.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-arrow"/></svg><span>Les libellés d'écran sont en gras, tels qu'ils s'affichent&#8239;: <b>Enregistrer</b>, <b>Paramètres</b>.</span></li>
+      </ul>
+      <div class="grid-2" style="align-items:stretch">
+      <div class="admon note" data-od-id="exemple-note">
+        <svg aria-hidden="true"><use href="#i-info"/></svg>
+        <div><span class="tag">Note</span><p>Une information utile qui n'empêche pas d'avancer&#8239;: un raccourci, une précision, un renvoi.</p></div>
+      </div>
+      <div class="admon warn" data-od-id="exemple-attention">
+        <svg aria-hidden="true"><use href="#i-warn"/></svg>
+        <div><span class="tag">Attention</span><p>Un risque de perte de données, d'interruption de service ou d'action irréversible. À lire avant d'exécuter l'étape qui suit.</p></div>
+      </div>
+      </div>
+    </div>
+    <footer class="doc-foot">
+      <div class="sas"><b>Picant3</b> — SAS au capital de 2&#8239;000&#8239;€, en cours d'immatriculation au RCS d'Aix-en-Provence · Eguilles (13). contact@picant3.com</div>
+      <div class="pg">4 / 8</div>
+    </footer>
+  </div>
+</section>
+
+
+<!-- ==================== PAGE 5 — 03 EXIGENCES ==================== -->
+<section class="sheet" data-od-id="page-exigences" aria-label="Exigences">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    <header class="run-head"><div class="brand"><span class="wordmark">Picant<b>3</b></span></div>
+      <div class="r"><span class="ph">Titre du document</span><br>Réf. <span class="ph">AAAA-D-000</span> · v0.1</div></header>
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-exigences">
+        <div class="kicker" aria-hidden="true">03</div><span class="usage"><svg aria-hidden="true"><use href="#i-layers"/></svg>Spécification</span>
+        <h2>Les <em>exigences</em>.</h2>
+        <p class="lead">Une ligne, une exigence vérifiable. Chacune porte un identifiant stable&#8239;: il ne change jamais, même si l'exigence est retirée.</p>
+      </div>
+
+      <div class="table-wrap" data-od-id="table-exigences">
+        <table>
+          <thead><tr><th scope="col" style="width:62px">ID</th><th scope="col">Exigence</th><th scope="col" style="width:112px">Niveau</th><th scope="col" style="width:30%">Critère d'acceptation</th></tr></thead>
+          <tbody>
+            <tr><td class="id">EX-001</td><td>Le système DOIT <span class="ph">comportement attendu</span>.</td><td><span class="pill must">Obligatoire</span></td><td><span class="ph">Comment on vérifie, et le seuil</span></td></tr>
+            <tr><td class="id">EX-002</td><td>Le système DOIT <span class="ph">comportement attendu</span>.</td><td><span class="pill must">Obligatoire</span></td><td><span class="ph">Test ou mesure</span></td></tr>
+            <tr><td class="id">EX-003</td><td>Le système DEVRAIT <span class="ph">comportement attendu</span>.</td><td><span class="pill should">Souhaitable</span></td><td><span class="ph">Test ou mesure</span></td></tr>
+            <tr><td class="id">EX-004</td><td>Le système PEUT <span class="ph">comportement attendu</span>.</td><td><span class="pill may">Optionnelle</span></td><td><span class="ph">Test ou mesure</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">Une exigence non testable est une intention, pas une exigence&#8239;: si aucun critère d'acceptation ne peut être écrit, reformulez-la.</p>
+
+      <h3 style="margin:1.5rem 0 .6rem">Interface ou format de données</h3>
+      <pre class="code" data-od-id="extrait-code"><span class="c"># Extrait — remplacez par le contrat réel</span>
+<span class="ph">MÉTHODE</span> /<span class="ph">ressource</span>
+{
+  "<span class="ph">champ</span>": "<span class="ph">type</span>",   <span class="c"># obligatoire — rôle du champ</span>
+  "<span class="ph">champ</span>": "<span class="ph">type</span>"    <span class="c"># facultatif — valeur par défaut</span>
+}</pre>
+      <p class="caption"><b>Extrait 1</b> — <span class="ph">légende&#8239;: ce que montre l'extrait et l'exigence qu'il illustre</span>.</p>
+
+      <div class="admon note" data-od-id="note-tracabilite">
+        <svg aria-hidden="true"><use href="#i-info"/></svg>
+        <div><span class="tag">Note</span><p>Chaque exigence se rattache à un besoin du document amont&#8239;: citez-le dans la cellule «&#8239;Exigence&#8239;» sous la forme «&#8239;(voir [R1], §2)&#8239;».</p></div>
+      </div>
+    </div>
+    <footer class="doc-foot">
+      <div class="sas"><b>Picant3</b> — SAS au capital de 2&#8239;000&#8239;€, en cours d'immatriculation au RCS d'Aix-en-Provence · Eguilles (13). contact@picant3.com</div>
+      <div class="pg">5 / 8</div>
+    </footer>
+  </div>
+</section>
+
+
+<!-- ==================== PAGE 6 — 04 MODE OPÉRATOIRE ==================== -->
+<section class="sheet" data-od-id="page-mode-operatoire" aria-label="Mode opératoire">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    <header class="run-head"><div class="brand"><span class="wordmark">Picant<b>3</b></span></div>
+      <div class="r"><span class="ph">Titre du document</span><br>Réf. <span class="ph">AAAA-D-000</span> · v0.1</div></header>
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-mode-operatoire">
+        <div class="kicker" aria-hidden="true">04</div><span class="usage"><svg aria-hidden="true"><use href="#i-layers"/></svg>Notice</span>
+        <h2>Mode <em>opératoire</em>.</h2>
+        <p class="lead">Une étape, une action. Chaque étape dit ce qu'il faut faire, puis ce que l'on doit constater avant de passer à la suivante.</p>
+      </div>
+
+      <div class="grid-2" style="align-items:start" data-od-id="prerequis">
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Avant de commencer</h3>
+          <ul class="chk">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b><span class="ph">Accès</span></b> — <span class="ph">compte, droits, clés</span>.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b><span class="ph">Outil ou version</span></b> — <span class="ph">minimum requis</span>.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Durée estimée</b> — <span class="fill">—</span></span></li>
+          </ul>
+        </div>
+        <figure>
+          <div class="figure-slot" data-od-id="figure-1">
+            <svg aria-hidden="true"><use href="#i-image"/></svg>
+            <span>Figure à insérer — capture d'écran ou schéma réel</span>
+          </div>
+          <figcaption class="caption"><b>Figure 1</b> — <span class="ph">légende</span>.</figcaption>
+        </figure>
+      </div>
+
+      <ol class="steps" style="margin-top:1.4rem" data-od-id="etapes">
+        <li class="step"><div><h3><span class="ph">Verbe à l'infinitif + objet</span></h3><p><span class="ph">Action précise. Une commande éventuelle&#8239;:</span> <code class="i">commande --option</code></p>
+          <div class="expect"><svg aria-hidden="true"><use href="#i-arrow"/></svg><span><b>Résultat attendu&#8239;:</b> <span class="ph">ce que l'on voit à l'écran</span></span></div></div></li>
+        <li class="step"><div><h3><span class="ph">Verbe à l'infinitif + objet</span></h3><p><span class="ph">Action précise. Cliquez sur</span> <b>Libellé du bouton</b>.</p>
+          <div class="expect"><svg aria-hidden="true"><use href="#i-arrow"/></svg><span><b>Résultat attendu&#8239;:</b> <span class="ph">constat</span></span></div></div></li>
+        <li class="step"><div><h3><span class="ph">Verbe à l'infinitif + objet</span></h3><p><span class="ph">Action précise</span>.</p>
+          <div class="expect"><svg aria-hidden="true"><use href="#i-arrow"/></svg><span><b>Résultat attendu&#8239;:</b> <span class="ph">constat</span></span></div></div></li>
+      </ol>
+
+      <div class="admon warn" style="margin-top:.3rem" data-od-id="attention-etapes">
+        <svg aria-hidden="true"><use href="#i-warn"/></svg>
+        <div><span class="tag">Attention</span><p><span class="ph">Risque à signaler avant l'étape concernée, et comment revenir en arrière</span>.</p></div>
+      </div>
+    </div>
+    <footer class="doc-foot">
+      <div class="sas"><b>Picant3</b> — SAS au capital de 2&#8239;000&#8239;€, en cours d'immatriculation au RCS d'Aix-en-Provence · Eguilles (13). contact@picant3.com</div>
+      <div class="pg">6 / 8</div>
+    </footer>
+  </div>
+</section>
+
+
+<!-- ==================== PAGE 7 — 05 DÉPANNAGE & POINTS OUVERTS ==================== -->
+<section class="sheet" data-od-id="page-depannage" aria-label="Dépannage et points ouverts">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    <header class="run-head"><div class="brand"><span class="wordmark">Picant<b>3</b></span></div>
+      <div class="r"><span class="ph">Titre du document</span><br>Réf. <span class="ph">AAAA-D-000</span> · v0.1</div></header>
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-depannage">
+        <div class="kicker" aria-hidden="true">05</div><span class="usage"><svg aria-hidden="true"><use href="#i-layers"/></svg>Commun</span>
+        <h2>Dépannage et <em>points ouverts</em>.</h2>
+        <p class="lead">Ce qui peut mal tourner, et ce qui n'est pas encore tranché. Un document honnête montre ses angles morts plutôt que de les taire.</p>
+      </div>
+
+      <h3 style="margin-bottom:.7rem">Si quelque chose ne fonctionne pas</h3>
+      <div class="table-wrap" data-od-id="table-depannage">
+        <table>
+          <thead><tr><th scope="col">Symptôme constaté</th><th scope="col">Cause probable</th><th scope="col">Que faire</th></tr></thead>
+          <tbody>
+            <tr><td class="name"><span class="ph">Message ou comportement observé</span></td><td><span class="ph">Origine la plus fréquente</span></td><td><span class="ph">Action corrective, ou renvoi à l'étape n</span></td></tr>
+            <tr><td class="name"><span class="ph">Message ou comportement observé</span></td><td><span class="ph">Origine</span></td><td><span class="ph">Action corrective</span></td></tr>
+            <tr><td class="name"><span class="ph">Message ou comportement observé</span></td><td><span class="ph">Origine</span></td><td><span class="ph">Action corrective</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">Le problème persiste&#8239;? Écrivez à <b style="color:var(--ink)">contact@picant3.com</b> en joignant la référence du document, l'étape concernée et le message exact.</p>
+
+      <h3 style="margin:1.6rem 0 .7rem">Points ouverts</h3>
+      <div class="table-wrap" data-od-id="table-points-ouverts">
+        <table>
+          <thead><tr><th scope="col" style="width:58px">N°</th><th scope="col">Question à trancher</th><th scope="col">Porteur</th><th scope="col">Échéance</th><th scope="col">Statut</th></tr></thead>
+          <tbody>
+            <tr><td class="id">PO-01</td><td><span class="ph">Décision attendue et options en présence</span></td><td class="nw"><span class="ph">Nom</span></td><td class="nw"><span class="ph">jj/mm</span></td><td><span class="pill open">Ouvert</span></td></tr>
+            <tr><td class="id">PO-02</td><td><span class="ph">Décision attendue</span></td><td class="nw"><span class="ph">Nom</span></td><td class="nw"><span class="ph">jj/mm</span></td><td><span class="pill open">Ouvert</span></td></tr>
+            <tr><td class="id">PO-03</td><td><span class="ph">Décision prise, et où elle est reportée</span></td><td class="nw"><span class="ph">Nom</span></td><td class="nw"><span class="ph">jj/mm</span></td><td><span class="pill done">Tranché</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">Un point tranché reste dans la liste, avec la section du document où la décision a été reportée. Le document ne passe en version 1.0 qu'une fois tous les points tranchés.</p>
+    </div>
+    <footer class="doc-foot">
+      <div class="sas"><b>Picant3</b> — SAS au capital de 2&#8239;000&#8239;€, en cours d'immatriculation au RCS d'Aix-en-Provence · Eguilles (13). contact@picant3.com</div>
+      <div class="pg">7 / 8</div>
+    </footer>
+  </div>
+</section>
+
+
+<!-- ==================== PAGE 8 — 06 ANNEXES & VALIDATION ==================== -->
+<section class="sheet" data-od-id="page-validation" aria-label="Annexes et validation">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    <header class="run-head"><div class="brand"><span class="wordmark">Picant<b>3</b></span></div>
+      <div class="r"><span class="ph">Titre du document</span><br>Réf. <span class="ph">AAAA-D-000</span> · v0.1</div></header>
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-validation">
+        <div class="kicker" aria-hidden="true">06</div><span class="usage"><svg aria-hidden="true"><use href="#i-layers"/></svg>Commun</span>
+        <h2>Annexes et <em>validation</em>.</h2>
+      </div>
+
+      <h3 style="margin-bottom:.7rem">Annexes</h3>
+      <ul class="chk" data-od-id="annexes">
+        <li><svg aria-hidden="true"><use href="#i-doc"/></svg><span><b>Annexe A</b> — <span class="ph">titre</span> · <span class="ph">emplacement ou nombre de pages</span></span></li>
+        <li><svg aria-hidden="true"><use href="#i-doc"/></svg><span><b>Annexe B</b> — <span class="ph">titre</span> · <span class="ph">emplacement ou nombre de pages</span></span></li>
+        <li><svg aria-hidden="true"><use href="#i-doc"/></svg><span><b>Annexe C</b> — <span class="ph">titre</span> · <span class="ph">emplacement ou nombre de pages</span></span></li>
+      </ul>
+
+      <h3 style="margin:1.8rem 0 .4rem">Validation du document</h3>
+      <p style="margin-bottom:1rem">La version <b style="color:var(--ink)"><span class="ph">1.0</span></b> fait foi une fois visée par les trois rôles ci-dessous. Toute révision ultérieure repasse par ce visa.</p>
+      <div class="sign-grid" data-od-id="visas">
+        <div class="sign-box">
+          <div class="who">Rédigé par</div><div class="role">Auteur</div>
+          <div class="sign-row">Nom<span class="ln">&nbsp;</span></div>
+          <div class="sign-row">Date<span class="ln">&nbsp;</span></div>
+          <div class="sign-row tall">Visa<span class="ln">&nbsp;</span></div>
+        </div>
+        <div class="sign-box">
+          <div class="who">Relu par</div><div class="role">Relecteur technique</div>
+          <div class="sign-row">Nom<span class="ln">&nbsp;</span></div>
+          <div class="sign-row">Date<span class="ln">&nbsp;</span></div>
+          <div class="sign-row tall">Visa<span class="ln">&nbsp;</span></div>
+        </div>
+        <div class="sign-box">
+          <div class="who">Approuvé par</div><div class="role"><span class="ph">Client ou responsable</span></div>
+          <div class="sign-row">Nom<span class="ln">&nbsp;</span></div>
+          <div class="sign-row">Date<span class="ln">&nbsp;</span></div>
+          <div class="sign-row tall">Visa<span class="ln">&nbsp;</span></div>
+        </div>
+      </div>
+
+      <div class="admon note" style="margin-top:1.5rem" data-od-id="note-version">
+        <svg aria-hidden="true"><use href="#i-flag"/></svg>
+        <div><span class="tag">Version en vigueur</span><p>Une copie imprimée n'est valable qu'à la date d'impression. Avant d'agir, vérifiez qu'aucune version plus récente n'existe à l'emplacement de référence indiqué page 2.</p></div>
+      </div>
+
+      <p class="legal">Ce document est la propriété de Picant3 et de son destinataire. Il ne peut être diffusé au-delà de la liste de diffusion indiquée en page 2 sans accord écrit.</p>
+    </div>
+    <footer class="doc-foot">
+      <div class="sas"><b>Picant3</b> — SAS au capital de 2&#8239;000&#8239;€, en cours d'immatriculation au RCS d'Aix-en-Provence · Eguilles (13). contact@picant3.com</div>
+      <div class="pg">8 / 8</div>
+    </footer>
+  </div>
+</section>
+
+</body>
+</html>
