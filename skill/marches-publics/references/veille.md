@@ -58,7 +58,7 @@ Si une première lecture a donné plus de 10 consultations nouvelles, dites qu'i
 
 ## 6. Mettre à jour le suivi
 
-Ajoutez au bas du tableau de `suivi.md` une ligne par consultation **présentée** (jamais plus de 10), avec le statut `repérée` :
+Ajoutez au bas du tableau de `suivi.md` (juste après sa dernière ligne, avant une éventuelle section « Leçons ») une ligne par consultation **présentée** (jamais plus de 10), avec le statut `repérée` :
 
 ```markdown
 | Rénovation de la chaufferie de l'école (lot chauffage) | Commune de Bron | 2026-12-04 | repérée | | Avis : https://www.boamp.fr/pages/avis/?q=idweb:26-109258 |
