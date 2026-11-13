@@ -6,7 +6,7 @@ Ce document est pour le mainteneur, pas pour les artisans. Les gestes sur GitHub
 
 - [x] Le dépôt `julienvedebe/public-AO` est public (fait le 13/11/2026).
 - [x] Aucun secret ni donnée d'artisan dans le dépôt ni dans son historique. À re-vérifier avant chaque diffusion : `git log -p | grep -iE "password|token|secret|iban"`.
-- [ ] La licence MIT est présente (`LICENSE`) et le nom qui y figure (« jvdb ») est confirmé ou corrigé.
+- [x] La licence MIT est présente (`LICENSE`), au nom de Picant3.
 
 ## 2. Protection de la branche `main`
 

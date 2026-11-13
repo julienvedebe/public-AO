@@ -33,4 +33,4 @@ Les supports remis aux artisans sont dans [formation/](formation/README.md) : pr
 
 ## Licence
 
-Ce dépôt est publié sous licence MIT : voir [LICENSE](LICENSE).
+Ce dépôt est publié par Picant3 sous licence MIT : voir [LICENSE](LICENSE).
