@@ -1,0 +1,672 @@
+<div class="viewer-note" data-od-id="viewer-note">
+  <strong>Notice d'utilisation de l'outil « Marchés publics ».</strong> Pour l'imprimer ou l'enregistrer en PDF&#8239;:
+  <span class="k">Fichier → Imprimer → Enregistrer en PDF</span>, format A4, marges «&#8239;aucune&#8239;», arrière-plans activés.
+  Cette note n'apparaît pas à l'impression.
+</div>
+
+
+<!-- ==================== PAGE DE GARDE ==================== -->
+<section class="sheet cover" data-od-id="page-garde" aria-label="Page de garde">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="ghost-num" aria-hidden="true">3</div>
+  <div class="pad">
+    <div class="cover-top">
+      <div class="brand" data-od-id="cover-brand">
+        <span class="mark-chip" aria-hidden="true">3</span>
+        <span class="wordmark">Picant<b>3</b></span>
+      </div>
+      <div class="ref" data-od-id="cover-ref">
+        <span class="lbl">Document technique</span><br>
+        Réf. <b>2026-D-001</b><br>
+        Version <b>__VERSION__</b>
+      </div>
+    </div>
+
+    <div class="cover-hero" data-od-id="cover-hero">
+      <span class="eyebrow">
+        <svg aria-hidden="true"><use href="#i-doc"/></svg>
+        Notice d'installation et d'utilisation
+      </span>
+      <h1>Marchés publics&#8239;: l'assistant des artisans</h1>
+      <p class="client">Installer l'outil sur votre ordinateur, puis l'utiliser pour trouver des consultations publiques, les analyser et préparer votre réponse, de la fiche entreprise au bilan.</p>
+      <div class="grad-rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="cover-grid" data-od-id="cover-grid">
+      <div class="cover-cell"><span class="cl">Projet</span><span class="cv">Marchés publics pour artisans</span></div>
+      <div class="cover-cell"><span class="cl">Destinataires</span><span class="cv">Artisans du bâtiment</span></div>
+      <div class="cover-cell"><span class="cl">Statut</span><span class="cv"><span class="pill draft">Brouillon</span></span></div>
+      <div class="cover-cell"><span class="cl">Rédigé par</span><span class="cv">Picant3</span></div>
+      <div class="cover-cell"><span class="cl">Date</span><span class="cv">13 novembre 2026</span></div>
+      <div class="cover-cell"><span class="cl">Diffusion</span><span class="cv">Publique</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== SOMMAIRE & SUIVI ==================== -->
+<section class="sheet" data-od-id="page-suivi" aria-label="Sommaire et suivi du document">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-sommaire">
+        <h2>Sommaire</h2>
+      </div>
+      <ol class="toc" data-od-id="sommaire">
+        <li><span class="n">01</span><span class="t">Objet et périmètre</span><span class="p">3</span></li>
+        <li><span class="n">02</span><span class="t">Les mots de l'outil</span><span class="p">4</span></li>
+        <li><span class="n">03</span><span class="t">Ce qu'il vous faut</span><span class="p">5</span></li>
+        <li><span class="n">04</span><span class="t">Installer l'outil</span><span class="p">6</span></li>
+        <li><span class="n">05</span><span class="t">Les demandes d'autorisation</span><span class="p">8</span></li>
+        <li><span class="n">06</span><span class="t">Utiliser l'outil, étape par étape</span><span class="p">9</span></li>
+        <li><span class="n">07</span><span class="t">Votre dossier et vos données</span><span class="p">14</span></li>
+        <li><span class="n">08</span><span class="t">Si quelque chose ne va pas</span><span class="p">15</span></li>
+        <li><span class="n">09</span><span class="t">Mémo des phrases et validation</span><span class="p">16</span></li>
+      </ol>
+
+      <h3 style="margin:2rem 0 .8rem">Historique des versions</h3>
+      <div class="table-wrap" data-od-id="historique-versions">
+        <table>
+          <thead><tr><th scope="col">Version</th><th scope="col">Date</th><th scope="col">Auteur</th><th scope="col">Nature des modifications</th></tr></thead>
+          <tbody>
+            <tr class="current"><td class="id">0.9</td><td class="nw">13/11/2026</td><td class="nw">Picant3</td><td>Première rédaction complète, avant relecture et pilote avec deux artisans.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">La ligne surlignée est la version en vigueur. Le document passe en 1.0 après relecture et validation.</p>
+
+      <div class="grid-2" style="margin-top:1.4rem" data-od-id="diffusion">
+        <div class="card"><span class="cl-cap">Destinataires</span><p>Les artisans du bâtiment qui utilisent l'outil, et les formateurs qui les accompagnent.</p></div>
+        <div class="card"><span class="cl-cap">Emplacement de référence</span><p>Dépôt public de l'outil, dossier <code class="i">formation/notice</code>&#8239;: github.com/julienvedebe/public-AO</p></div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 01 OBJET & PÉRIMÈTRE ==================== -->
+<section class="sheet" data-od-id="page-objet" aria-label="Objet et périmètre">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-objet">
+        <div class="kicker" aria-hidden="true">01</div>
+        <h2>Objet et <em>périmètre</em>.</h2>
+        <p class="lead">L'outil «&#8239;Marchés publics&#8239;» est un assistant d'intelligence artificielle installé sur votre ordinateur. Vous lui parlez en français, à l'écrit ou à la voix. Il vous aide à trouver des consultations publiques de travaux et à préparer votre réponse. Cette notice explique comment l'installer et comment s'en servir.</p>
+      </div>
+
+      <div class="grid-2" data-od-id="lecteurs">
+        <div class="card"><span class="cl-cap">À qui s'adresse cette notice</span><p>Aux artisans du bâtiment (plombiers, électriciens, menuisiers, maçons…) qui veulent répondre aux marchés publics, sans être spécialistes de l'informatique ni de la commande publique.</p></div>
+        <div class="card"><span class="cl-cap">Ce qu'il faut savoir avant de lire</span><p>Rien de technique. Savoir copier-coller un texte et ouvrir un dossier sur son ordinateur suffit. Les termes de la commande publique sont expliqués en page 4.</p></div>
+      </div>
+
+      <div class="grid-2" style="margin-top:1.4rem" data-od-id="perimetre">
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Ce que fait l'outil</h3>
+          <ul class="chk">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Votre fiche entreprise</b> — remplie une fois, réutilisée partout.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>La veille</b> — les consultations du BOAMP pour vos métiers et vos départements.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>L'analyse d'un DCE</b> — un verdict en quelques minutes, dates et pièges compris.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>La préparation</b> — pièces à fournir, rétroplanning, mémoire technique en Word.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Le suivi et le bilan</b> — où en sont vos consultations, et pourquoi vous avez perdu.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Se faire connaître</b> — des acheteurs proches et une lettre de présentation.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Ce qui reste à vous</h3>
+          <ul class="chk excl">
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span><b>Votre prix</b> — l'outil ne chiffre jamais (bordereaux, décomposition du prix).</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span><b>Les plateformes des acheteurs</b> — vous téléchargez le DCE et déposez l'offre vous-même.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span><b>La signature et l'envoi</b> — de l'offre, des courriers et des lettres.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span><b>La vérification finale</b> — des dates, sur la plateforme de l'acheteur.</span></li>
+          </ul>
+          <div class="admon note" style="margin-top:1rem">
+            <svg aria-hidden="true"><use href="#i-info"/></svg>
+            <div><span class="tag">Pourquoi</span><p>Ces gestes vous engagent juridiquement et une erreur coûte la consultation. L'outil prépare et contrôle&#8239;; c'est vous qui décidez et signez.</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 02 DÉFINITIONS ==================== -->
+<section class="sheet" data-od-id="page-conventions" aria-label="Les mots de l'outil">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-conventions">
+        <div class="kicker" aria-hidden="true">02</div>
+        <h2>Les mots de <em>l'outil</em>.</h2>
+        <p class="lead">Un mot, un sens. L'outil vous les explique aussi la première fois qu'il les emploie. Dans cette notice, ce que vous écrivez à l'outil est en <code class="i">police à chasse fixe</code>.</p>
+      </div>
+
+      <dl class="terms" data-od-id="glossaire">
+        <div class="term"><dt>Acheteur</dt><dd>L'organisme public qui fait faire les travaux&#8239;: mairie, département, office HLM, intercommunalité.</dd></div>
+        <div class="term"><dt>Consultation</dt><dd>La mise en concurrence lancée par un acheteur, avec son avis publié et son dossier. On parle de <span class="kw">marché</span> une fois le contrat signé.</dd></div>
+        <div class="term"><dt>Lot</dt><dd>Une partie de la consultation à laquelle vous pouvez répondre seul, par exemple «&#8239;lot 05 – plomberie&#8239;».</dd></div>
+        <div class="term"><dt>DCE</dt><dd>Dossier de consultation des entreprises&#8239;: tous les documents de l'acheteur (règlement, cahiers des charges, plans, bordereaux de prix).</dd></div>
+        <div class="term"><dt>BOAMP</dt><dd>Bulletin officiel des annonces des marchés publics&#8239;: le site officiel où sont publiées les consultations. L'outil le consulte pour vous.</dd></div>
+        <div class="term"><dt>Fiche entreprise</dt><dd>La description durable de votre entreprise (métiers, zone, certifications, références) qui sert à toutes vos consultations.</dd></div>
+        <div class="term"><dt>Justificatif</dt><dd>Document à durée limitée à fournir&#8239;: Kbis, attestation URSSAF, attestation fiscale, attestations d'assurance.</dd></div>
+        <div class="term"><dt>Verdict</dt><dd>La conclusion de l'analyse d'un lot&#8239;: 🟢 on y va, 🟠 possible avec réserves, 🔴 on passe.</dd></div>
+        <div class="term"><dt>Mémoire technique</dt><dd>Le document où vous expliquez comment vous ferez le chantier (équipe, matériel, méthode, planning), noté par l'acheteur.</dd></div>
+        <div class="term"><dt>[À COMPLÉTER]</dt><dd>La marque que l'outil laisse là où il lui manque une information. Il n'invente jamais&#8239;: c'est à vous de compléter.</dd></div>
+      </dl>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 03 PRÉREQUIS ==================== -->
+<section class="sheet" data-od-id="page-prerequis" aria-label="Ce qu'il vous faut">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-prerequis">
+        <div class="kicker" aria-hidden="true">03</div>
+        <h2>Ce qu'il vous <em>faut</em>.</h2>
+        <p class="lead">Un Mac ou un PC Windows, internet, et un abonnement à l'une des deux IA ci-dessous. À vérifier une semaine avant la formation.</p>
+      </div>
+
+      <div class="table-wrap" data-od-id="table-agents">
+        <table>
+          <thead><tr><th scope="col" style="width:26%"></th><th scope="col">Avec Claude</th><th scope="col">Avec ChatGPT</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Application à installer</td><td>L'application <b>Claude</b> pour ordinateur, onglet <b>Code</b> (c'est «&#8239;Claude Code&#8239;»)</td><td>L'application <b>ChatGPT</b> pour ordinateur, partie <b>Codex</b></td></tr>
+            <tr><td class="name">Abonnement</td><td>Payant&#8239;: Pro ou supérieur. L'offre gratuite ne donne pas accès à l'onglet Code.</td><td>Payant&#8239;: Plus ou supérieur (Pro, Business…), qui inclut Codex.</td></tr>
+            <tr><td class="name">Où l'outil s'installe</td><td><code class="i">.claude\skills</code> dans votre dossier personnel</td><td><code class="i">.agents\skills</code> dans votre dossier personnel</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">Un seul des deux suffit. Les offres changent souvent&#8239;: vérifiez le prix et le contenu de l'abonnement sur le site de l'éditeur au moment de vous abonner.</p>
+
+      <div class="grid-2" style="margin-top:1.3rem;align-items:start" data-od-id="prerequis-liste">
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">À vérifier</h3>
+          <ul class="chk">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Un ordinateur</b> — Mac ou Windows. Un téléphone ou une tablette ne suffit pas&#8239;: l'outil garde vos fichiers sur l'ordinateur.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>L'application installée</b> — pas seulement le site internet.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Un compte connecté</b> — avec votre e-mail, abonnement en cours.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Internet</b> — pour l'installation et la recherche de consultations.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Word ou LibreOffice</b> — pour ouvrir votre mémoire technique.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Inutile</h3>
+          <ul class="chk excl">
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span><b>Un compte GitHub</b> — l'outil se télécharge sans compte.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span><b>Un compte sur le BOAMP</b> — le site des annonces est public.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span><b>Un autre logiciel</b> — n'installez rien «&#8239;pour aider&#8239;».</span></li>
+          </ul>
+          <div class="admon note" style="margin-top:1rem" data-od-id="note-git">
+            <svg aria-hidden="true"><use href="#i-info"/></svg>
+            <div><span class="tag">Windows et Claude</span><p>Si l'application Claude affiche «&#8239;Git est requis&#8239;» à l'ouverture de l'onglet Code, installez <b>Git pour Windows</b> depuis git-scm.com, puis redémarrez Claude. C'est la seule exception.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 04 INSTALLER ==================== -->
+<section class="sheet" data-od-id="page-installation" aria-label="Installer l'outil">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-installation">
+        <div class="kicker" aria-hidden="true">04</div>
+        <h2>Installer <em>l'outil</em>.</h2>
+        <p class="lead">Une dizaine de minutes. C'est l'assistant qui fait le travail&#8239;: vous collez un message, vous lisez ce qu'il explique et vous répondez à ses demandes.</p>
+      </div>
+
+      <ol class="steps" data-od-id="etapes-installation">
+        <li class="step"><div><h3>Ouvrir une conversation</h3><p><b>Claude</b>&#8239;: ouvrez l'application, cliquez sur l'onglet <b>Code</b>, puis sur <b>Nouvelle session</b>&#8239;; si un dossier vous est demandé, choisissez <b>Documents</b>. <b>ChatGPT</b>&#8239;: ouvrez l'application, puis <b>Codex</b>, et commencez une nouvelle conversation.</p>
+          <div class="expect"><svg aria-hidden="true"><use href="#i-arrow"/></svg><span><b>Résultat attendu&#8239;:</b> une zone de saisie vide, prête à recevoir votre message.</span></div></div></li>
+        <li class="step"><div><h3>Coller le message d'installation</h3><p>Copiez ce message en entier (ou scannez le QR code remis en formation, qui l'affiche prêt à copier), collez-le, puis envoyez&#8239;:</p>
+<pre class="code" style="margin-top:.5rem">Installe l'outil Marchés publics : lis https://raw.githubusercontent.com/julienvedebe/public-AO/main/INSTALL.md et suis-le étape par étape. Ne modifie rien sur mon ordinateur en dehors de ce qu'il demande, et explique-moi chaque étape simplement.</pre>
+          <div class="expect"><svg aria-hidden="true"><use href="#i-arrow"/></svg><span><b>Résultat attendu&#8239;:</b> l'assistant annonce chaque étape en une phrase avant de la faire.</span></div></div></li>
+        <li class="step"><div><h3>Répondre aux demandes d'autorisation</h3><p>Des fenêtres vous demandent l'autorisation avant certaines actions. Suivez la page 8&#8239;: oui pour ce qui concerne l'outil et votre dossier «&#8239;Marchés publics&#8239;», non pour le reste.</p>
+          <div class="expect"><svg aria-hidden="true"><use href="#i-arrow"/></svg><span><b>Résultat attendu&#8239;:</b> l'assistant termine par un résumé&#8239;: outil installé, dossier créé dans vos Documents.</span></div></div></li>
+      </ol>
+
+      <div class="admon warn" style="margin-top:.2rem" data-od-id="attention-mode">
+        <svg aria-hidden="true"><use href="#i-warn"/></svg>
+        <div><span class="tag">Attention</span><p>Ne choisissez jamais un mode qui supprime les demandes d'autorisation (mode «&#8239;automatique&#8239;», «&#8239;accès complet&#8239;», «&#8239;sans approbation&#8239;»). Vous perdriez le contrôle de ce que fait l'assistant.</p></div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 04 · VÉRIFIER & METTRE À JOUR ==================== -->
+<section class="sheet" data-od-id="page-verification" aria-label="Vérifier l'installation">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head"><span class="eyebrow">04 · Installer l'outil</span></div>
+
+      <ol class="steps" style="counter-reset:st 3" data-od-id="etape-verification">
+        <li class="step"><div><h3>Vérifier dans une nouvelle conversation</h3><p>L'outil ne se charge qu'au début d'une conversation. Ouvrez-en une <b>nouvelle</b> et écrivez <code class="i">bonjour marchés publics</code>.</p>
+          <div class="expect"><svg aria-hidden="true"><use href="#i-arrow"/></svg><span><b>Résultat attendu&#8239;:</b> une phrase de bienvenue, la mention «&#8239;votre fiche entreprise n'est pas encore remplie&#8239;», puis ce menu&#8239;:</span></div>
+          <div class="table-wrap" style="margin-top:.7rem">
+            <table>
+              <tbody>
+                <tr><td class="id">1</td><td>Remplir ou modifier ma fiche entreprise</td><td class="id">5</td><td>Rédiger mon mémoire technique</td></tr>
+                <tr><td class="id">2</td><td>Trouver des consultations</td><td class="id">6</td><td>Voir où j'en suis / faire le bilan</td></tr>
+                <tr><td class="id">3</td><td>Analyser un dossier de consultation (DCE)</td><td class="id">7</td><td>Me faire connaître des acheteurs près de chez moi</td></tr>
+                <tr><td class="id">4</td><td>Préparer les pièces à fournir</td><td></td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:.6rem">Les mots peuvent varier un peu&#8239;; le menu de 1 à 7 et l'état de la fiche doivent y être. Sinon, voir page 15.</p></div></li>
+      </ol>
+
+      <div class="grid-2" style="align-items:start;margin-top:.6rem">
+        <figure data-od-id="figure-1">
+          __SCHEMA_INSTALLATION__
+          <figcaption class="caption"><b>Figure 1</b> — Ce que fait l'installation sur votre ordinateur.</figcaption>
+        </figure>
+        <div>
+          <h3 style="margin-bottom:.6rem;font-size:17px">Mettre l'outil à jour</h3>
+          <p>Quand une nouvelle version est annoncée, écrivez <code class="i">mettez à jour l'outil marchés publics</code>. L'assistant refait les étapes 2 et 3&#8239;: l'outil est remplacé par sa dernière version.</p>
+          <div class="admon note" data-od-id="note-maj">
+            <svg aria-hidden="true"><use href="#i-info"/></svg>
+            <div><span class="tag">Vos fichiers ne bougent pas</span><p>Une mise à jour ne touche jamais à votre dossier «&#8239;Marchés publics&#8239;»&#8239;: fiche, consultations et suivi restent identiques.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 05 AUTORISATIONS ==================== -->
+<section class="sheet" data-od-id="page-autorisations" aria-label="Les demandes d'autorisation">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-autorisations">
+        <div class="kicker" aria-hidden="true">05</div>
+        <h2>Les demandes <em>d'autorisation</em>.</h2>
+        <p class="lead">Avant certaines actions, l'application vous demande la permission&#8239;: c'est vous qui décidez. Oui pour ce qui concerne l'outil et votre dossier «&#8239;Marchés publics&#8239;», non pour le reste. Refuser ne casse rien.</p>
+      </div>
+
+      <div class="table-wrap" data-od-id="table-autorisations">
+        <table>
+          <thead><tr><th scope="col" style="width:34%">Ce que fait l'assistant</th><th scope="col">Ce que vous voyez</th><th scope="col" style="width:15%">Réponse</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Télécharger l'outil</td><td><code class="i">git</code>, <code class="i">curl</code>, <code class="i">unzip</code> vers <code class="i">github.com</code></td><td>Oui</td></tr>
+            <tr><td class="name">Installer ou mettre à jour l'outil</td><td>Copie vers un dossier qui finit par <code class="i">marches-publics</code></td><td>Oui</td></tr>
+            <tr><td class="name">Écrire dans votre dossier</td><td>Fichiers dans <code class="i">Documents\Marchés publics</code></td><td>Oui</td></tr>
+            <tr><td class="name">Chercher des consultations</td><td><code class="i">curl</code> vers <code class="i">boamp-datadila.opendatasoft.com</code></td><td>Oui</td></tr>
+            <tr><td class="name">Retrouver un titulaire</td><td><code class="i">curl</code> vers <code class="i">data.economie.gouv.fr</code> ou <code class="i">recherche-entreprises.api.gouv.fr</code></td><td>Oui</td></tr>
+            <tr><td class="name">Lire un DCE</td><td><code class="i">unzip</code>, <code class="i">textutil</code>, <code class="i">osascript</code> ou PowerShell</td><td>Oui</td></tr>
+            <tr><td class="name">Produire le mémoire en Word</td><td>Le script <code class="i">memoire-vers-docx</code> de l'outil</td><td>Oui</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2" style="margin-top:1.3rem;align-items:start">
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Répondez non s'il demande</h3>
+          <ul class="chk excl">
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>un <b>mot de passe</b>, un code, un identifiant&#8239;;</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>d'<b>installer un logiciel</b>&#8239;;</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>de toucher à <b>un autre dossier</b>&#8239;;</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>d'aller sur <b>un autre site</b>&#8239;;</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>d'<b>envoyer un message</b> à votre place.</span></li>
+          </ul>
+        </div>
+        <div class="admon note" style="margin-top:0">
+          <svg aria-hidden="true"><use href="#i-info"/></svg>
+          <div><span class="tag">«&#8239;Oui, et ne plus demander&#8239;»</span><p>Seulement pour les recherches sur les trois sites publics du tableau, qui reviennent souvent. Pour tout le reste, choisissez «&#8239;Oui&#8239;» simple. En cas de doute, répondez non et appelez votre formateur.</p></div>
+        </div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 06 UTILISER — PARCOURS ==================== -->
+<section class="sheet" data-od-id="page-parcours" aria-label="Utiliser l'outil">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-parcours">
+        <div class="kicker" aria-hidden="true">06</div>
+        <h2>Utiliser l'outil, <em>étape par étape</em>.</h2>
+        <p class="lead">Chaque conversation commence par <code class="i">bonjour marchés publics</code>. L'outil relit votre dossier, vous dit où vous en êtes et affiche son menu&#8239;: répondez par un chiffre, ou dites simplement ce que vous voulez.</p>
+      </div>
+
+      <figure data-od-id="figure-2">
+        __SCHEMA_PARCOURS__
+        <figcaption class="caption"><b>Figure 2</b> — Le parcours d'une consultation, et la démarche parallèle pour se faire connaître. Les numéros sont ceux du menu.</figcaption>
+      </figure>
+
+      <div class="grid-2" style="margin-top:1.2rem;align-items:start">
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Comment lui parler</h3>
+          <ul class="chk">
+            <li><svg aria-hidden="true"><use href="#i-arrow"/></svg><span><b>Avec vos mots</b> — «&#8239;trouvez-moi des chantiers&#8239;» vaut «&#8239;2&#8239;».</span></li>
+            <li><svg aria-hidden="true"><use href="#i-arrow"/></svg><span><b>À la voix</b> — s'il comprend mal, il reformule.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-arrow"/></svg><span><b>«&#8239;Je ne sais pas&#8239;»</b> — il note [À COMPLÉTER].</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Ce qu'il fait toujours</h3>
+          <ul class="chk">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Il vous <b>vouvoie</b> et pose <b>une question à la fois</b>.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Il explique chaque terme technique la première fois.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Il range tout dans votre dossier&#8239;: rien n'est perdu.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="admon note" data-od-id="note-petits-marches">
+        <svg aria-hidden="true"><use href="#i-info"/></svg>
+        <div><span class="tag">Tous les chantiers ne sont pas publiés</span><p>Sous 100&#8239;000&#8239;€ HT de travaux, un acheteur peut consulter directement les artisans qu'il connaît, sans annonce. C'est pourquoi l'étape 7, «&#8239;se faire connaître&#8239;», compte autant que la veille.</p></div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 06 · ÉTAPES 1 ET 2 ==================== -->
+<section class="sheet" data-od-id="page-etapes-1-2" aria-label="Étapes 1 et 2">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head"><span class="eyebrow">06 · Utiliser l'outil</span></div>
+
+      <div class="uc" data-od-id="etape-1">
+        <div class="uc-head"><span class="uc-num">1</span><h3>Remplir ou modifier ma fiche entreprise</h3></div>
+        <div class="row"><span class="k">Dites</span><span class="v"><code class="i">1</code> ou <code class="i">je veux remplir ma fiche entreprise</code></span></div>
+        <div class="row"><span class="k">Ce qui se passe</span><span class="v">Une dizaine de questions, une à la fois&#8239;: métiers, départements, taille des lots, certifications, effectif, chiffre d'affaires, assurances, chantiers de référence, justificatifs et leur date de validité. Vous pouvez tout dire d'un coup&#8239;: il range chaque information.</span></div>
+        <div class="row"><span class="k">Vous obtenez</span><span class="v"><code class="i">ma-fiche-entreprise.md</code>, enregistrée au fur et à mesure&#8239;: vous reprenez plus tard là où vous en étiez.</span></div>
+        <div class="row"><span class="k">Ensuite</span><span class="v">Pour changer une information&#8239;: <code class="i">modifiez ma fiche : nous sommes maintenant 6</code>, <code class="i">j'ai une nouvelle référence</code>. Seule la rubrique concernée change.</span></div>
+      </div>
+
+      <div class="admon warn" data-od-id="attention-secrets">
+        <svg aria-hidden="true"><use href="#i-warn"/></svg>
+        <div><span class="tag">Jamais dans la fiche</span><p>Mots de passe, identifiants de plateformes, IBAN, numéro de carte. L'outil refuse de les enregistrer, même si vous le lui demandez. Le SIRET et les numéros de certification, eux, ne sont pas des secrets.</p></div>
+      </div>
+
+      <div class="uc" style="margin-top:1.1rem" data-od-id="etape-2">
+        <div class="uc-head"><span class="uc-num">2</span><h3>Trouver des consultations</h3></div>
+        <div class="row"><span class="k">Dites</span><span class="v"><code class="i">2</code> ou <code class="i">trouvez-moi des consultations</code></span></div>
+        <div class="row"><span class="k">Ce qui se passe</span><span class="v">L'outil interroge le BOAMP avec vos métiers et vos départements&#8239;: seulement des travaux, seulement des consultations ouvertes, avec une date limite dans au moins dix jours pour vous laisser le temps de répondre.</span></div>
+        <div class="row"><span class="k">Vous obtenez</span><span class="v">Au plus dix consultations, les plus urgentes d'abord&#8239;: résumé, acheteur, montant estimé s'il est connu, date limite, lien vers l'avis. Elles sont notées «&#8239;repérée&#8239;» dans votre suivi et ne reviennent pas comme nouvelles.</span></div>
+        <div class="row"><span class="k">Ensuite</span><span class="v">Le lien de l'avis indique la plateforme où télécharger le DCE (étape 3).</span></div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 06 · ÉTAPES 3 ET 4 ==================== -->
+<section class="sheet" data-od-id="page-etapes-3-4" aria-label="Étapes 3 et 4">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head"><span class="eyebrow">06 · Utiliser l'outil</span></div>
+
+      <div class="uc" data-od-id="etape-3">
+        <div class="uc-head"><span class="uc-num">3</span><h3>Analyser un dossier de consultation (DCE)</h3></div>
+        <div class="row"><span class="k">Avant</span><span class="v">Téléchargez vous-même le DCE sur la plateforme de l'acheteur (souvent un fichier ZIP), puis déposez-le dans votre dossier <b>Documents\Marchés publics</b>.</span></div>
+        <div class="row"><span class="k">Dites</span><span class="v"><code class="i">3</code>, puis par exemple <code class="i">j'ai mis le dossier de la mairie de Bron dans mon dossier, je veux le lot plomberie</code></span></div>
+        <div class="row"><span class="k">Ce qui se passe</span><span class="v">Il range et décompresse le DCE, isole votre lot et compare ses exigences (certifications, assurances, références) à votre fiche.</span></div>
+        <div class="row"><span class="k">Vous obtenez</span><span class="v">Un <b>verdict</b> 🟢 🟠 ou 🔴 argumenté, résumé en cinq lignes, et <code class="i">analyse.md</code>&#8239;: dates clés, visite obligatoire ou non, critères de notation et leur poids, pièges (pénalités, retenue de garantie…). <b>Chaque date et chaque exigence cite sa source</b> (document, article, page). Statut «&#8239;analysée&#8239;».</span></div>
+        <div class="row"><span class="k">Lot trop gros&#8239;?</span><span class="v">Il vous explique le groupement d'entreprises et la sous-traitance.</span></div>
+      </div>
+
+      <div class="admon warn" data-od-id="attention-dates">
+        <svg aria-hidden="true"><use href="#i-warn"/></svg>
+        <div><span class="tag">Vérifiez les dates</span><p>Chaque analyse se termine par ce rappel&#8239;: vérifiez la date et l'heure limites sur la plateforme de l'acheteur. Elles peuvent changer après la publication (avis rectificatif).</p></div>
+      </div>
+
+      <div class="uc" style="margin-top:1.1rem" data-od-id="etape-4">
+        <div class="uc-head"><span class="uc-num">4</span><h3>Préparer les pièces à fournir</h3></div>
+        <div class="row"><span class="k">Dites</span><span class="v"><code class="i">4</code> ou <code class="i">on y va, préparez les pièces</code></span></div>
+        <div class="row"><span class="k">Vous obtenez</span><span class="v"><code class="i">pieces-et-retroplanning.md</code>&#8239;: les pièces demandées, déjà là ou manquantes&#8239;; une <b>alerte</b> pour tout justificatif qui expire avant la date limite&#8239;; un <b>rétroplanning</b> daté&#8239;; les formulaires (DC1, DC2, DUME…) préremplis champ par champ avec votre fiche. Statut «&#8239;en préparation&#8239;».</span></div>
+        <div class="row"><span class="k">À vous</span><span class="v">Le <b>prix</b>&#8239;: bordereau des prix, décomposition du prix global et forfaitaire. L'outil vous le rappelle et ne le remplit jamais.</span></div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 06 · ÉTAPE 5 ==================== -->
+<section class="sheet" data-od-id="page-etape-5" aria-label="Étape 5">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head"><span class="eyebrow">06 · Utiliser l'outil</span></div>
+
+      <div class="uc" data-od-id="etape-5">
+        <div class="uc-head"><span class="uc-num">5</span><h3>Rédiger mon mémoire technique</h3></div>
+        <div class="row"><span class="k">Dites</span><span class="v"><code class="i">5</code> ou <code class="i">aidez-moi à rédiger le mémoire technique</code></span></div>
+        <div class="row"><span class="k">Ce qui se passe</span><span class="v">Il bâtit le plan à partir des <b>critères de notation du règlement de la consultation</b>, pas d'un modèle passe-partout, puis pose ses questions une à la fois&#8239;: équipe, matériel, méthode, déchets, planning. Il reprend vos références et certifications.</span></div>
+        <div class="row"><span class="k">Vous obtenez</span><span class="v"><code class="i">memoire-technique.docx</code> dans le dossier de la consultation, à ouvrir dans Word ou LibreOffice. Vos réponses sont gardées dans <code class="i">memoire-reponses.md</code>&#8239;: vous pouvez compléter plus tard sans tout redire.</span></div>
+        <div class="row"><span class="k">Ensuite</span><span class="v">Relisez, complétez chaque [À COMPLÉTER], mettez en page à votre goût. Le mémoire vous engage&#8239;: c'est votre document.</span></div>
+      </div>
+
+      <div class="grid-2" style="margin-top:1.1rem;align-items:stretch">
+        <div class="admon warn" style="margin-top:0" data-od-id="attention-invention">
+          <svg aria-hidden="true"><use href="#i-warn"/></svg>
+          <div><span class="tag">Rien d'inventé</span><p>Seuls votre fiche et vos réponses y figurent. Le reste est marqué <b>[À COMPLÉTER]</b> et <b>surligné en jaune</b>&#8239;: un texte inventé vous engagerait sur ce que vous ne ferez pas.</p></div>
+        </div>
+        <div class="admon note" style="margin-top:0" data-od-id="note-formats">
+          <svg aria-hidden="true"><use href="#i-info"/></svg>
+          <div><span class="tag">Si le Word ne se fait pas</span><p>Vous recevez un <code class="i">.rtf</code>, qui s'ouvre aussi dans Word, même surlignage. Un mémoire existant n'est jamais écrasé (<code class="i">memoire-technique-2.docx</code>).</p></div>
+        </div>
+      </div>
+
+      <h3 style="margin:1.5rem 0 .7rem">Exemple de questions et de réponses</h3>
+      <div class="table-wrap" data-od-id="exemple-memoire">
+        <table>
+          <thead><tr><th scope="col" style="width:42%">L'outil demande</th><th scope="col">Vous répondez</th></tr></thead>
+          <tbody>
+            <tr><td>Qui sera sur le chantier&#8239;?</td><td>«&#8239;Moi et deux compagnons.&#8239;»</td></tr>
+            <tr><td>Dans quel ordre travaillerez-vous&#8239;?</td><td>«&#8239;Dépose, alimentations, pose des appareils, essai de mise en pression.&#8239;»</td></tr>
+            <tr><td>Comment gérerez-vous les déchets&#8239;?</td><td>«&#8239;Je ne sais pas encore.&#8239;» → reste [À COMPLÉTER], surligné.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 06 · ÉTAPES 6 ET 7 ==================== -->
+<section class="sheet" data-od-id="page-etapes-6-7" aria-label="Étapes 6 et 7">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head"><span class="eyebrow">06 · Utiliser l'outil</span></div>
+
+      <div class="uc" data-od-id="etape-6">
+        <div class="uc-head"><span class="uc-num">6</span><h3>Déposer, suivre, faire le bilan</h3></div>
+        <div class="row"><span class="k">Déposer</span><span class="v"><code class="i">comment je dépose ?</code>&#8239;: il vous explique la démarche sur la plateforme de l'acheteur. Vous déposez vous-même, avec votre compte et votre signature, puis vous dites <code class="i">j'ai déposé</code> (statut «&#8239;déposée&#8239;»).</span></div>
+        <div class="row"><span class="k">Suivre</span><span class="v"><code class="i">où j'en suis ?</code>&#8239;: toutes vos consultations et leur statut, en un tableau.</span></div>
+        <div class="row"><span class="k">Résultat</span><span class="v"><code class="i">j'ai gagné</code> ou <code class="i">j'ai perdu</code>. Si vous avez perdu, il rédige le <b>courrier de demande des motifs de rejet</b> (vous l'envoyez vous-même), cherche dans les données publiques qui a gagné, pour quel montant, et le nom de l'entreprise, puis note avec vous les leçons pour la prochaine fois. Statut «&#8239;bilan fait&#8239;».</span></div>
+        <div class="row"><span class="k">À savoir</span><span class="v">Les résultats sont publiés avec retard. S'ils ne sont pas encore disponibles, l'outil vous le dit au lieu d'inventer.</span></div>
+      </div>
+
+      <div class="uc" style="margin-top:1.1rem" data-od-id="etape-7">
+        <div class="uc-head"><span class="uc-num">7</span><h3>Me faire connaître des acheteurs près de chez moi</h3></div>
+        <div class="row"><span class="k">Dites</span><span class="v"><code class="i">7</code> ou <code class="i">je veux me faire connaître des mairies</code></span></div>
+        <div class="row"><span class="k">Ce qui se passe</span><span class="v">Il vous explique qu'en dessous de 100&#8239;000&#8239;€ HT de travaux, l'acheteur peut vous consulter directement. Il cherche les acheteurs qui ont publié des travaux dans vos départements ces douze derniers mois&#8239;: mairies, intercommunalités, bailleurs sociaux, département.</span></div>
+        <div class="row"><span class="k">Vous obtenez</span><span class="v"><code class="i">acheteurs.md</code>&#8239;: huit à douze acheteurs à contacter&#8239;; et <code class="i">lettre-de-presentation.md</code>&#8239;: une lettre sobre, adressée aux services techniques, qui reprend uniquement votre fiche (métiers, zone, certifications, références).</span></div>
+        <div class="row"><span class="k">À vous</span><span class="v">Trouver l'adresse du service technique sur le site de chaque acheteur, puis envoyer la lettre. L'outil n'envoie rien. L'acheteur n'est pas obligé de répondre&#8239;: la lettre vous fait connaître pour le jour où il aura un besoin.</span></div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 07 DOSSIER & DONNÉES ==================== -->
+<section class="sheet" data-od-id="page-dossier" aria-label="Votre dossier et vos données">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-dossier">
+        <div class="kicker" aria-hidden="true">07</div>
+        <h2>Votre dossier et <em>vos données</em>.</h2>
+        <p class="lead">Tout votre travail est dans <b>Documents\Marchés publics</b>, la mémoire de l'outil. Il n'existe que sur votre ordinateur&#8239;: <b>sauvegardez-le</b> de temps en temps.</p>
+      </div>
+
+<pre class="code" data-od-id="arborescence">Marchés publics/
+├── ma-fiche-entreprise.md          <span class="c">votre fiche (étape 1)</span>
+├── suivi.md                        <span class="c">toutes vos consultations et leur statut</span>
+├── mes-justificatifs/              <span class="c">Kbis, attestations, assurances</span>
+├── se-faire-connaitre/             <span class="c">acheteurs.md, lettre-de-presentation.md (étape 7)</span>
+└── consultations/
+    └── 2026-12_mairie-de-bron_lot-05-plomberie/
+        ├── dce/                    <span class="c">le DCE décompressé (étape 3)</span>
+        ├── analyse.md              <span class="c">verdict et analyse (étape 3)</span>
+        ├── pieces-et-retroplanning.md   <span class="c">(étape 4)</span>
+        ├── memoire-technique.docx  <span class="c">votre mémoire (étape 5)</span>
+        └── courrier-demande-motifs.md   <span class="c">après un rejet (étape 6)</span></pre>
+      <p class="caption"><b>Figure 3</b> — Le contenu du dossier «&#8239;Marchés publics&#8239;». Les fichiers <code class="i">.md</code> sont du texte simple&#8239;: ils s'ouvrent avec le Bloc-notes (Windows) ou TextEdit (Mac).</p>
+
+      <div class="grid-2" style="margin-top:1.2rem;align-items:start">
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Ce qui part chez l'éditeur de l'IA</h3>
+          <ul class="chk">
+            <li><svg aria-hidden="true"><use href="#i-arrow"/></svg><span>Ce que vous écrivez ou dites dans la conversation.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-arrow"/></svg><span>Ce que l'assistant lit pour vous répondre&#8239;: votre fiche, le DCE, vos réponses, votre mémoire.</span></li>
+          </ul>
+          <p style="margin-top:.6rem;font-size:13px">L'IA tourne chez Anthropic (Claude) ou OpenAI (ChatGPT)&#8239;: voyez dans vos réglages ce qu'ils conservent. Le BOAMP ne reçoit que vos métiers et départements.</p>
+        </div>
+        <div>
+          <h3 style="margin-bottom:.7rem;font-size:17px">Ce qu'il ne faut pas partager</h3>
+          <ul class="chk excl">
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Mots de passe, codes, identifiants de plateformes.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>IBAN, numéro de carte, numéro de sécurité sociale.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Votre prix, et les documents confidentiels d'un tiers.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 08 DÉPANNAGE ==================== -->
+<section class="sheet" data-od-id="page-depannage" aria-label="Si quelque chose ne va pas">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-depannage">
+        <div class="kicker" aria-hidden="true">08</div>
+        <h2>Si quelque chose <em>ne va pas</em>.</h2>
+        <p class="lead">Les situations les plus fréquentes. Vous ne risquez rien à arrêter une conversation et à recommencer dans une nouvelle.</p>
+      </div>
+
+      <div class="table-wrap" data-od-id="table-depannage">
+        <table>
+          <thead><tr><th scope="col" style="width:32%">Ce que vous constatez</th><th scope="col" style="width:28%">Cause probable</th><th scope="col">Que faire</th></tr></thead>
+          <tbody>
+            <tr><td class="name">L'assistant répond, mais sans menu, ou dit ne pas connaître l'outil</td><td>La conversation a commencé avant l'installation</td><td>Ouvrez une <b>nouvelle</b> conversation et écrivez <code class="i">bonjour marchés publics</code>. Sinon, recollez le message d'installation (page 6).</td></tr>
+            <tr><td class="name">L'installation s'arrête sur un message d'erreur</td><td>Connexion coupée, ou blocage par l'ordinateur</td><td>Vérifiez internet, puis recommencez. Si l'erreur revient, prenez une photo de l'écran pour votre formateur.</td></tr>
+            <tr><td class="name">«&#8239;Votre administrateur a bloqué…&#8239;»</td><td>Ordinateur géré par un service informatique</td><td>Ne contournez pas la règle. Prévenez votre formateur ou votre service informatique.</td></tr>
+            <tr><td class="name">L'application parle de «&#8239;limite&#8239;» ou refuse de répondre</td><td>Abonnement arrivé à sa limite ou expiré</td><td>Vérifiez votre abonnement, ou attendez la fin de la période indiquée.</td></tr>
+            <tr><td class="name">«&#8239;Je n'arrive pas à joindre le site des annonces&#8239;»</td><td>Le BOAMP ne répond pas pour le moment</td><td>Redemandez dans quelques minutes. Votre suivi n'est pas modifié.</td></tr>
+            <tr><td class="name">Aucune consultation trouvée</td><td>Rien d'ouvert pour vos métiers et départements</td><td>Ajoutez un département ou un métier à votre fiche, réessayez la semaine suivante, et passez à l'étape 7.</td></tr>
+            <tr><td class="name">Un fichier <code class="i">.rtf</code> ou <code class="i">.html</code> au lieu du Word</td><td>La conversion en Word n'a pas pu se faire</td><td>Ouvrez-le avec Word&#8239;: le contenu et le surlignage sont les mêmes. Enregistrez-le ensuite en <code class="i">.docx</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">Le problème persiste&#8239;? Écrivez à <b style="color:var(--ink)">contact@picant3.com</b> avec une photo de l'écran, votre ordinateur (Mac ou Windows) et l'application utilisée.</p>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+
+<!-- ==================== 09 MÉMO & VALIDATION ==================== -->
+<section class="sheet" data-od-id="page-validation" aria-label="Mémo des phrases et validation">
+  <div class="spine" aria-hidden="true"></div>
+  <div class="pad">
+    __ENTETE__
+    <div class="flow">
+      <div class="sec-head" data-od-id="sec-validation">
+        <div class="kicker" aria-hidden="true">09</div>
+        <h2>Mémo des phrases et <em>validation</em>.</h2>
+      </div>
+
+      <div class="table-wrap" data-od-id="memo-phrases">
+        <table>
+          <thead><tr><th scope="col" style="width:42%">Vous voulez</th><th scope="col">Vous dites (les mots exacts importent peu)</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Commencer</td><td><code class="i">bonjour marchés publics</code></td></tr>
+            <tr><td class="name">Remplir ou corriger votre fiche</td><td><code class="i">1</code> · <code class="i">modifiez ma fiche : …</code></td></tr>
+            <tr><td class="name">Trouver des chantiers</td><td><code class="i">2</code> · <code class="i">trouvez-moi des consultations</code></td></tr>
+            <tr><td class="name">Analyser un DCE déposé</td><td><code class="i">3</code> · <code class="i">analysez le dossier de …, lot …</code></td></tr>
+            <tr><td class="name">Préparer votre réponse</td><td><code class="i">4</code> · <code class="i">on y va, préparez les pièces</code></td></tr>
+            <tr><td class="name">Écrire le mémoire technique</td><td><code class="i">5</code> · <code class="i">aidez-moi à rédiger le mémoire</code></td></tr>
+            <tr><td class="name">Suivre et conclure</td><td><code class="i">j'ai déposé</code> · <code class="i">où j'en suis ?</code> · <code class="i">j'ai perdu</code></td></tr>
+            <tr><td class="name">Vous faire connaître</td><td><code class="i">7</code> · <code class="i">je veux me faire connaître des mairies</code></td></tr>
+            <tr><td class="name">Mettre l'outil à jour</td><td><code class="i">mettez à jour l'outil marchés publics</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin:1.5rem 0 .8rem">Validation du document (version 1.0)</h3>
+      <div class="sign-grid" data-od-id="visas">
+        <div class="sign-box">
+          <div class="who">Rédigé par</div><div class="role">Picant3</div>
+          <div class="sign-row">Nom<span class="ln">&nbsp;</span></div>
+          <div class="sign-row">Date<span class="ln">&nbsp;</span></div>
+          <div class="sign-row tall">Visa<span class="ln">&nbsp;</span></div>
+        </div>
+        <div class="sign-box">
+          <div class="who">Relu par</div><div class="role">Formateur</div>
+          <div class="sign-row">Nom<span class="ln">&nbsp;</span></div>
+          <div class="sign-row">Date<span class="ln">&nbsp;</span></div>
+          <div class="sign-row tall">Visa<span class="ln">&nbsp;</span></div>
+        </div>
+        <div class="sign-box">
+          <div class="who">Testé par</div><div class="role">Artisan du pilote</div>
+          <div class="sign-row">Nom<span class="ln">&nbsp;</span></div>
+          <div class="sign-row">Date<span class="ln">&nbsp;</span></div>
+          <div class="sign-row tall">Visa<span class="ln">&nbsp;</span></div>
+        </div>
+      </div>
+
+      <p class="legal">Notice publiée par Picant3 sous licence MIT&#8239;: copie, diffusion et adaptation libres. Version à jour dans le dépôt public de l'outil.</p>
+    </div>
+    __PIED__
+  </div>
+</section>
