@@ -10,7 +10,7 @@ GARDER=1 tests/run.sh installation                         # garde le dossier te
 
 Un scénario est un dossier de `tests/scenarios/` qui contient :
 
-- `prompt.txt` : le message de l'artisan (`{{ROOT}}` est remplacé par la racine du dépôt) ;
+- `prompt.txt` : le message de l'artisan (`{{ROOT}}` est remplacé par la racine du dépôt). Pour une conversation en plusieurs tours, séparez les messages par une ligne `---` : le premier est envoyé avec `-p`, les suivants avec `-p --continue`. La réponse de chaque tour est dans `sortie-N.txt`, toute la conversation dans `sortie.txt` ; dans `check.sh`, `au_tour N` restreint les assertions sur la réponse à un tour ;
 - `check.sh` : les vérifications, écrites avec les fonctions de `tests/lib.sh` ;
 - `dossier/` (facultatif) : le dossier de travail de départ ;
 - `sans-preinstallation` (facultatif) : ne préinstalle pas le skill (scénarios d'installation).

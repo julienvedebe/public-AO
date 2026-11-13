@@ -9,5 +9,6 @@ sortie_contient 'remplie|à jour|complète|enregistrée' "la fiche est remplie"
 sortie_ne_contient_pas "pas encore rempli" "la fiche présentée comme vide"
 sortie_contient '(^|[^0-9])2 consultations|deux consultations' "le nombre de consultations en cours"
 sortie_contient '(^|[^0-9])7[.)]' "un menu numéroté"
+sortie_contient 'URSSAF' "l'alerte sur l'attestation URSSAF périmée"
 vouvoie
 fin
