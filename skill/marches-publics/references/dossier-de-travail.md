@@ -27,7 +27,8 @@ Un sous-dossier de consultation contient, selon l'avancement :
 ├── dce/                           ← le DCE décompressé (étape analyse)
 ├── analyse.md                     ← l'analyse et le verdict (étape analyse)
 ├── pieces-et-retroplanning.md     ← les pièces à fournir et le rétroplanning (étape pièces)
-├── le mémoire technique           ← .docx, ou .rtf de secours (étape mémoire technique)
+├── memoire-reponses.md           ← les réponses de l'artisan pour le mémoire, enregistrées au fur et à mesure (étape mémoire technique)
+├── memoire-technique.docx        ← le mémoire, ou memoire-technique.rtf de secours ; jamais écrasé : -2, -3… (étape mémoire technique)
 ├── l'accusé de réception du dépôt ← que l'artisan y range lui-même (étape suivi)
 └── courrier-demande-motifs.md     ← après un rejet (étape bilan)
 ```
