@@ -2,7 +2,9 @@
 
 Ces documents vous accompagnent avant, pendant et après la formation.
 
-**Tout en un seul document** : la [notice d'installation et d'utilisation](notice/notice-utilisation.pdf) (16 pages A4, à imprimer ; [version HTML](notice/notice-utilisation.html)).
+**Pour les artisans** : [l'essentiel en 3 pages](notice/notice-essentielle.pdf) ([version HTML](notice/notice-essentielle.html)).
+
+**Pour le formateur** : la [notice complète d'installation et d'utilisation](notice/notice-utilisation.pdf) (16 pages A4 ; [version HTML](notice/notice-utilisation.html)).
 
 Les fiches détaillées, à lire dans cet ordre :
 
