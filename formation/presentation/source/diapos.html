@@ -1,0 +1,681 @@
+<!-- ==================================================================
+     Support de formation « Marchés publics » : LE TEXTE DES DIAPOSITIVES.
+     C'est le fichier à modifier. assembler.py le colle dans le modèle de
+     présentation Picant3 et remplace les jetons :
+       __PIED__              pied de page + numéro « n / total » (calculé)
+       __SCHEMA_PARCOURS__   schéma SVG du parcours (dessiné dans assembler.py)
+     data-screen-label : le titre seul ; le numéro est ajouté à l'assemblage.
+     <span class="a-completer"> : un emplacement que Julien remplit avant la
+     formation (lieu, date, captures…). construire.sh les compte.
+     Notes du formateur : ../notes-formateur.md (même numérotation).
+     ================================================================== -->
+
+<!-- 01 · COUVERTURE -->
+<section class="slide" data-screen-label="Couverture" data-od-id="slide-couverture">
+  <div class="pad pad--cover">
+    <div class="cover-top">
+      <span class="eyebrow pill">Support de formation</span>
+      <span class="rail cover-rail" aria-hidden="true"></span>
+    </div>
+    <div class="cover-main">
+      <h1 class="h1 cover-title">Marchés publics&nbsp;: l'assistant des artisans</h1>
+      <p class="lead">Trouver des chantiers publics et y répondre, avec un assistant installé sur votre ordinateur.</p>
+      <div class="cover-meta">
+        <div class="field"><div class="k">Lieu</div><div class="v"><span class="a-completer">Lieu à compléter</span></div></div>
+        <div class="field"><div class="k">Date</div><div class="v">Décembre 2026 · <span class="a-completer">jour</span></div></div>
+        <div class="field"><div class="k">Présenté par</div><div class="v"><span class="a-completer">Formateur à compléter</span></div></div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 02 · PROGRAMME -->
+<section class="slide" data-screen-label="Programme" data-od-id="slide-programme">
+  <div class="pad pad--toc toc--agenda">
+    <div class="toc-left">
+      <span class="eyebrow"><span class="dot"></span>Le programme</span>
+      <h2 class="h2" style="margin:24px 0 28px">Une journée, sept étapes</h2>
+      <p class="lead">Le matin pour comprendre et installer. L'après-midi pour travailler sur une vraie consultation.</p>
+    </div>
+    <div class="toc-list">
+      <div class="toc-item"><span class="n">9&nbsp;h&nbsp;00</span><span class="t">Pourquoi les marchés publics<small>Les mots à connaître, le seuil de 100&nbsp;000&nbsp;€&nbsp;HT</small></span></div>
+      <div class="toc-item"><span class="n">9&nbsp;h&nbsp;40</span><span class="t">L'outil et vous<small>Ce qu'il fait, ce qui reste à vous</small></span></div>
+      <div class="toc-item"><span class="n">10&nbsp;h&nbsp;00</span><span class="t">Installer et vérifier<small>Sur chaque ordinateur · pause à 10&nbsp;h&nbsp;30</small></span></div>
+      <div class="toc-item"><span class="n">10&nbsp;h&nbsp;45</span><span class="t">Étapes 1 et 2<small>Votre fiche, vos premières consultations · repas à 12&nbsp;h&nbsp;15</small></span></div>
+      <div class="toc-item"><span class="n">13&nbsp;h&nbsp;30</span><span class="t">Étapes 3, 4 et 5<small>Analyse, pièces et mémoire, sur une vraie consultation</small></span></div>
+      <div class="toc-item"><span class="n">16&nbsp;h&nbsp;00</span><span class="t">Étapes 6 et 7, puis la suite<small>Suivi, se faire connaître, règles d'or · fin à 17&nbsp;h</small></span></div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 03 · LES MOTS -->
+<section class="slide" data-screen-label="Les mots de la journée" data-od-id="slide-mots">
+  <div class="pad">
+    <span class="eyebrow"><span class="dot"></span>Pourquoi les marchés publics</span>
+    <h2 class="h2" style="margin-top:20px">Six mots à connaître</h2>
+    <div class="grid3" style="margin-top:44px">
+      <div class="card card--mot"><h3 class="h3">Acheteur</h3><p class="card-desc">L'organisme public qui fait faire les travaux&nbsp;: mairie, département, office HLM, intercommunalité.</p></div>
+      <div class="card card--mot"><h3 class="h3">Consultation</h3><p class="card-desc">La mise en concurrence lancée par l'acheteur. On parle de marché une fois le contrat signé.</p></div>
+      <div class="card card--mot"><h3 class="h3">Lot</h3><p class="card-desc">Une partie de la consultation à laquelle vous pouvez répondre seul, par exemple «&nbsp;lot 05 – plomberie&nbsp;».</p></div>
+      <div class="card card--mot"><h3 class="h3">DCE</h3><p class="card-desc">Le dossier de la consultation&nbsp;: tous les documents de l'acheteur (règlement, cahiers des charges, plans, bordereaux de prix).</p></div>
+      <div class="card card--mot"><h3 class="h3">BOAMP</h3><p class="card-desc">Le site officiel où sont publiées les consultations. Public, sans compte. L'outil le consulte pour vous.</p></div>
+      <div class="card card--mot"><h3 class="h3">Mémoire technique</h3><p class="card-desc">Le document où vous expliquez comment vous ferez le chantier&nbsp;: équipe, matériel, méthode, planning. L'acheteur le note.</p></div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 04 · LE SEUIL DE 100 000 € HT -->
+<section class="slide" data-screen-label="Le seuil de 100 000 € HT" data-od-id="slide-seuil">
+  <div class="pad pad--citation">
+    <span class="eyebrow"><span class="dot"></span>Depuis le 1<sup>er</sup> janvier 2026</span>
+    <div class="bignum bignum--euros" style="margin-top:36px">100&nbsp;000&nbsp;€</div>
+    <p class="lead lead--centre">Sous ce montant de travaux (hors taxes), un acheteur <em>peut</em> consulter directement les artisans qu'il connaît, sans annonce.</p>
+    <p class="source">Code de la commande publique, art. R.&nbsp;2122-8 (décret n°&nbsp;2025-1386). Pour les fournitures et services&nbsp;: 60&nbsp;000&nbsp;€&nbsp;HT.</p>
+    __PIED__
+  </div>
+</section>
+
+<!-- 05 · DEUX FAÇONS D'OBTENIR UN CHANTIER -->
+<section class="slide" data-screen-label="Deux façons d'obtenir un chantier" data-od-id="slide-deux-portes">
+  <div class="pad">
+    <span class="eyebrow"><span class="dot"></span>Pourquoi les marchés publics</span>
+    <h2 class="h2" style="margin-top:20px">Deux façons d'obtenir un chantier public</h2>
+    <div class="grid2" style="margin-top:52px">
+      <div class="card card--main">
+        <div class="idx">Les consultations publiées</div>
+        <h3 class="h3">Au-dessus de 100&nbsp;000&nbsp;€&nbsp;HT, l'acheteur publie.</h3>
+        <p class="card-desc">L'annonce paraît sur le BOAMP ou sur la plateforme de l'acheteur. En dessous, il peut aussi choisir de publier. Vous les trouvez par la veille, puis vous répondez.</p>
+        <div class="tags"><span class="tag">Étapes 2 à 6</span></div>
+      </div>
+      <div class="card card--main">
+        <div class="idx">Les marchés sans annonce</div>
+        <h3 class="h3">En dessous, l'acheteur peut vous consulter directement.</h3>
+        <p class="card-desc">Il n'y est pas obligé, et il ne doit pas toujours s'adresser au même artisan. Encore faut-il qu'il vous connaisse&nbsp;: c'est le but de la lettre de présentation.</p>
+        <div class="tags"><span class="tag">Étape 7</span></div>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 06 · CE QUE FAIT L'OUTIL / CE QUI RESTE À VOUS -->
+<section class="slide" data-screen-label="L'outil et vous" data-od-id="slide-outil-et-vous">
+  <div class="pad">
+    <span class="eyebrow"><span class="dot"></span>L'outil et vous</span>
+    <h2 class="h2" style="margin-top:20px">Il prépare, vous décidez</h2>
+    <div class="poles">
+      <div class="pole">
+        <div class="plabel">Ce que fait l'outil</div>
+        <ul>
+          <li>Votre fiche entreprise, remplie une fois, réutilisée partout</li>
+          <li>La veille&nbsp;: les consultations du BOAMP pour vos métiers</li>
+          <li>L'analyse d'un DCE&nbsp;: un avis, les dates, les pièges</li>
+          <li>Les pièces à fournir, le calendrier, le mémoire en Word</li>
+          <li>Le suivi, le bilan, la lettre aux acheteurs proches</li>
+        </ul>
+      </div>
+      <div class="pole">
+        <div class="plabel">Ce qui reste à vous</div>
+        <ul>
+          <li>Votre prix&nbsp;: l'outil ne chiffre jamais</li>
+          <li>La décision de répondre ou non</li>
+          <li>Le téléchargement du DCE et le dépôt de l'offre, sur la plateforme de l'acheteur, avec votre compte</li>
+          <li>La signature et l'envoi des offres et des courriers</li>
+          <li>La vérification finale des dates</li>
+        </ul>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 07 · CITATION -->
+<section class="slide" data-screen-label="Pourquoi" data-od-id="slide-pourquoi">
+  <div class="pad pad--citation">
+    <p class="quote"><span class="mark">«&nbsp;</span>Ces gestes vous engagent, et une erreur coûte la consultation. L'outil prépare et contrôle&nbsp;; <em>c'est vous qui décidez et signez.</em><span class="mark">&nbsp;»</span></p>
+    <p class="quote-by">— La règle de l'outil</p>
+    __PIED__
+  </div>
+</section>
+
+<!-- 08 · COMMENT LUI PARLER -->
+<section class="slide" data-screen-label="Comment lui parler" data-od-id="slide-parler">
+  <div class="pad pad--contenu">
+    <div class="contenu-text">
+      <span class="eyebrow"><span class="dot"></span>L'outil et vous</span>
+      <h2 class="h2" style="margin-top:22px">Comment lui parler</h2>
+      <ul class="contenu-body">
+        <li>Chaque conversation commence par <span class="say">bonjour marchés publics</span>. Il relit votre dossier et affiche son menu.</li>
+        <li>Dans Claude, vous cliquez sur un choix. Dans Codex, vous répondez par un chiffre.</li>
+        <li>Ou vous écrivez avec vos mots, ou vous parlez&nbsp;: «&nbsp;trouvez-moi des chantiers&nbsp;» vaut «&nbsp;2&nbsp;».</li>
+        <li>Il vous vouvoie, pose une question à la fois et explique chaque mot technique.</li>
+      </ul>
+    </div>
+    <div class="avous">
+      <div class="microlabel">Vous pouvez toujours dire</div>
+      <ul class="phrases">
+        <li><span class="say">je ne sais pas</span><span>il note [À&nbsp;COMPLÉTER] et continue</span></li>
+        <li><span class="say">je réfléchis</span><span>rien n'est décidé à votre place</span></li>
+        <li><span class="say">où j'en suis&nbsp;?</span><span>le point sur vos consultations</span></li>
+        <li><span class="say">comment je dépose&nbsp;?</span><span>il explique, vous déposez</span></li>
+      </ul>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 09 · CE QU'IL VOUS FAUT -->
+<section class="slide" data-screen-label="Ce qu'il vous faut" data-od-id="slide-prerequis">
+  <div class="pad">
+    <span class="eyebrow"><span class="dot"></span>Installer et vérifier</span>
+    <h2 class="h2" style="margin-top:20px">Ce qu'il vous faut</h2>
+    <div class="grid4" style="margin-top:44px">
+      <div class="fact"><div class="n">Ordinateur</div><div class="l">Mac ou Windows. Un téléphone ne suffit pas&nbsp;: vos fichiers restent sur l'ordinateur.</div></div>
+      <div class="fact"><div class="n">Claude ou ChatGPT</div><div class="l">L'application pour ordinateur&nbsp;: Claude, onglet Code (abonnement Pro), ou ChatGPT avec Codex (Plus).</div></div>
+      <div class="fact"><div class="n">Internet</div><div class="l">Pour installer l'outil et chercher les consultations.</div></div>
+      <div class="fact"><div class="n">Word</div><div class="l">Ou LibreOffice, pour ouvrir votre mémoire technique.</div></div>
+    </div>
+    <div class="inutile">
+      <span class="microlabel">Inutile</span>
+      <span>un compte GitHub</span><span>un compte sur le BOAMP</span><span>un autre logiciel «&nbsp;pour aider&nbsp;»</span>
+    </div>
+    <p class="note">Windows et Claude&nbsp;: si l'application affiche «&nbsp;Git est requis&nbsp;», installez Git pour Windows (git-scm.com), puis redémarrez Claude. C'est la seule exception.</p>
+    __PIED__
+  </div>
+</section>
+
+<!-- 10 · INSTALLER EN 4 ÉTAPES -->
+<section class="slide" data-screen-label="Installer en 4 étapes" data-od-id="slide-installer">
+  <div class="pad pad--loop">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Installer et vérifier</span>
+      <h2 class="h2" style="margin:24px 0 32px">Installer en 4 étapes</h2>
+      <div class="loop-steps">
+        <div class="loop-step"><div class="loop-node">1</div><div><div class="st-title">Ouvrir une nouvelle conversation</div><div class="st-desc">Claude&nbsp;: onglet Code, Nouvelle session, dossier Documents. ChatGPT&nbsp;: Codex.</div></div></div>
+        <div class="loop-step"><div class="loop-node">2</div><div><div class="st-title">Coller le message, puis l'envoyer</div><div class="st-desc">Il est à droite, et derrière le QR code.</div></div></div>
+        <div class="loop-step"><div class="loop-node">3</div><div><div class="st-title">Répondre aux demandes d'autorisation</div><div class="st-desc">Diapositive suivante.</div></div></div>
+        <div class="loop-step"><div class="loop-node live">4</div><div><div class="st-title">Vérifier</div><div class="st-desc">Nouvelle conversation, puis <span class="say">bonjour marchés publics</span>.</div></div></div>
+      </div>
+    </div>
+    <div class="install-side">
+      <div class="message">
+        <div class="microlabel">Le message à coller</div>
+        <p>Installe l'outil Marchés publics&nbsp;: lis https://raw.githubusercontent.com/julienvedebe/public-AO/main/INSTALL.md et suis-le étape par étape. Ne modifie rien sur mon ordinateur en dehors de ce qu'il demande, et explique-moi chaque étape simplement.</p>
+      </div>
+      <div class="qr-row">
+        <div class="visual-slot visual-slot--qr"><div class="vs-txt"><b class="a-completer">QR code</b>formation/qr-installation.png (voir formation/qr-code.md)</div></div>
+        <p class="body">Le QR code ouvre la page de l'outil, où le message est prêt à copier&nbsp;: <b>github.com/julienvedebe/public-AO</b></p>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 11 · AUTORISATIONS -->
+<section class="slide" data-screen-label="Les demandes d'autorisation" data-od-id="slide-autorisations">
+  <div class="pad">
+    <span class="eyebrow"><span class="dot"></span>Installer et vérifier</span>
+    <h2 class="h2" style="margin-top:20px">Les autorisations&nbsp;: vous décidez</h2>
+    <div class="grid2" style="margin-top:44px">
+      <div class="pole">
+        <div class="plabel">Oui</div>
+        <div class="pname">L'outil et votre dossier</div>
+        <ul>
+          <li>Télécharger l'outil depuis github.com</li>
+          <li>Le copier dans un dossier qui finit par <span class="say">marches-publics</span></li>
+          <li>Écrire dans Documents → Marchés publics</li>
+          <li>Interroger les sites publics des annonces et des marchés attribués</li>
+        </ul>
+      </div>
+      <div class="pole">
+        <div class="plabel">Non</div>
+        <div class="pname">Tout le reste</div>
+        <ul>
+          <li>Un mot de passe, un code, un identifiant</li>
+          <li>Installer un autre logiciel</li>
+          <li>Toucher à un autre dossier, aller sur un autre site</li>
+          <li>Envoyer un message à votre place</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">Ne choisissez jamais un mode qui supprime les demandes («&nbsp;automatique&nbsp;», «&nbsp;accès complet&nbsp;», «&nbsp;sans approbation&nbsp;»). Refuser ne casse rien. Dans le doute&nbsp;: non, et appelez le formateur.</p>
+    __PIED__
+  </div>
+</section>
+
+<!-- 12 · À VOUS : VÉRIFIER -->
+<section class="slide" data-screen-label="À vous : vérifier" data-od-id="slide-verifier">
+  <div class="pad pad--etape">
+    <div>
+      <span class="chip-avous">À vous · 20 min</span>
+      <h2 class="h2" style="margin-top:26px">Vérifiez votre installation</h2>
+      <ol class="pas">
+        <li>Ouvrez une <b>nouvelle</b> conversation (Claude Code ou Codex).</li>
+        <li>Écrivez <span class="say">bonjour marchés publics</span>.</li>
+        <li>Vous devez voir&nbsp;: un accueil, «&nbsp;votre fiche entreprise n'est pas encore remplie&nbsp;», puis le menu.</li>
+        <li>Pas de menu&nbsp;? Ouvrez une nouvelle conversation et recommencez. Sinon, levez la main.</li>
+      </ol>
+    </div>
+    <div class="avous">
+      <div class="microlabel">Le menu (les mots peuvent varier)</div>
+      <ol class="menu">
+        <li>Remplir ou modifier ma fiche entreprise</li>
+        <li>Trouver des consultations</li>
+        <li>Analyser un dossier de consultation (DCE)</li>
+        <li>Préparer les pièces à fournir</li>
+        <li>Rédiger mon mémoire technique</li>
+        <li>Voir où j'en suis / faire le bilan</li>
+        <li>Me faire connaître des acheteurs près de chez moi</li>
+      </ol>
+      <p class="menu-note">Dans Claude, les mêmes choix arrivent en boutons&nbsp;: Ma fiche entreprise · Trouver des chantiers · Répondre à une consultation · Suivre mes consultations.</p>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 13 · LE PARCOURS -->
+<section class="slide" data-screen-label="Le parcours" data-od-id="slide-parcours">
+  <div class="pad">
+    <span class="eyebrow"><span class="dot"></span>Les 7 étapes du menu</span>
+    <h2 class="h2" style="margin-top:20px">Le parcours d'une consultation</h2>
+    <div class="schema-wrap">__SCHEMA_PARCOURS__</div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 14 · ÉTAPE 1 -->
+<section class="slide" data-screen-label="Étape 1 · Fiche entreprise" data-od-id="slide-etape-1">
+  <div class="pad pad--etape">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Étape 1 sur 7</span>
+      <h2 class="h2" style="margin-top:20px">Votre fiche entreprise</h2>
+      <div class="rows">
+        <div class="row"><div class="k">Vous dites</div><div class="v"><span class="say">1</span> ou <span class="say">je veux remplir ma fiche</span></div></div>
+        <div class="row"><div class="k">Il fait</div><div class="v">Une dizaine de questions, une à la fois&nbsp;: métiers, départements, taille des lots, certifications, effectif, assurances, références, justificatifs.</div></div>
+        <div class="row"><div class="k">Vous obtenez</div><div class="v">Votre fiche, enregistrée au fur et à mesure. Elle sert à toutes vos consultations.</div></div>
+        <div class="row"><div class="k">Jamais dedans</div><div class="v">Mot de passe, identifiant de plateforme, IBAN. Il refuse de les enregistrer.</div></div>
+      </div>
+    </div>
+    <div class="avous">
+      <span class="chip-avous">À vous · 30 min</span>
+      <ol class="pas">
+        <li>Choisissez <b>Ma fiche entreprise</b>, ou tapez <span class="say">1</span>.</li>
+        <li>Répondez à chaque question. «&nbsp;Je ne sais pas&nbsp;» est une bonne réponse.</li>
+        <li>Pour corriger&nbsp;: <span class="say">modifiez ma fiche&nbsp;: …</span></li>
+        <li>Ouvrez Documents → Marchés publics&nbsp;: votre fiche y est.</li>
+      </ol>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 15 · ÉTAPE 2 -->
+<section class="slide" data-screen-label="Étape 2 · Veille" data-od-id="slide-etape-2">
+  <div class="pad pad--etape">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Étape 2 sur 7</span>
+      <h2 class="h2" style="margin-top:20px">Trouver des consultations</h2>
+      <div class="rows">
+        <div class="row"><div class="k">Vous dites</div><div class="v"><span class="say">2</span> ou <span class="say">trouvez-moi des consultations</span></div></div>
+        <div class="row"><div class="k">Il fait</div><div class="v">Il interroge le BOAMP avec vos métiers et vos départements&nbsp;: des travaux, encore ouverts, avec au moins 10 jours pour répondre.</div></div>
+        <div class="row"><div class="k">Vous obtenez</div><div class="v">Au plus 10 consultations, les plus urgentes d'abord&nbsp;: acheteur, montant s'il est connu, date limite, lien vers l'annonce. Elles ne reviennent pas comme nouvelles.</div></div>
+      </div>
+    </div>
+    <div class="avous">
+      <span class="chip-avous">À vous · 20 min</span>
+      <ol class="pas">
+        <li>Choisissez <b>Trouver des chantiers</b>, ou tapez <span class="say">2</span>.</li>
+        <li>Ouvrez le lien d'une consultation&nbsp;: il indique la plateforme où se trouve le DCE.</li>
+        <li>Rien trouvé&nbsp;? C'est normal certaines semaines. L'étape 7 est faite pour ça.</li>
+      </ol>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 16 · LA CONSULTATION DU JOUR -->
+<section class="slide" data-screen-label="La consultation du jour" data-od-id="slide-consultation-du-jour">
+  <div class="pad pad--contenu">
+    <div class="contenu-text">
+      <span class="eyebrow"><span class="dot"></span>Cet après-midi</span>
+      <h2 class="h2" style="margin-top:22px">Une vraie consultation, pour tous</h2>
+      <ul class="contenu-body">
+        <li>Avant l'analyse, vous téléchargez vous-même le DCE sur la plateforme de l'acheteur. C'est souvent un fichier ZIP.</li>
+        <li>Vous le déposez dans Documents → Marchés publics.</li>
+        <li>Ensuite seulement, l'outil peut le lire.</li>
+      </ul>
+    </div>
+    <div class="fiche-consult">
+      <div class="fc-row"><span class="k">Acheteur</span><span class="a-completer">Nom de l'acheteur</span></div>
+      <div class="fc-row"><span class="k">Objet</span><span class="a-completer">Objet de la consultation</span></div>
+      <div class="fc-row"><span class="k">Lot</span><span class="a-completer">Numéro et intitulé du lot</span></div>
+      <div class="fc-row"><span class="k">Date limite</span><span class="a-completer">JJ/MM/AAAA à HH h</span></div>
+      <div class="fc-row"><span class="k">Le DCE</span><span class="a-completer">Adresse de la plateforme, ou clé USB du formateur</span></div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 17 · ÉTAPE 3 : ANALYSE -->
+<section class="slide" data-screen-label="Étape 3 · Analyse" data-od-id="slide-etape-3">
+  <div class="pad pad--etape">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Étape 3 sur 7</span>
+      <h2 class="h2" style="margin-top:20px">Analyser le DCE</h2>
+      <div class="rows">
+        <div class="row"><div class="k">Vous dites</div><div class="v"><span class="say">3</span>, puis par exemple <span class="say">j'ai mis le dossier de la mairie dans mon dossier, je veux le lot plomberie</span></div></div>
+        <div class="row"><div class="k">Il fait</div><div class="v">Il décompresse le DCE, trouve votre lot et compare ses exigences (certifications, assurances, références) à votre fiche.</div></div>
+        <div class="row"><div class="k">Vous obtenez</div><div class="v">Un avis, les dates clés, la visite obligatoire ou non, les critères de notation, les pièges (pénalités, retenue de garantie). Chaque date cite sa source.</div></div>
+      </div>
+    </div>
+    <div class="avous">
+      <div class="microlabel">L'avis</div>
+      <div class="verdicts">
+        <div class="vd"><span class="pastille" aria-hidden="true">🟢</span><div><b>Dossier favorable</b><span>votre métier, vos montants, les exigences remplies, des dates tenables</span></div></div>
+        <div class="vd"><span class="pastille" aria-hidden="true">🟠</span><div><b>Points de vigilance</b><span>une exigence manque, un piège pèse lourd&nbsp;: il dit quoi régler</span></div></div>
+        <div class="vd"><span class="pastille" aria-hidden="true">🔴</span><div><b>Dossier défavorable</b><span>des éléments pèsent fortement contre une réponse</span></div></div>
+      </div>
+      <p class="menu-note">C'est un avis, pas une décision. Vérifiez toujours les dates sur la plateforme de l'acheteur&nbsp;: elles peuvent changer.</p>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 18 · VOTRE CHOIX + À VOUS -->
+<section class="slide" data-screen-label="Étape 3 · Votre choix" data-od-id="slide-etape-3-choix">
+  <div class="pad pad--etape">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Étape 3 sur 7</span>
+      <h2 class="h2" style="margin-top:20px">Puis c'est vous qui choisissez</h2>
+      <div class="rows">
+        <div class="row"><div class="k">Répondre</div><div class="v">Il passe à la préparation des pièces (étape 4).</div></div>
+        <div class="row"><div class="k">Décliner</div><div class="v">La consultation passe en «&nbsp;déclinée&nbsp;». La veille ne la repropose plus. Vous pouvez changer d'avis jusqu'à la date limite.</div></div>
+        <div class="row"><div class="k">Selon le cas</div><div class="v">Poser d'abord une question à l'acheteur, ou chercher un partenaire si le lot dépasse votre métier ou votre taille.</div></div>
+        <div class="row"><div class="k">Je réfléchis</div><div class="v">Rien ne change&nbsp;: elle reste «&nbsp;analysée&nbsp;».</div></div>
+      </div>
+    </div>
+    <div class="avous">
+      <span class="chip-avous">À vous · 40 min</span>
+      <ol class="pas">
+        <li>Déposez le DCE de la consultation du jour dans Documents → Marchés publics.</li>
+        <li>Choisissez <b>Répondre à une consultation</b>, puis <b>Analyser</b>, ou tapez <span class="say">3</span>.</li>
+        <li>Lisez l'avis, les dates et les pièges.</li>
+        <li>Pour l'exercice, choisissez <b>Répondre</b>&nbsp;: la suite de l'après-midi part de là.</li>
+      </ol>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 19 · ÉTAPE 4 -->
+<section class="slide" data-screen-label="Étape 4 · Pièces à fournir" data-od-id="slide-etape-4">
+  <div class="pad pad--etape">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Étape 4 sur 7</span>
+      <h2 class="h2" style="margin-top:20px">Préparer les pièces à fournir</h2>
+      <div class="rows">
+        <div class="row"><div class="k">Vous dites</div><div class="v"><span class="say">4</span> ou <span class="say">je réponds, préparez les pièces</span></div></div>
+        <div class="row"><div class="k">Vous obtenez</div><div class="v">Les pièces demandées, déjà là ou manquantes. Une alerte pour un justificatif qui expire avant la date limite. Un calendrier jusqu'au dépôt.</div></div>
+        <div class="row"><div class="k">Formulaires</div><div class="v">DC1, DC2 ou DUME (les déclarations de candidature) préremplis avec votre fiche.</div></div>
+        <div class="row"><div class="k">À vous</div><div class="v">Le prix&nbsp;: bordereau des prix, décomposition du prix. L'outil ne le remplit jamais.</div></div>
+      </div>
+    </div>
+    <div class="avous">
+      <span class="chip-avous">À vous · 20 min</span>
+      <ol class="pas">
+        <li>Tapez <span class="say">4</span> ou dites <span class="say">préparez les pièces</span>.</li>
+        <li>Repérez ce qui manque et ce qui expire.</li>
+        <li>Notez la date limite de dépôt et le calendrier proposé.</li>
+      </ol>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 20 · ÉTAPE 5 -->
+<section class="slide" data-screen-label="Étape 5 · Mémoire technique" data-od-id="slide-etape-5">
+  <div class="pad pad--etape">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Étape 5 sur 7</span>
+      <h2 class="h2" style="margin-top:20px">Rédiger le mémoire technique</h2>
+      <div class="rows">
+        <div class="row"><div class="k">Vous dites</div><div class="v"><span class="say">5</span> ou <span class="say">aidez-moi à rédiger le mémoire</span></div></div>
+        <div class="row"><div class="k">Il fait</div><div class="v">Un plan tiré des critères de notation de l'acheteur, puis des questions une à la fois&nbsp;: équipe, matériel, méthode, déchets, planning.</div></div>
+        <div class="row"><div class="k">Vous obtenez</div><div class="v">Un fichier Word à relire. Ce qu'il ne sait pas est marqué [À&nbsp;COMPLÉTER] et surligné en jaune&nbsp;: rien n'est inventé.</div></div>
+      </div>
+    </div>
+    <div class="avous">
+      <span class="chip-avous">À vous · 30 min</span>
+      <ol class="pas">
+        <li>Tapez <span class="say">5</span> ou dites <span class="say">aidez-moi à rédiger le mémoire</span>.</li>
+        <li>Répondez comme vous parleriez à un collègue&nbsp;: «&nbsp;moi et deux compagnons&nbsp;».</li>
+        <li>Ouvrez le fichier Word dans le dossier de la consultation.</li>
+        <li>Cherchez les [À&nbsp;COMPLÉTER]&nbsp;: c'est votre travail de relecture.</li>
+      </ol>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 21 · LE CADRE DE L'ACHETEUR -->
+<section class="slide" data-screen-label="Étape 5 · Le cadre de l'acheteur" data-od-id="slide-cadre-acheteur">
+  <div class="pad pad--contenu">
+    <div class="contenu-text">
+      <span class="eyebrow"><span class="dot"></span>Étape 5 sur 7</span>
+      <h2 class="h2" style="margin-top:22px">Si l'acheteur fournit son propre cadre</h2>
+      <ul class="contenu-body">
+        <li>Beaucoup de DCE contiennent un document à remplir pour le mémoire&nbsp;: le cadre de réponse.</li>
+        <li>L'outil le repère, et vous dit si le règlement l'impose.</li>
+        <li>Votre mémoire suit alors ce cadre&nbsp;: mêmes rubriques, même ordre, mêmes limites de pages.</li>
+        <li>Vous recevez deux fichiers&nbsp;: votre mémoire, et une copie du cadre de l'acheteur, remplie. Son document d'origine n'est jamais modifié.</li>
+      </ul>
+    </div>
+    <div class="visual-slot"><div class="vs-txt"><b class="a-completer">Capture à fournir</b>Le cadre de l'acheteur rempli, ouvert dans Word, avec un [À&nbsp;COMPLÉTER] surligné.</div></div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 22 · ÉTAPE 6 -->
+<section class="slide" data-screen-label="Étape 6 · Déposer, suivre, bilan" data-od-id="slide-etape-6">
+  <div class="pad pad--etape">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Étape 6 sur 7</span>
+      <h2 class="h2" style="margin-top:20px">Déposer, suivre, faire le bilan</h2>
+      <div class="rows">
+        <div class="row"><div class="k">Déposer</div><div class="v"><span class="say">comment je dépose&nbsp;?</span> Il explique. Vous déposez vous-même, puis vous dites <span class="say">j'ai déposé</span>.</div></div>
+        <div class="row"><div class="k">Suivre</div><div class="v"><span class="say">où j'en suis&nbsp;?</span> Toutes vos consultations et leur statut, en un tableau.</div></div>
+        <div class="row"><div class="k">Résultat</div><div class="v"><span class="say">j'ai perdu</span>&nbsp;: un courrier pour demander les motifs, qui a gagné et à quel prix, et les leçons pour la prochaine fois.</div></div>
+      </div>
+      <div class="statuts" aria-label="Les statuts d'une consultation">
+        <span>repérée</span><i>→</i><span>analysée</span><i>→</i><span>en préparation</span><i>→</i><span>déposée</span><i>→</i><span>gagnée ou perdue</span><i>→</i><span>bilan fait</span>
+        <span class="statut-autre">ou&nbsp;: déclinée</span>
+      </div>
+    </div>
+    <div class="avous">
+      <span class="chip-avous">À vous · 10 min</span>
+      <ol class="pas">
+        <li>Demandez <span class="say">où j'en suis&nbsp;?</span></li>
+        <li>Retrouvez la consultation du jour et son statut.</li>
+        <li>Ne dites <span class="say">j'ai déposé</span> que le jour où c'est vrai.</li>
+      </ol>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 23 · ÉTAPE 7 -->
+<section class="slide" data-screen-label="Étape 7 · Se faire connaître" data-od-id="slide-etape-7">
+  <div class="pad pad--etape">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Étape 7 sur 7</span>
+      <h2 class="h2" style="margin-top:20px">Vous faire connaître des acheteurs proches</h2>
+      <div class="rows">
+        <div class="row"><div class="k">Vous dites</div><div class="v"><span class="say">7</span> ou <span class="say">je veux me faire connaître des mairies</span></div></div>
+        <div class="row"><div class="k">Il fait</div><div class="v">Il cherche les acheteurs qui ont publié des travaux dans vos départements ces 12 derniers mois.</div></div>
+        <div class="row"><div class="k">Vous obtenez</div><div class="v">8 à 12 acheteurs à contacter, et une lettre de présentation aux services techniques, tirée de votre fiche.</div></div>
+        <div class="row"><div class="k">À vous</div><div class="v">Trouver l'adresse du service technique, envoyer la lettre. L'outil n'envoie rien.</div></div>
+      </div>
+    </div>
+    <div class="avous">
+      <span class="chip-avous">À vous · 15 min</span>
+      <ol class="pas">
+        <li>Choisissez <b>Trouver des chantiers</b>, puis <b>Me faire connaître</b>, ou tapez <span class="say">7</span>.</li>
+        <li>Relisez la liste&nbsp;: lesquels connaissez-vous déjà&nbsp;?</li>
+        <li>Demandez la lettre et relisez-la.</li>
+      </ol>
+      <p class="menu-note">L'acheteur n'est pas obligé de répondre. La lettre vous fait connaître pour le jour où il aura un besoin.</p>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 24 · RÈGLES D'OR -->
+<section class="slide" data-screen-label="Les règles d'or" data-od-id="slide-regles-or">
+  <div class="pad">
+    <span class="eyebrow"><span class="dot"></span>À retenir</span>
+    <h2 class="h2" style="margin-top:20px">Les règles d'or</h2>
+    <div class="grid5" style="margin-top:48px">
+      <div class="card"><div class="idx">01</div><h3 class="h3">Vous décidez</h3><p class="card-desc">L'outil donne un avis, jamais d'ordre. Répondre ou non, c'est vous.</p></div>
+      <div class="card"><div class="idx">02</div><h3 class="h3">Le prix, c'est vous</h3><p class="card-desc">L'outil ne chiffre jamais.</p></div>
+      <div class="card"><div class="idx">03</div><h3 class="h3">Le dépôt, c'est vous</h3><p class="card-desc">Sur la plateforme de l'acheteur, avec votre compte et votre signature.</p></div>
+      <div class="card"><div class="idx">04</div><h3 class="h3">[À&nbsp;COMPLÉTER]</h3><p class="card-desc">Une information qui manque. L'outil n'invente rien&nbsp;: complétez-la.</p></div>
+      <div class="card"><div class="idx">05</div><h3 class="h3">Les dates</h3><p class="card-desc">Vérifiez-les sur la plateforme de l'acheteur avant de vous organiser.</p></div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 25 · VOS DONNÉES -->
+<section class="slide" data-screen-label="Vos données" data-od-id="slide-donnees">
+  <div class="pad pad--contenu">
+    <div class="contenu-text">
+      <span class="eyebrow"><span class="dot"></span>Données et confidentialité</span>
+      <h2 class="h2" style="margin-top:22px">Ce qui reste chez vous, ce qui part</h2>
+      <pre class="arbo">Documents/Marchés publics/
+├── ma-fiche-entreprise.md
+├── suivi.md
+├── mes-justificatifs/
+├── se-faire-connaitre/
+└── consultations/
+    └── 2026-12_mairie-de-…_lot-05-plomberie/
+        ├── dce/  ·  analyse.md
+        └── memoire-technique.docx</pre>
+      <p class="menu-note">Il n'existe que sur votre ordinateur&nbsp;: sauvegardez-le de temps en temps. Une mise à jour de l'outil n'y touche jamais.</p>
+    </div>
+    <div class="poles poles--col">
+      <div class="pole">
+        <div class="plabel">Part chez Anthropic ou OpenAI</div>
+        <p class="pdesc">Ce que vous écrivez, et ce que l'assistant lit pour vous répondre&nbsp;: votre fiche, le DCE, votre mémoire. Le BOAMP, lui, ne reçoit que vos métiers et départements.</p>
+      </div>
+      <div class="pole">
+        <div class="plabel">Ne partagez pas</div>
+        <ul>
+          <li>Mots de passe, codes, identifiants</li>
+          <li>IBAN, numéro de carte</li>
+          <li>Votre prix, si vous voulez le garder pour vous</li>
+        </ul>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 26 · DÉPANNAGE -->
+<section class="slide" data-screen-label="Si quelque chose ne va pas" data-od-id="slide-depannage">
+  <div class="pad">
+    <span class="eyebrow"><span class="dot"></span>Dépannage</span>
+    <h2 class="h2" style="margin-top:20px">Si quelque chose ne va pas</h2>
+    <table class="tab">
+      <thead><tr><th>Vous voyez</th><th>Faites</th></tr></thead>
+      <tbody>
+        <tr><td>Pas de menu, ou «&nbsp;je ne connais pas cet outil&nbsp;»</td><td>Nouvelle conversation, puis <span class="say">bonjour marchés publics</span>. Sinon, recollez le message d'installation.</td></tr>
+        <tr><td>«&nbsp;Limite&nbsp;» atteinte, ou il refuse de répondre</td><td>Vérifiez votre abonnement, ou attendez l'heure indiquée.</td></tr>
+        <tr><td>«&nbsp;Je n'arrive pas à joindre le site des annonces&nbsp;»</td><td>Redemandez dans quelques minutes. Votre suivi n'est pas modifié.</td></tr>
+        <tr><td>Aucune consultation trouvée</td><td>Réessayez la semaine suivante, élargissez votre fiche si besoin, et passez à l'étape 7.</td></tr>
+        <tr><td>Un fichier .rtf au lieu du Word</td><td>Ouvrez-le avec Word&nbsp;: c'est le même mémoire.</td></tr>
+        <tr><td>«&nbsp;Votre administrateur a bloqué…&nbsp;»</td><td>Ne forcez pas&nbsp;: prévenez le formateur.</td></tr>
+      </tbody>
+    </table>
+    __PIED__
+  </div>
+</section>
+
+<!-- 27 · MÉMO DES PHRASES -->
+<section class="slide" data-screen-label="Mémo des phrases" data-od-id="slide-memo">
+  <div class="pad pad--toc">
+    <div class="toc-left">
+      <span class="eyebrow"><span class="dot"></span>À garder sous les yeux</span>
+      <h2 class="h2" style="margin:24px 0 28px">Le mémo des phrases</h2>
+      <p class="lead">Les mots exacts importent peu. Commencez toujours par <span class="say">bonjour marchés publics</span>.</p>
+    </div>
+    <div class="memo">
+      <div class="m"><span class="n">1</span><span class="say">modifiez ma fiche&nbsp;: …</span></div>
+      <div class="m"><span class="n">2</span><span class="say">trouvez-moi des consultations</span></div>
+      <div class="m"><span class="n">3</span><span class="say">analysez le dossier de …, lot …</span></div>
+      <div class="m"><span class="n">4</span><span class="say">je réponds, préparez les pièces</span></div>
+      <div class="m"><span class="n">5</span><span class="say">aidez-moi à rédiger le mémoire</span></div>
+      <div class="m"><span class="n">6</span><span class="say">j'ai déposé · où j'en suis&nbsp;? · j'ai perdu</span></div>
+      <div class="m"><span class="n">7</span><span class="say">je veux me faire connaître des mairies</span></div>
+      <div class="m"><span class="n">↻</span><span class="say">mettez à jour l'outil marchés publics</span></div>
+    </div>
+    __PIED__
+  </div>
+</section>
+
+<!-- 28 · APRÈS LA FORMATION -->
+<section class="slide" data-screen-label="Après la formation" data-od-id="slide-apres">
+  <div class="pad">
+    <span class="eyebrow"><span class="dot"></span>Et ensuite</span>
+    <h2 class="h2" style="margin-top:20px">Après la formation</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="node"></span>
+        <div class="when">Cette semaine</div>
+        <div class="ttl">Finir votre fiche</div>
+        <div class="desc">Complétez les [À&nbsp;COMPLÉTER]&nbsp;: références, justificatifs et leurs dates.</div>
+      </div>
+      <div class="tl-item">
+        <span class="node"></span>
+        <div class="when">Chaque semaine</div>
+        <div class="ttl">Relancer la veille</div>
+        <div class="desc">De nouvelles consultations paraissent tous les jours. Envoyez aussi votre lettre aux acheteurs proches.</div>
+      </div>
+      <div class="tl-item live">
+        <span class="node"></span>
+        <div class="when">Quand une version sort</div>
+        <div class="ttl">Mettre à jour</div>
+        <div class="desc"><span class="say">mettez à jour l'outil marchés publics</span>. Vos fichiers ne bougent pas.</div>
+      </div>
+    </div>
+    <p class="note">La notice de 3 pages et la notice complète sont dans le dossier formation de github.com/julienvedebe/public-AO.</p>
+    __PIED__
+  </div>
+</section>
+
+<!-- 29 · MERCI / CONTACT -->
+<section class="slide" data-screen-label="Questions et contact" data-od-id="slide-contact">
+  <div class="pad pad--contact">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Merci</span>
+        <h2 class="h2" style="margin:24px 0 4px">Vos questions</h2>
+        <p class="signature">Une question plus tard, un blocage&nbsp;? Écrivez avec une photo de l'écran, votre ordinateur (Mac ou Windows) et l'application utilisée.</p>
+        <div class="contact-line">
+          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <a href="mailto:contact@picant3.com">contact@picant3.com</a>
+        </div>
+      </div>
+      <div class="contact-side">
+        <a class="cta" href="https://github.com/julienvedebe/public-AO">
+          Les notices et l'outil
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <p class="legal">Outil publié par Picant3 sous licence MIT&nbsp;: copie, diffusion et adaptation libres. SAS au capital de 2&nbsp;000&nbsp;€, en cours d'immatriculation au RCS d'Aix-en-Provence · Eguilles (13).</p>
+      </div>
+    </div>
+    __PIED__
+  </div>
+</section>
