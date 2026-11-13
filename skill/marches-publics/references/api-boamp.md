@@ -12,7 +12,7 @@ Sur Mac, tapez `curl`. Sous Windows, tapez `curl.exe` (dans PowerShell, `curl` s
 curl -s --compressed -G "https://boamp-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/boamp/records" --data-urlencode "select=CHAMPS" --data-urlencode "where=CONDITIONS" --data-urlencode "order_by=datelimitereponse" --data-urlencode "limit=30"
 ```
 
-- `--compressed` est obligatoire : sans lui, le serveur renvoie du texte compressé illisible.
+- Gardez `--compressed` : il permet de lire la réponse si le serveur l'envoie compressée (le cas a été observé une fois, sans être reproductible). Si `curl` répond que cette option n'est pas prise en charge (possible avec le `curl.exe` de Windows), relancez la même commande sans elle.
 - `-G` avec `--data-urlencode` se charge d'encoder les espaces, les apostrophes et les parenthèses : n'encodez rien à la main.
 - Mettez chaque paramètre entre **guillemets doubles** et les valeurs de texte entre **apostrophes simples** à l'intérieur (`where=type_marche='TRAVAUX'`). Cela fonctionne tel quel dans le Terminal du Mac et dans PowerShell.
 - `limit` vaut 100 au maximum.
