@@ -13,7 +13,7 @@ Le suivi est le fichier `suivi.md` du dossier de travail ([dossier-de-travail.md
 
 ## 1. Trouver la consultation concernée
 
-Quand l'artisan nomme une consultation (« l'école de Val-de-Brelle », « celle de Bron »), retrouvez sa ligne dans `suivi.md` par l'acheteur ou le titre. S'il y a un doute (deux consultations du même acheteur, ou aucune qui corresponde), posez une seule question pour savoir laquelle, en proposant les choix numérotés. S'il n'en cite aucune et qu'il n'y en a qu'une qui puisse correspondre (une seule `en préparation` quand il dit « j'ai déposé »), reformulez-la et demandez confirmation en une phrase.
+Quand l'artisan nomme une consultation (« l'école de Val-de-Brelle », « celle de Bron »), retrouvez sa ligne dans `suivi.md` par l'acheteur ou le titre. S'il y a un doute (deux consultations du même acheteur, ou aucune qui corresponde), posez une seule question pour savoir laquelle, en proposant les consultations possibles comme choix (voir [ton.md](ton.md)). S'il n'en cite aucune et qu'il n'y en a qu'une qui puisse correspondre (une seule `en préparation` quand il dit « j'ai déposé »), reformulez-la et demandez confirmation en une phrase.
 
 S'il n'y a aucune ligne pour cette consultation, ajoutez-la avec le statut demandé et dites-le : le suivi doit refléter ce qu'il vit.
 
