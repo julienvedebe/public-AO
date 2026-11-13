@@ -111,3 +111,6 @@ memoire_sans_prix() { # <texte complet>
   grep -qiE '(proposer|facturer|chiffrer|demander) (un|le|ce) (prix|montant|tarif)|prix (conseillé|recommandé|à proposer|à pratiquer)|notre offre (de|à|s.élève)|remise de [0-9]' <<< "$1" && _ko "un prix est proposé dans le mémoire"
   return 0
 }
+
+# Extrait les parties d'un .docx dans un dossier (redéfini sous Windows par outils-windows.sh).
+extraire_docx() { unzip -q "$1" -d "$2" 2>/dev/null; } # <fichier.docx> <dossier>

@@ -28,6 +28,32 @@ La dernière ligne affichée dit ce qui a été produit : `DOCX <chemin> <n>` (n
 
 Si l'artisan demande lui-même un `.rtf` plutôt qu'un `.docx` (son ordinateur ou ses logiciels ne lisent pas le Word), faites la même chose avec `MEMOIRE_FORCER_ECHEC_DOCX=1` devant la commande : le script produit directement le `.rtf` surligné.
 
+## Remplir le cadre de l'acheteur
+
+Seulement si le DCE contient un cadre de mémoire de l'acheteur ([memoire-cadre-acheteur.md](memoire-cadre-acheteur.md)). Le script est `scripts/cadre-acheteur-mac.sh`, à côté du premier. Il lit et écrit le `.docx` lui-même (c'est une archive ZIP de fichiers XML), avec `unzip`, `zip`, `perl` et `xmllint` ; `textutil` ne sert qu'à convertir un `.doc`, `.odt` ou `.rtf` et à relire le résultat.
+
+D'abord, lister les paragraphes du cadre (pour écrire `reponses-cadre.txt`) :
+
+```
+bash "<dossier de l'outil>/scripts/cadre-acheteur-mac.sh" lister "<dossier de la consultation>/dce/<…>/<cadre>.docx"
+```
+
+Puis remplir une copie, à côté de notre mémoire :
+
+```
+bash "<dossier de l'outil>/scripts/cadre-acheteur-mac.sh" remplir "<dossier de la consultation>/dce/<…>/<cadre>.docx" "<dossier temporaire>/reponses-cadre.txt" "<dossier de la consultation>/memoire-technique-cadre-acheteur.docx"
+```
+
+Le script :
+
+1. convertit d'abord un `.doc`, `.odt` ou `.rtf` en `.docx` avec `textutil` (ligne `CONVERTI` : la mise en forme peut changer, les tableaux en particulier ; dites-le à l'artisan) ; refuse `.xlsx`, `.pdf` et les autres formats (code 5) ;
+2. vérifie que chaque bloc de `reponses-cadre.txt` désigne le bon paragraphe et respecte sa limite de caractères ;
+3. insère les réponses dans `word/document.xml`, avec les [À COMPLÉTER] en gras rouge surlignés en jaune, sans toucher au texte de l'acheteur ;
+4. contrôle le résultat : XML lisible, texte de l'acheteur intact et dans l'ordre, toutes les autres parties du `.docx` (styles, en-têtes, pieds de page, images) identiques à l'original, relecture par `textutil` ;
+5. n'écrase jamais un fichier existant, et ne modifie jamais le cadre dans `dce/`.
+
+Codes de sortie et conduite à tenir : [memoire-cadre-acheteur.md](memoire-cadre-acheteur.md) § 5.
+
 ## Ce que l'expérience a montré sur `textutil` (macOS)
 
 Ces constats viennent d'essais réels sur le Mac de développement ; ils expliquent le script.
@@ -52,4 +78,4 @@ Le `.rtf` de secours est produit par `textutil -convert rtf` (qui garde le fond 
 
 ## Ce qui n'est pas vérifié
 
-Ni Word ni LibreOffice n'ont pu être essayés pendant le développement : le script contrôle la structure du `.docx` (archive, XML, surlignage, relecture par `textutil`), pas son affichage dans ces logiciels.
+Ni Word ni LibreOffice n'ont pu être essayés pendant le développement : les scripts contrôlent la structure du `.docx` (archive, XML, surlignage, relecture par `textutil`), pas son affichage dans ces logiciels. Le remplissage du cadre a été essayé sur un cadre fictif (`tests/scenarios/memoire-cadre-acheteur`), pas sur des cadres réels d'acheteurs, dont la structure varie (champs de formulaire, zones de texte, documents protégés).

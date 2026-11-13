@@ -62,6 +62,28 @@ Un `.docx` est une archive ZIP. Celui-ci contient `[Content_Types].xml`, `_rels\
 
 Le `.rtf` de secours est écrit à la main par le script (en-tête `\rtf1\ansi\ansicpg1252`, accents en `\'e9` ou `\uNNNN?`, surlignage `\highlight1` avec une table de couleurs), à partir du même HTML.
 
+## Remplir le cadre de l'acheteur
+
+Seulement si le DCE contient un cadre de mémoire de l'acheteur ([memoire-cadre-acheteur.md](memoire-cadre-acheteur.md)). Le script est `scripts\cadre-acheteur-windows.ps1`, à côté du premier. Il lit et recompose le `.docx` lui-même (une archive ZIP de fichiers XML) avec l'API .NET de compression : **Word n'est jamais ouvert**. Le pilotage de Word par un script peut se bloquer sans rendre la main (constaté en test sous Windows) ; n'essayez pas de le faire vous-même.
+
+D'abord, lister les paragraphes du cadre (pour écrire `reponses-cadre.txt`) :
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File "<dossier de l'outil>\scripts\cadre-acheteur-windows.ps1" lister "<dossier de la consultation>\dce\<…>\<cadre>.docx"
+```
+
+Puis remplir une copie, à côté de notre mémoire :
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File "<dossier de l'outil>\scripts\cadre-acheteur-windows.ps1" remplir "<dossier de la consultation>\dce\<…>\<cadre>.docx" "<dossier temporaire>\reponses-cadre.txt" "<dossier de la consultation>\memoire-technique-cadre-acheteur.docx"
+```
+
+Écrivez `reponses-cadre.txt` en UTF-8 avec l'outil d'écriture de fichiers de l'agent (pas avec `Set-Content` ni `Out-File`). Le script fait les mêmes contrôles que sur Mac (bon paragraphe, limite de caractères, XML lisible, texte de l'acheteur intact, autres parties du `.docx` identiques, [À COMPLÉTER] surlignés) et n'écrase jamais rien. Différence avec le Mac : sans Word, seul le `.docx` est pris en charge ; un cadre en `.doc`, `.odt` ou `.rtf` donne le code 5, et c'est la solution de secours qui s'applique.
+
+Codes de sortie et conduite à tenir : [memoire-cadre-acheteur.md](memoire-cadre-acheteur.md) § 5.
+
 ## Ce qui n'est pas vérifié
 
 Au moment de l'écriture de cette fiche, le script n'a **pas** été exécuté sur un vrai Windows, et le `.docx` n'a été ouvert ni dans Word ni dans LibreOffice : la structure attendue a été validée sur Mac (`xmllint`, `unzip`, `textutil`) à partir de fichiers XML écrits à la main. Comme sur Mac, vous ne dites donc pas à l'artisan que le fichier « s'ouvre sans problème dans Word » : vous dites que vous l'avez contrôlé et qu'il vous prévienne si quelque chose s'affiche mal.
+
+Le script `cadre-acheteur-windows.ps1` n'a pas non plus été exécuté sur un vrai Windows : c'est la transcription du script Mac, essayé, lui, sur le cadre fictif du scénario `memoire-cadre-acheteur`. Le scénario `memoire-windows` contient les essais à lancer sous Windows.
