@@ -34,7 +34,7 @@ curl -s -G "https://boamp-datadila.opendatasoft.com/api/explore/v2.1/catalog/dat
 
 Pièges connus :
 
-- **Le code département perd son zéro** : pour l'Ain, c'est `code_departement='1'`, pas `'01'` (`'01'` renvoie 0 résultat). Pour la Corse : `'2A'`, `'2B'`.
+- **Le code département perd son zéro** : pour l'Ain, c'est `code_departement='1'`, pas `'01'` (`'01'` renvoie 0 résultat). Pour la Corse : `'20A'` (Corse-du-Sud) et `'20B'` (Haute-Corse), pas `'2A'` ni `'2B'`.
 - Une même annonce peut porter plusieurs départements : la liste contient parfois des acheteurs d'ailleurs (CHU d'une autre région…). Écartez ce qui n'est manifestement pas du département.
 - Un même acheteur peut apparaître sous deux écritures (« Région Auvergne-Rhône-Alpes » et « REGION AUVERGNE RHONE ALPES ») : regroupez-les.
 - Pour compléter avec les bailleurs sociaux, ajoutez à la condition `and (search(nomacheteur,'habitat') or search(nomacheteur,'OPAC') or search(nomacheteur,'OPH'))` et retirez `type_marche`. Vérifiez le département de chaque résultat.
