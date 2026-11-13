@@ -8,11 +8,14 @@ CLAUDE_BIN=/chemin/vers/claude tests/run.sh premier-lancement
 GARDER=1 tests/run.sh installation                         # garde le dossier temporaire
 ```
 
+Pour tester avec Codex : `AGENT=codex CODEX_BIN=/chemin/vers/codex tests/run.sh` (commande `codex exec`, skill préinstallé dans `.agents/skills`). Cette combinaison n'a pas pu être essayée sur la machine de développement.
+
 Un scénario est un dossier de `tests/scenarios/` qui contient :
 
-- `prompt.txt` : le message de l'artisan (`{{ROOT}}` est remplacé par la racine du dépôt). Pour une conversation en plusieurs tours, séparez les messages par une ligne `---` : le premier est envoyé avec `-p`, les suivants avec `-p --continue`. La réponse de chaque tour est dans `sortie-N.txt`, toute la conversation dans `sortie.txt` ; dans `check.sh`, `au_tour N` restreint les assertions sur la réponse à un tour ;
+- `prompt.txt` : le message de l'artisan (`{{ROOT}}` est remplacé par la racine du dépôt). Pour une conversation en plusieurs tours, séparez les messages par une ligne `---` : le premier ouvre la conversation, les suivants la reprennent (`claude -p --continue`, ou `codex exec resume --last`). La réponse de chaque tour est dans `sortie-N.txt`, toute la conversation dans `sortie.txt` ; dans `check.sh`, `au_tour N` restreint les assertions sur la réponse à un tour ;
 - `check.sh` : les vérifications, écrites avec les fonctions de `tests/lib.sh` ;
 - `dossier/` (facultatif) : le dossier de travail de départ ;
+- `skill-installe/` (facultatif) : une ancienne version du skill, déjà installée à la destination de l'installation (scénario de mise à jour) ;
 - `sans-preinstallation` (facultatif) : ne préinstalle pas le skill (scénarios d'installation).
 
 Le harnais isole chaque scénario grâce à trois variables d'environnement, honorées par le skill et par `INSTALL.md` : `MARCHES_PUBLICS_DOSSIER` (dossier de travail), `MARCHES_PUBLICS_SKILLS_DIR` (destination de l'installation) et `MARCHES_PUBLICS_SOURCE` (dépôt local à installer au lieu de le télécharger).
