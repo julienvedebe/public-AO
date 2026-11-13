@@ -1,0 +1,1 @@
+Mettez à jour l'outil marchés publics. Pour cela, lisez le fichier {{ROOT}}/INSTALL.md et suivez-le. Ne modifiez rien sur mon ordinateur en dehors de ce qu'il demande, et expliquez-moi chaque étape simplement.

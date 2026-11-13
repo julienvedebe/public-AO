@@ -2,12 +2,25 @@
 # Lance les scénarios de conversation sans interface et vérifie leur résultat.
 #
 # Usage : tests/run.sh [scénario ...]   (tous les scénarios par défaut)
-# Variables : CLAUDE_BIN  binaire Claude Code (défaut : claude)
+# Variables : AGENT       claude (défaut) ou codex
+#             CLAUDE_BIN  binaire Claude Code (défaut : claude)
+#             CODEX_BIN   binaire Codex (défaut : codex)
 #             GARDER=1    conserve les dossiers temporaires pour inspection
 set -uo pipefail
 
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
 CLAUDE_BIN=${CLAUDE_BIN:-claude}
+CODEX_BIN=${CODEX_BIN:-codex}
+AGENT=${AGENT:-claude}
+
+# Agent choisi : lancer_agent "<prompt>" (sans interface) et dossier de skills du projet temporaire.
+case "$AGENT" in
+  claude) AGENT_BIN=$CLAUDE_BIN; SKILLS_REL=.claude/skills
+          lancer_agent() { "$CLAUDE_BIN" -p "$1" --permission-mode bypassPermissions; } ;;
+  codex)  AGENT_BIN=$CODEX_BIN; SKILLS_REL=.agents/skills
+          lancer_agent() { "$CODEX_BIN" exec --dangerously-bypass-approvals-and-sandbox "$1"; } ;;
+  *) echo "AGENT doit valoir claude ou codex (reçu : $AGENT)."; exit 2 ;;
+esac
 SCENARIOS_DIR="$ROOT/tests/scenarios"
 
 if [ $# -gt 0 ]; then
@@ -17,10 +30,10 @@ else
   for d in "$SCENARIOS_DIR"/*/; do scenarios+=("$(basename "$d")"); done
 fi
 
-verif=$("$CLAUDE_BIN" -p "réponds juste : ok" 2>&1)
+verif=$(lancer_agent "réponds juste : ok" 2>&1)
 if [ $? -ne 0 ] || grep -q 'Not logged in' <<< "$verif"; then
-  echo "Claude Code ($CLAUDE_BIN) n'est pas utilisable ou pas connecté."
-  echo "Lancez-le une fois dans un terminal et tapez /login, puis relancez les tests."
+  echo "L'agent $AGENT ($AGENT_BIN) n'est pas utilisable ou pas connecté."
+  echo "Lancez-le une fois dans un terminal et connectez-vous, puis relancez les tests."
   exit 2
 fi
 
@@ -39,10 +52,16 @@ for s in "${scenarios[@]}"; do
     cp -R "$dir/dossier/." "$D/"
   fi
 
+  # Ancienne version du skill déjà installée, si le scénario en fournit une.
+  if [ -d "$dir/skill-installe" ]; then
+    mkdir -p "$S/marches-publics"
+    cp -R "$dir/skill-installe/." "$S/marches-publics/"
+  fi
+
   # Skill préinstallé au niveau du projet temporaire, sauf pour les scénarios d'installation.
   if [ ! -f "$dir/sans-preinstallation" ]; then
-    mkdir -p "$W/.claude/skills"
-    cp -R "$ROOT/skill/marches-publics" "$W/.claude/skills/"
+    mkdir -p "$W/$SKILLS_REL"
+    cp -R "$ROOT/skill/marches-publics" "$W/$SKILLS_REL/"
   fi
 
   prompt=$(sed "s|{{ROOT}}|$ROOT|g" "$dir/prompt.txt")
@@ -53,7 +72,7 @@ for s in "${scenarios[@]}"; do
     MARCHES_PUBLICS_DOSSIER="$D" \
     MARCHES_PUBLICS_SKILLS_DIR="$S" \
     MARCHES_PUBLICS_SOURCE="$ROOT" \
-    "$CLAUDE_BIN" -p "$prompt" --permission-mode bypassPermissions
+    lancer_agent "$prompt"
   ) > "$W/sortie.txt" 2>&1
 
   if ROOT="$ROOT" W="$W" D="$D" S="$S" SORTIE="$W/sortie.txt" bash "$dir/check.sh"; then

@@ -49,7 +49,7 @@ Si une fiche indique que l'étape n'est pas encore disponible, dites-le simpleme
 
 ## Mise à jour
 
-Si l'artisan demande de mettre à jour l'outil, lisez https://raw.githubusercontent.com/julienvedebe/public-AO/main/INSTALL.md et suivez-le. Une mise à jour ne touche jamais au dossier de travail.
+Si l'artisan demande de mettre à jour l'outil, lisez https://raw.githubusercontent.com/julienvedebe/public-AO/main/INSTALL.md et suivez-le : il remplace l'outil par la dernière version. Une mise à jour ne touche jamais au dossier de travail de l'artisan : ne créez, ne modifiez et ne supprimez aucun fichier dedans. Quand c'est fini, dites-lui que l'outil est à jour, que son travail est intact, et qu'il doit ouvrir une nouvelle conversation pour profiter de la nouvelle version.
 
 ## Ce que vous ne faites jamais
 
