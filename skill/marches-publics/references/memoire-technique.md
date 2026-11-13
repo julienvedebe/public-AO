@@ -5,7 +5,7 @@ Le mémoire technique est le document où l'artisan explique comment il réalise
 Cette fiche a deux parties :
 
 - **Partie commune** (étapes 1 à 5 et règles) : la trame, les questions, la règle anti-invention, le HTML intermédiaire. Elle ne dépend pas de l'ordinateur.
-- **Partie propre au système** (étape 6) : la conversion du HTML en `.docx`. Mac : [memoire-production-mac.md](memoire-production-mac.md). Windows : [memoire-production-windows.md](memoire-production-windows.md) si ce fichier existe.
+- **Partie propre au système** (étape 6) : la conversion du HTML en `.docx`. Mac : [memoire-production-mac.md](memoire-production-mac.md). Windows : [memoire-production-windows.md](memoire-production-windows.md).
 
 Lisez d'abord [dossier-de-travail.md](dossier-de-travail.md) et la fiche entreprise (`ma-fiche-entreprise.md`).
 
@@ -123,7 +123,7 @@ Ce balisage est ce que les conversions recherchent pour surligner : ne le modifi
 Suivant le système de l'artisan :
 
 - **Mac** : suivez [memoire-production-mac.md](memoire-production-mac.md).
-- **Windows** : suivez [memoire-production-windows.md](memoire-production-windows.md) s'il existe. Sinon (pas encore disponible), dites à l'artisan que la version Word pour Windows arrive bientôt, copiez le mémoire en HTML sous le nom `memoire-technique.html` dans le sous-dossier de la consultation, et dites-lui qu'il peut l'ouvrir avec Word : le surlignage y est conservé.
+- **Windows** : suivez [memoire-production-windows.md](memoire-production-windows.md).
 
 Le mémoire est enregistré dans le sous-dossier de la consultation (`consultations/AAAA-MM_acheteur_lot/`), à côté de l'analyse. Ne modifiez pas `suivi.md` : le statut de la consultation n'est pas changé par cette étape.
 
