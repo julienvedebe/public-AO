@@ -1,6 +1,10 @@
 # Assertions partagées par les check.sh des scénarios.
 # Chaque check.sh fait : source "$ROOT/tests/lib.sh", ses assertions, puis `fin`.
 
+# Sans locale UTF-8, le grep de macOS lit « [ée] » octet par octet et ne
+# reconnaît pas « é ». On force donc une locale UTF-8 pour les assertions.
+export LC_ALL=en_US.UTF-8
+
 ECHECS=0
 
 _ko() { echo "    ✗ $1"; ECHECS=$((ECHECS + 1)); }
